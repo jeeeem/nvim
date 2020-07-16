@@ -1,0 +1,64 @@
+{
+  // General
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "markdown",
+    "javascript",
+    "graphql",
+    "html",
+    "json",
+    "yaml",
+    "python",
+    "vim",
+    "hbs"
+  ],
+  "coc.preferences.colorSupport": false,
+  "cSpell.enabled": false,
+
+  // Diagnostic Settings
+  "diagnostic.enable": true,
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.virtualText": true,
+  "diagnostic.virtualTextPrefix": " ",
+  "diagnostic.virtualTextCurrentLineOnly": false,
+  "diagnostic.infoSign": "",
+  //"diagnostic.hintSign": "➤",
+  "diagnostic.warningSign": "",
+  "diagnostic.errorSign": "",
+  "codeLens.enable": true,
+
+  // ESlint settings
+  "eslint.filetypes": [
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "javascriptreact",
+    "typescript.tsx"
+  ],
+  "eslint.run": "onSave",
+
+  // Coc-Explorer
+  "explorer.width": 30,
+  "explorer.icon.enableNerdfont": true,
+  "explorer.previewAction.onHover": true,
+  "explorer.keyMappings": {
+    "H": "gotoParent"
+  },
+
+  // Prettier
+  "prettier.singleQuote": true,
+  "prettier.eslintIntegration": true,
+  "prettier.disableSuccessMessage": true,
+
+  // Python Config
+  //  "python.linting.enabled": true,
+  // "python.linting.pylintEnabled": true,
+
+  // Yank
+  "yank.highlight.duration": 200,
+  "yank.list.maxsize": 50,
+  "yank.limit": 5
+
+  // Snippet
+  //"snippets.ultisnips.directories": ["UltiSnips", "~/.config/nvim/utils/snips"]
+}
