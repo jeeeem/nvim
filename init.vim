@@ -20,6 +20,7 @@ source ~/.config/nvim/src/plug-config/markdown.vim
 source ~/.config/nvim/src/plug-config/multiple-cursor.vim
 source ~/.config/nvim/src/plug-config/quickscope.vim
 source ~/.config/nvim/src/plug-config/polygot.vim
+source ~/.config/nvim/src/plug-config/signify.vim
 source ~/.config/nvim/src/plug-config/sneak.vim
 source ~/.config/nvim/src/plug-config/startify.vim
 source ~/.config/nvim/src/plug-config/tmuxline.vim
