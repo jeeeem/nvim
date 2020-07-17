@@ -43,10 +43,10 @@ augroup folds
     \   if expand('%') != '' && &buftype !~ 'nofile'
     \|      mkview
     \|  endif
-    autocmd BufRead *
-    \   if expand('%') != '' && &buftype !~ 'nofile'
-    \|      silent loadview
-    \|  endif
+    "autocmd BufRead *
+    "\   if expand('%') != '' && &buftype !~ 'nofile'
+    "\|      silent loadview
+    "\|  endif
 augroup END
 
 " --- Keymaps

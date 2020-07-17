@@ -104,7 +104,7 @@ let g:which_key_map.g = {
       \ 'D' : [':Gdiffsplit'                       , 'Diff Split'],
       \ 'g' : [':GGrep'                            , 'Git grep'],
       \ 'G' : [':Gstatus'                          , 'Status'],
-      \ 'h' : [':GitGutterLineHighlightsToggle'    , 'Highlight Hunks'],
+      \ 'h' : [':SignifyToggleHighlight'           , 'Highlight Hunks'],
       \ 'H' : ['<Plug>(GitGutterPreviewHunk)'      , 'Preview Hunk'],
       \ 'j' : ['<Plug>(GitGutterNextHunk)'         , 'Next Hunk'],
       \ 'k' : ['<Plug>(GitGutterPrevHunk)'         , 'Prev Hunk'],

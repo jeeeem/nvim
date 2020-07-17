@@ -45,6 +45,10 @@
     "H": "gotoParent"
   },
 
+  // HTML
+  "html.filetypes": ["html", "handlebars", "htmldjango"],
+  "html.autoClosingTags": true,
+
   // Prettier
   "prettier.singleQuote": true,
   "prettier.eslintIntegration": true,
