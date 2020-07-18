@@ -2,7 +2,8 @@
 " https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 " Specify a directory for plugins
-  call plug#begin('~/.config/nvim/plugged')
+" Initialize plugin system
+call plug#begin('~/.config/nvim/plugged')
 
 Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
 
@@ -112,5 +113,4 @@ Plug 'tpope/vim-repeat'
 
 " File Icons
 Plug 'ryanoasis/vim-devicons'
-" Initialize plugin system
 call plug#end()
