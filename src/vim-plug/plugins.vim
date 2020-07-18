@@ -16,15 +16,13 @@ Plug 'liuchengxu/vista.vim'
 "Nvim Browser Integration
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
-" IDE Pack (Syntax Highlighting, Linting)
+" IDE Pack (Syntax Highlighting, Linting, Auto-Completion)
 Plug 'sheerun/vim-polyglot'
+Plug 'neoclide/coc.nvim', {'branch': 'release'} 
 
 " Rainbow Parenthesis
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'luochen1990/rainbow'
-
-"Auto Completion
-Plug 'neoclide/coc.nvim', {'branch': 'release'} 
 
 " Markdown
 " Tabular plugin is used to format tables
