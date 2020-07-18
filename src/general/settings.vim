@@ -32,6 +32,8 @@ set iskeyword+=-                              "Treat dash as a word text object"
 set formatoptions-=cro                        "Stop new line continuation of comments"
 set viewoptions-=options
 
+highlight CocHighlightText  cterm=bold ctermfg=109 ctermbg=237 guifg=#83c07c
+
 " Syntax Clearing for Rainbon Parenthesis syntax highlight
 autocmd FileType javascript syntax clear jsIfElseBlock
 autocmd FileType javascript syntax clear jsFuncBlock
