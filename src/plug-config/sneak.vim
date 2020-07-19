@@ -12,7 +12,10 @@ let g:sneak#s_next = 1
 nmap <leader>s <Plug>Sneak_s
 nmap <leader>S <Plug>Sneak_S
 
+xmap <leader>s <Plug>Sneak_s 
+xmap <leader>Z <Plug>Sneak_S
 " Remap so I can use , and ; with f and t
+
 map gS <Plug>Sneak_,
 map gs <Plug>Sneak_;
 
