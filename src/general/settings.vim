@@ -11,7 +11,7 @@ set tabstop=2
 set shiftwidth=2
 set list
 set listchars+=tab:->,eol:↩
-set colorcolumn=100
+set colorcolumn=150
 set timeoutlen=800
 set expandtab
 set smarttab
@@ -28,6 +28,7 @@ set cursorline
 set inccommand=nosplit
 set guifont=Fira\ Code\ Nerd\ Font:h14
 set clipboard+=unnamedplus
+set clipboard=unnamedplus
 set iskeyword+=-                              "Treat dash as a word text object"
 set formatoptions-=cro                        "Stop new line continuation of comments"
 set viewoptions-=options
