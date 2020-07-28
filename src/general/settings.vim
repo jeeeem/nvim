@@ -10,13 +10,8 @@ set tabstop=2
 set shiftwidth=2
 set list
 set listchars+=tab:->,eol:↩
-<<<<<<< HEAD
 set colorcolumn=150
 set timeoutlen=800
-=======
-"set colorcolumn=100
-"set timeoutlen=500
->>>>>>> eed4fdaa506e7502f1abb7ee0d4a7dfbdebdc2b2
 set expandtab
 set smarttab
 set smartindent
