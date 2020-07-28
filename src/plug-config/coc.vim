@@ -16,6 +16,9 @@ set updatetime=300
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 
+" Allow comments on JSON file
+autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
+
 " Highlights Error
 "hi! CocErrorSign  guifg=#d1666a
 highlight QuickFixLine cterm=bold ctermfg=none ctermbg=none guifg=none

@@ -4,9 +4,11 @@
     "css",
     "markdown",
     "javascript",
+    "typescript",
     "graphql",
     "html",
     "json",
+    "jsonc",
     "yaml",
     "python",
     "vim",
@@ -25,7 +27,7 @@
   //"diagnostic.hintSign": "➤",
   "diagnostic.warningSign": "",
   "diagnostic.errorSign": "",
-  "codeLens.enable": true,
+  "codeLens.enable": false,
 
   // ESlint settings
   "eslint.filetypes": [
@@ -40,7 +42,7 @@
   // Coc-Explorer
   "explorer.width": 30,
   "explorer.icon.enableNerdfont": true,
-  "explorer.previewAction.onHover": true,
+  "explorer.previewAction.onHover": false,
   "explorer.keyMappings": {
     "H": "gotoParent"
   },
@@ -48,6 +50,8 @@
   // HTML
   "html.filetypes": ["html", "handlebars", "htmldjango"],
   "html.autoClosingTags": true,
+
+  "pairs.enableCharacters": ["(", "[", "<", "'", "\"", "`"],
 
   // Prettier
   "prettier.singleQuote": true,
