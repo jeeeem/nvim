@@ -1,7 +1,6 @@
 " --- General Settings
 
 let g:python3_host_prog = '/usr/bin/python3'
-
 syntax on
 filetype plugin on
 set hidden 
@@ -11,8 +10,13 @@ set tabstop=2
 set shiftwidth=2
 set list
 set listchars+=tab:->,eol:↩
+<<<<<<< HEAD
 set colorcolumn=150
 set timeoutlen=800
+=======
+"set colorcolumn=100
+"set timeoutlen=500
+>>>>>>> eed4fdaa506e7502f1abb7ee0d4a7dfbdebdc2b2
 set expandtab
 set smarttab
 set smartindent
@@ -30,7 +34,7 @@ set guifont=Fira\ Code\ Nerd\ Font:h14
 set clipboard+=unnamedplus
 set clipboard=unnamedplus
 set iskeyword+=-                              "Treat dash as a word text object"
-set formatoptions-=cro                        "Stop new line continuation of comments"
+autocmd BufRead * set formatoptions-=cro      "Stop new line continuation of comments"
 set viewoptions-=options
 
 highlight CocHighlightText  cterm=bold ctermfg=109 ctermbg=237 guifg=#83c07c
@@ -56,14 +60,15 @@ augroup END
 let g:mapleader = ","
 let g:maplocalleader = "\<Space>"
 
-"nnoremap <c-z> <nop>
+" Normal Mode
 nnoremap <C-p> :Files<CR>
 "nnoremap <C-e> :NERDTreeToggle<CR>
-nnoremap <C-e> :CocCommand explorer<CR>
+nnoremap <A-e> :CocCommand explorer<CR>
 nnoremap <C-S> :w <CR>
 nnoremap <TAB> :CtrlSpaceGoDown <CR>
 nnoremap <S-TAB> :CtrlSpaceGoUp <CR>
 nnoremap <F5> :so ~/.config/nvim/init.vim <CR>
+nnoremap <leader>. ,
 
 " Use alt + hjkl to resize windows
 nnoremap <A-R>    :resize <CR>
@@ -72,13 +77,13 @@ nnoremap <A-K>    :resize +2<CR>
 nnoremap <A-H>    :vertical resize -2<CR>
 nnoremap <A-L>    :vertical resize +2<CR>
 
-" Escape keys
+" Insert mode
 inoremap jk <ESC>
 inoremap <C-S> <ESC> :w <CR>
 inoremap <F2> :reg <CR>
+inoremap { {<CR>}<ESC>O 
 
 " Navigation through Pop-up menu
-
 " Cancel the auto-complete menu like ctrl+e would
 inoremap <expr> <C-h> pumvisible() ? "\<C-e>" : "\<C-e>"
 
@@ -90,6 +95,8 @@ inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 inoremap <expr> <C-l> pumvisible() ? "\<C-y>" : "\<C-l>"
 
 nmap <F2> :registers <CR>
+
+ 
 
 " Date shortcut
 nmap <F3> i<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
@@ -129,3 +136,4 @@ let g:indent_guides_auto_colors = 1
 "autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#233440 ctermbg=3
 "autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#44475a ctermbg=4
 
+let g:zoomwintab_hidetabbar = 0

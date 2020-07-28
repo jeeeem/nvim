@@ -17,10 +17,12 @@ Plug 'liuchengxu/vista.vim'
 "Nvim Browser Integration
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
-" IDE Pack (Syntax Highlighting, Linting, Auto-Completion)
+" IDE Pack (Syntax Highlighting, Linting, Auto-Completion, etc)
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} 
-
+Plug 'neoclide/jsonc.vim'
+Plug 'tpope/vim-dadbod'
+Plug 'kristijanhusak/vim-dadbod-ui' 
 " Rainbow Parenthesis
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'luochen1990/rainbow'
