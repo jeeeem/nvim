@@ -40,16 +40,16 @@ autocmd FileType javascript syntax clear jsFuncBlock
 
 " Automatic save and load folds
 
-augroup folds
-    autocmd BufWritePost *
-    \   if expand('%') != '' && &buftype !~ 'nofile'
-    \|      mkview
-    \|  endif
+"augroup folds
+    "autocmd BufWritePost *
+    "\   if expand('%') != '' && &buftype !~ 'nofile'
+    "\|      mkview
+    "\|  endif
     "autocmd BufRead *
     "\   if expand('%') != '' && &buftype !~ 'nofile'
     "\|      silent loadview
     "\|  endif
-augroup END
+"augroup END
 
 " --- Keymaps
 let g:mapleader = ","
@@ -63,7 +63,8 @@ nnoremap <C-S> :w <CR>
 nnoremap <TAB> :CtrlSpaceGoDown <CR>
 nnoremap <S-TAB> :CtrlSpaceGoUp <CR>
 nnoremap <F5> :so ~/.config/nvim/init.vim <CR>
-nnoremap <leader>. ,
+nnoremap <leader>mv :mkview<CR>
+nnoremap <leader>lv :loadview<CR>
 
 " Use alt + hjkl to resize windows
 nnoremap <A-R>    :resize <CR>
@@ -72,8 +73,15 @@ nnoremap <A-K>    :resize +2<CR>
 nnoremap <A-H>    :vertical resize -2<CR>
 nnoremap <A-L>    :vertical resize +2<CR>
 
+" Move line up & down like vscode
+nnoremap <A-k> :norm ddkP<CR>
+nnoremap <A-j> :norm ddp<CR>
+nnoremap <S-CR> O
+
 " Insert mode
 inoremap jk <ESC>
+inoremap <C-CR> <ESC>o
+inoremap <S-CR> <ESC>O
 inoremap <C-S> <ESC> :w <CR>
 inoremap <F2> :reg <CR>
 inoremap { {<CR>}<ESC>O 
