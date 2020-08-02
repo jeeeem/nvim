@@ -115,13 +115,14 @@ augroup END
 " Clear Registers
 command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor
 
-" Indention
+" --- Indention Settings
 "autocmd User prettier.formatFile IndentBlanklineRefresh
 let g:indentLine_enabled = 1
 let g:indentLine_first_char  = '|'
 let g:indentLine_faster= 1
 let g:indentLine_bufTypeExclude = ['help']
 let g:indentLine_bufNameExclude = ['NERD_Tree.*','Startify.*', '_.*']
+let g:indentLine_fileTypeExclude = ['coc-explorer']
 let g:indentLine_showFirstIndentLevel  = 1
 let g:indentLine_char_list = ['|']
 let g:indent_blankline_char = '|'
