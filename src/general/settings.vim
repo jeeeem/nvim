@@ -29,8 +29,8 @@ set guifont=Fira\ Code\ Nerd\ Font:h14
 set clipboard+=unnamedplus
 set clipboard=unnamedplus
 set iskeyword+=-                              "Treat dash as a word text object"
-autocmd BufRead * set formatoptions-=cro      "Stop new line continuation of comments"
 set viewoptions-=options
+autocmd BufRead * set formatoptions-=cro      "Stop new line continuation of comments"
 
 highlight CocHighlightText  cterm=bold ctermfg=109 ctermbg=237 guifg=#83c07c
 
@@ -74,14 +74,22 @@ nnoremap <A-H>    :vertical resize -2<CR>
 nnoremap <A-L>    :vertical resize +2<CR>
 
 " Move line up & down like vscode
-nnoremap <A-k> :norm ddkP<CR>
-nnoremap <A-j> :norm ddp<CR>
+nnoremap <silent><A-j> :move .+1<CR>
+nnoremap <silent><A-k> :move .-2<CR>
+vnoremap <silent><A-k> :move '<-2<CR>gv
+
+inoremap <silent> <A-j> <Esc>:move .+1<CR>
+inoremap <silent> <A-k> <Esc>:move .-2<CR>=
+
+" Adding new line like vscode
 nnoremap <S-CR> O
+
+vnoremap <silent><A-j> :move '>+1<CR>gv
+inoremap <C-CR> <ESC>o
+inoremap <S-CR> <ESC>O
 
 " Insert mode
 inoremap jk <ESC>
-inoremap <C-CR> <ESC>o
-inoremap <S-CR> <ESC>O
 inoremap <C-S> <ESC> :w <CR>
 inoremap <F2> :reg <CR>
 inoremap { {<CR>}<ESC>O 
@@ -99,7 +107,6 @@ inoremap <expr> <C-l> pumvisible() ? "\<C-y>" : "\<C-l>"
 
 nmap <F2> :registers <CR>
  
-
 " Date shortcut
 nmap <F3> i<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
 imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
@@ -130,7 +137,6 @@ let g:indent_blankline_char = '|'
 "let g:indentLine_leadingSpaceChar = '·'
 "let g:indent_blankline_space_char = '.'
 "let g:indent_blankline_extra_indent_level = -1
-
 
 let g:indent_guides_auto_colors = 1
 

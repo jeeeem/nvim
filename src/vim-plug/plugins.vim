@@ -100,7 +100,7 @@ Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-surround'
 
 " Multiple Cursor
-Plug 'terryma/vim-multiple-cursors'
+Plug 'mg979/vim-visual-multi'
 
 " Tmux-like Zoom Window
 Plug 'troydm/zoomwintab.vim'
