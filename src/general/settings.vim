@@ -27,7 +27,6 @@ set cursorline
 set inccommand=nosplit
 set guifont=Fira\ Code\ Nerd\ Font:h14
 set clipboard+=unnamedplus
-set clipboard=unnamedplus
 set iskeyword+=-                              "Treat dash as a word text object"
 autocmd BufRead * set formatoptions-=cro      "Stop new line continuation of comments"
 set viewoptions-=options
