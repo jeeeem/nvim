@@ -10,7 +10,7 @@ set tabstop=2
 set shiftwidth=2
 set list
 set listchars+=tab:->,eol:↩
-set colorcolumn=150
+set colorcolumn=100
 set timeoutlen=800
 set expandtab
 set smarttab

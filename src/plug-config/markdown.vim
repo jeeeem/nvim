@@ -21,8 +21,10 @@ augroup END
 
 " ---Vim Wiki Settings
 let g:vimwiki_list = [{'path': '~/vimwiki/',
-                      \ 'index': '+index',
+                      \ 'index': 'README',
                       \ 'syntax': 'markdown',
                       \  'ext': '.md'}]
 let g:vimwiki_global_ext = 0
 
+nmap <leader><Tab> <Plug>VimwikiNextLink
+nmap <leader><S-Tab> <Plug>VimwikiPrevLink

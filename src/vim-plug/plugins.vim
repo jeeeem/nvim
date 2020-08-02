@@ -23,6 +23,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/jsonc.vim'
 Plug 'tpope/vim-dadbod'
 Plug 'kristijanhusak/vim-dadbod-ui' 
+
 " Rainbow Parenthesis
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'luochen1990/rainbow'
@@ -101,6 +102,9 @@ Plug 'tpope/vim-surround'
 
 " Multiple Cursor
 Plug 'terryma/vim-multiple-cursors'
+
+" Clever F for horizontal line navigation
+"Plug 'rhysd/clever-f.vim'
 
 " Tmux-like Zoom Window
 Plug 'troydm/zoomwintab.vim'
