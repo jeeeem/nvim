@@ -7,7 +7,6 @@
     \ 'coc-pairs',
     \ 'coc-tsserver',
     \ 'coc-html',
-    \ 'coc-highlight',
     \ 'coc-css',
     \ 'coc-eslint',
     \ 'coc-explorer',
