@@ -1,4 +1,22 @@
 " --- CoC Settings
+" Automate Coc-Extension Install
+ let g:coc_global_extensions = [
+    \ 'coc-snippets',
+    \ 'coc-actions',
+    \ 'coc-emmet',
+    \ 'coc-pairs',
+    \ 'coc-tsserver',
+    \ 'coc-html',
+    \ 'coc-css',
+    \ 'coc-eslint',
+    \ 'coc-explorer',
+    \ 'coc-prettier',
+    \ 'coc-vimlsp',
+    \ 'coc-yank',
+    \ 'coc-json',
+    \ 'coc-marketplace',
+    \ ]
+    
 " TextEdit might fail if hidden is not set.
 let g:coc_auto_copen = 1
 

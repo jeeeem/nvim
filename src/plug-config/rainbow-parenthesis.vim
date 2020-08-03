@@ -9,8 +9,8 @@
 let g:rainbow_active = 1
 "let g:rainbow_conf = {
 "\	'separately': {
-"\		'ts': {
-"\			'parentheses': ['start=/{/ end=/}/ fold contains=@typeScript containedin=@typeScript', 'start=/(/ end=/)/ fold contains=@typeScript containedin=@typeScript'],
+"\		'js': {
+"\			'parentheses': ['start=/{/ end=/}/ fold contains=@javaScript containedin=@javaScript', 'start=/(/ end=/)/ fold contains=@javaScript containedin=@javaScript'],
 "\		},
 "\	}
 "\}

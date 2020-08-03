@@ -12,6 +12,7 @@
     "yaml",
     "python",
     "vim",
+    "vue",
     "hbs"
   ],
   "coc.preferences.colorSupport": false,
@@ -57,6 +58,7 @@
   "prettier.singleQuote": true,
   "prettier.eslintIntegration": true,
   "prettier.disableSuccessMessage": true,
+  "prettier.disableLanguages": [],
 
   // Python Config
   //  "python.linting.enabled": true,
