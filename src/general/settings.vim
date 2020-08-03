@@ -76,15 +76,16 @@ nnoremap <A-L>    :vertical resize +2<CR>
 " Move line up & down like vscode
 nnoremap <silent><A-j> :move .+1<CR>
 nnoremap <silent><A-k> :move .-2<CR>
-vnoremap <silent><A-k> :move '<-2<CR>gv
 
 inoremap <silent> <A-j> <Esc>:move .+1<CR>
 inoremap <silent> <A-k> <Esc>:move .-2<CR>=
 
+vnoremap <silent><A-j> :move '>+1<CR>gv
+vnoremap <silent><A-k> :move '<-2<CR>gv
+
 " Adding new line like vscode
 nnoremap <S-CR> O
 
-vnoremap <silent><A-j> :move '>+1<CR>gv
 inoremap <C-CR> <ESC>o
 inoremap <S-CR> <ESC>O
 
