@@ -38,6 +38,13 @@ highlight CocHighlightText  cterm=bold ctermfg=109 ctermbg=237 guifg=#83c07c
 autocmd FileType javascript syntax clear jsIfElseBlock
 autocmd FileType javascript syntax clear jsFuncBlock
 
+" I3 Syntax highlights
+aug i3config_ft_detection
+  au!
+  au BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
+aug end
+
+
 " Automatic save and load folds
 
 "augroup folds

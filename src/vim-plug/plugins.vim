@@ -23,6 +23,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/jsonc.vim'
 Plug 'tpope/vim-dadbod'
 Plug 'kristijanhusak/vim-dadbod-ui' 
+Plug 'mboughaba/i3config.vim'
+
 " Rainbow Parenthesis
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'luochen1990/rainbow'
