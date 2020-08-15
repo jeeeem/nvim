@@ -37,6 +37,10 @@ highlight CocHighlightText  cterm=bold ctermfg=109 ctermbg=237 guifg=#83c07c
 " Syntax Clearing for Rainbon Parenthesis syntax highlight
 autocmd FileType javascript syntax clear jsIfElseBlock
 autocmd FileType javascript syntax clear jsFuncBlock
+autocmd FileType typescript syntax clear typescriptBlock
+autocmd FileType typescript syntax clear typescriptFuncCallArg
+"autocmd FileType typescript syntax clear typescriptArrowFuncDef
+"autocmd FileType typescript syntax clear typescriptObjectLiteral
 
 " I3 Syntax highlights
 aug i3config_ft_detection
@@ -63,6 +67,7 @@ let g:mapleader = ","
 let g:maplocalleader = "\<Space>"
 
 " Normal Mode
+nmap <C-z> <nop>
 nnoremap <C-p> :Files<CR>
 "nnoremap <C-e> :NERDTreeToggle<CR>
 nnoremap <A-e> :CocCommand explorer<CR>
@@ -72,6 +77,13 @@ nnoremap <S-TAB> :CtrlSpaceGoUp <CR>
 nnoremap <F5> :so ~/.config/nvim/init.vim <CR>
 nnoremap <leader>mv :mkview<CR>
 nnoremap <leader>lv :loadview<CR>
+
+" Going through windows
+nnoremap <C-w>1 :1winc w <CR>
+nnoremap <C-w>2 :2winc w <CR>
+nnoremap <C-w>3 :3winc w <CR>
+nnoremap <C-w>4 :4winc w <CR>
+nnoremap <C-w>5 :5winc w <CR>
 
 " Use alt + hjkl to resize windows
 nnoremap <A-R>    :resize <CR>
@@ -90,9 +102,11 @@ inoremap <silent> <A-k> <Esc>:move .-2<CR>=
 vnoremap <silent><A-j> :move '>+1<CR>gv
 vnoremap <silent><A-k> :move '<-2<CR>gv
 
-" Adding new line like vscode
+" Adding new line in Normal mode
+nnoremap <CR> O<ESC>j
 nnoremap <S-CR> O
 
+" Adding new line in Insert mode
 inoremap <C-CR> <ESC>o
 inoremap <S-CR> <ESC>O
 

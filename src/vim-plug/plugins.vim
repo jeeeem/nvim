@@ -10,6 +10,7 @@ Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
 " Workspaces / Session
 Plug 'mhinz/vim-startify'
 Plug 'szw/vim-ctrlspace'
+Plug 'tpope/vim-obsession'
 
 " Tagbar
 Plug 'liuchengxu/vista.vim'
@@ -22,6 +23,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} 
 Plug 'neoclide/jsonc.vim'
 Plug 'tpope/vim-dadbod'
+Plug 'kristijanhusak/vim-dadbod-completion' 
 Plug 'kristijanhusak/vim-dadbod-ui' 
 Plug 'mboughaba/i3config.vim'
 
@@ -74,6 +76,7 @@ Plug 'edkolev/tmuxline.vim'
 " Motion Plugins
 Plug 'justinmk/vim-sneak'
 Plug 'unblevable/quick-scope'
+Plug 'kshenoy/vim-signature'
 
 "Color Scheme
 Plug 'sainnhe/gruvbox-material'
