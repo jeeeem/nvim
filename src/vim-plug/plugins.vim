@@ -36,7 +36,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'vim-pandoc/vim-pandoc-syntax'
 
- " Color highlighter
+" Color highlighter
 Plug 'norcalli/nvim-colorizer.lua'
 
 " File Explorer

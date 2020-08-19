@@ -66,6 +66,13 @@ nnoremap <F5> :so ~/.config/nvim/init.vim <CR>
 nnoremap <leader>mv :mkview<CR>
 nnoremap <leader>lv :loadview<CR>
 
+" Going through window
+nnoremap <C-w>1 :1winc w <CR>
+nnoremap <C-w>2 :2winc w <CR>
+nnoremap <C-w>3 :3winc w <CR>
+nnoremap <C-w>4 :4winc w <CR>
+nnoremap <C-w>5 :5winc w <CR>
+
 " Use alt + hjkl to resize windows
 nnoremap <A-R>    :resize <CR>
 nnoremap <A-J>    :resize -2<CR>
@@ -116,8 +123,8 @@ imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 
 " Highlights on yanking
 augroup highlight_yank
-    autocmd!
-    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank()
+  autocmd!
+  autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank()
 augroup END
 
 " Clear Registers
