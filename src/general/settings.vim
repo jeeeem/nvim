@@ -71,6 +71,7 @@ nmap <C-z> <nop>
 nnoremap <C-p> :Files<CR>
 "nnoremap <C-e> :NERDTreeToggle<CR>
 nnoremap <A-e> :CocCommand explorer<CR>
+nnoremap <A-d> :DBUIToggle<CR>
 nnoremap <C-S> :w <CR>
 nnoremap <TAB> :CtrlSpaceGoDown <CR>
 nnoremap <S-TAB> :CtrlSpaceGoUp <CR>

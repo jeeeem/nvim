@@ -23,7 +23,6 @@ Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} 
 Plug 'neoclide/jsonc.vim'
 Plug 'tpope/vim-dadbod'
-Plug 'kristijanhusak/vim-dadbod-completion' 
 Plug 'kristijanhusak/vim-dadbod-ui' 
 Plug 'mboughaba/i3config.vim'
 
