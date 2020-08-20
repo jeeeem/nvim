@@ -79,11 +79,7 @@ nnoremap <F5> :so ~/.config/nvim/init.vim <CR>
 nnoremap <leader>mv :mkview<CR>
 nnoremap <leader>lv :loadview<CR>
 
-<<<<<<< HEAD
-" Going through window
-=======
 " Going through windows
->>>>>>> master
 nnoremap <C-w>1 :1winc w <CR>
 nnoremap <C-w>2 :2winc w <CR>
 nnoremap <C-w>3 :3winc w <CR>
