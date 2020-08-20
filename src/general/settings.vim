@@ -10,7 +10,7 @@ set tabstop=2
 set shiftwidth=2
 set list
 set listchars+=tab:->,eol:↩
-set colorcolumn=150
+set colorcolumn=100
 set timeoutlen=800
 set expandtab
 set smarttab
@@ -37,6 +37,17 @@ highlight CocHighlightText  cterm=bold ctermfg=109 ctermbg=237 guifg=#83c07c
 " Syntax Clearing for Rainbon Parenthesis syntax highlight
 autocmd FileType javascript syntax clear jsIfElseBlock
 autocmd FileType javascript syntax clear jsFuncBlock
+autocmd FileType typescript syntax clear typescriptBlock
+autocmd FileType typescript syntax clear typescriptFuncCallArg
+"autocmd FileType typescript syntax clear typescriptArrowFuncDef
+"autocmd FileType typescript syntax clear typescriptObjectLiteral
+
+" I3 Syntax highlights
+aug i3config_ft_detection
+  au!
+  au BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
+aug end
+
 
 " Automatic save and load folds
 
@@ -56,9 +67,11 @@ let g:mapleader = ","
 let g:maplocalleader = "\<Space>"
 
 " Normal Mode
+nmap <C-z> <nop>
 nnoremap <C-p> :Files<CR>
 "nnoremap <C-e> :NERDTreeToggle<CR>
 nnoremap <A-e> :CocCommand explorer<CR>
+nnoremap <A-d> :DBUIToggle<CR>
 nnoremap <C-S> :w <CR>
 nnoremap <TAB> :CtrlSpaceGoDown <CR>
 nnoremap <S-TAB> :CtrlSpaceGoUp <CR>
@@ -66,7 +79,11 @@ nnoremap <F5> :so ~/.config/nvim/init.vim <CR>
 nnoremap <leader>mv :mkview<CR>
 nnoremap <leader>lv :loadview<CR>
 
+<<<<<<< HEAD
 " Going through window
+=======
+" Going through windows
+>>>>>>> master
 nnoremap <C-w>1 :1winc w <CR>
 nnoremap <C-w>2 :2winc w <CR>
 nnoremap <C-w>3 :3winc w <CR>
@@ -93,6 +110,11 @@ vnoremap <silent><A-k> :move '<-2<CR>gv
 " Adding new line like vscode
 nnoremap <S-CR> O
 
+" Adding new line in Normal mode
+nnoremap <CR> O<ESC>j
+nnoremap <S-CR> O
+
+" Adding new line in Insert mode
 inoremap <C-CR> <ESC>o
 inoremap <S-CR> <ESC>O
 

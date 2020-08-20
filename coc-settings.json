@@ -39,6 +39,7 @@
     "typescript.tsx"
   ],
   "eslint.run": "onSave",
+  "eslint.nodePath": null,
 
   // Coc-Explorer
   "explorer.width": 30,
