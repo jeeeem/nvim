@@ -10,7 +10,6 @@ Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
 " Workspaces / Session
 Plug 'mhinz/vim-startify'
 Plug 'szw/vim-ctrlspace'
-Plug 'tpope/vim-obsession'
 
 " Tagbar
 Plug 'liuchengxu/vista.vim'
@@ -20,6 +19,8 @@ Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
 " IDE Pack (Syntax Highlighting, Linting, Auto-Completion, etc)
 Plug 'sheerun/vim-polyglot'
+Plug 'OmniSharp/omnisharp-vim'
+Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} 
 Plug 'neoclide/jsonc.vim'
 Plug 'tpope/vim-dadbod'

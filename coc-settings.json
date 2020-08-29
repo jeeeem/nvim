@@ -18,6 +18,8 @@
   "coc.preferences.colorSupport": false,
   "cSpell.enabled": false,
 
+  "coc.source.OmniSharp.enable": true,
+
   // Diagnostic Settings
   "diagnostic.enable": true,
   "diagnostic.checkCurrentLine": true,

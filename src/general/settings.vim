@@ -9,10 +9,10 @@ set relativenumber
 set tabstop=2
 set shiftwidth=2
 set list
-set listchars+=tab:->,eol:↩
-set colorcolumn=100
+set listchars+=tab:>>,eol:↩
+set colorcolumn=150
 set timeoutlen=800
-set expandtab
+"set expandtab
 set smarttab
 set smartindent
 set autoindent
@@ -171,4 +171,3 @@ let g:indent_guides_auto_colors = 1
 "autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#233440 ctermbg=3
 "autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#44475a ctermbg=4
 
-let g:zoomwintab_hidetabbar = 0

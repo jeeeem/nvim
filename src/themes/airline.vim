@@ -44,6 +44,9 @@ let g:CtrlSpaceStatuslineFunction =
 " Always show tabs
 set showtabline=2
 
+" Show tabs when zooming window
+let g:zoomwintab_hidetabbar = 0
+
 " We don't need to see things like -- INSERT -- anymore
 set noshowmode
 

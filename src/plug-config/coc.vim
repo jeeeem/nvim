@@ -20,6 +20,19 @@
 " TextEdit might fail if hidden is not set.
 let g:coc_auto_copen = 1
 
+"  omnisharp
+let g:OmniSharp_server_stdio = 1
+let g:OmniSharp_lookup_metadata = 1
+"let g:OmniSharp_translate_cygwin_wsl = 1
+"let g:OmniSharp_popup = 1
+let g:ale_linters = {
+\ 'cs': ['OmniSharp']
+\}
+"let g:airline#extensions#ale#enabled = 1
+"let g:ale_virtualtext_cursor = 1
+"let g:ale_hover_to_preview = 1
+"let g:ale_completion_enabled = 1
+
 " Some servers have issues with backup files, see #649.
 set nobackup
 set nowritebackup
