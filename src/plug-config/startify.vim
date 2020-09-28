@@ -19,6 +19,7 @@ let g:startify_bookmarks = [
             \ { 'i': '~/.config/i3/config' },
             \ { 'v': '~/.config/nvim/init.vim' },
             \ { 'p': '~/.config/polybar/config' },
+            \ { 'z': '~/.zshrc' },
             \ ]
 
 let g:startify_custom_header = [

@@ -8,7 +8,6 @@ vnoremap <silent> <space> :<c-u> silent WhichKeyVisual '<Space>'<CR>
 
 autocmd! User vim-which-key call which_key#register('<space>', 'g:which_key_map')
 
-
 " Single key
 let g:which_key_map['/'] = [ '<plug>NERDCommenterToggle'  , 'Comment Toggle' ]
 let g:which_key_map.e = [ ':NERDTreeToggle'  , 'NERDTree' ]
@@ -39,7 +38,7 @@ let g:which_key_map.b = {
 			\ 'name' : '+Buffer' ,
 			\ 'l' : [':Buffers' , 'List Buffers'],
 			\ 'n' : [':bnext'   , 'Next Buffer'],
-			\ 'd' : [':bd!'      , 'Delete Buffer']
+			\ 'd' : [':Bd'      , 'Delete Buffer']
     \ }
 
 let g:which_key_map.c = {
