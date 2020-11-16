@@ -73,18 +73,16 @@ nnoremap <C-p> :Files<CR>
 nnoremap <A-e> :CocCommand explorer<CR>
 nnoremap <A-d> :DBUIToggle<CR>
 nnoremap <C-S> :w <CR>
-nnoremap <TAB> :CtrlSpaceGoDown <CR>
-nnoremap <S-TAB> :CtrlSpaceGoUp <CR>
+nnoremap <S-TAB> :CtrlSpaceGoDown <CR>
+nnoremap <TAB> :CtrlSpaceGoUp <CR>
 nnoremap <F5> :so ~/.config/nvim/init.vim <CR>
 nnoremap <leader>mv :mkview<CR>
 nnoremap <leader>lv :loadview<CR>
 
 " Going through windows
-nnoremap <C-w>1 :1winc w <CR>
-nnoremap <C-w>2 :2winc w <CR>
-nnoremap <C-w>3 :3winc w <CR>
-nnoremap <C-w>4 :4winc w <CR>
-nnoremap <C-w>5 :5winc w <CR>
+for key in range(1, 9)
+	execute 'nnoremap <C-w>'.key key.'<C-w>w'
+endfor
 
 " Use alt + hjkl to resize windows
 nnoremap <A-R>    :resize <CR>

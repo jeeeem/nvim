@@ -40,6 +40,21 @@ let g:airline#extensions#tabline#switch_buffers_and_tabs = 0
 let g:CtrlSpaceStatuslineFunction =
    \  "airline#extensions#ctrlspace#statusline()"
 
+" Custom Customization
+let g:airline_section_c = '[%{winnr()}] %t %r'
+
+" Statusline Cheatsheet :h statusline
+"set statusline=%t                                       " tail of the filename
+"set statusline+=\ %h                                    " help file flag
+"set statusline+=%m                                      " modified flag
+"set statusline+=%r                                      " read only flag
+"set statusline+=%y                                      " filetype
+"set statusline+=%=                                      " left/right separator
+"set statusline+=\ [%{strlen(&fenc)?&fenc:'none'},       " file encoding
+"set statusline+=%{&ff}]\                                " file format
+"set statusline+=%c\                                     " cursor column
+"set statusline+=%l/%L\                                  " cursor line/total lines
+"set statusline+=\ %{strftime(\"%H:%M\")}                " time
 
 " Always show tabs
 set showtabline=2

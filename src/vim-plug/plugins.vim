@@ -9,14 +9,15 @@ Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
 
 " Workspaces / Session
 Plug 'mhinz/vim-startify'
-Plug 'szw/vim-ctrlspace'
-Plug 'tpope/vim-obsession'
+"Plug 'szw/vim-ctrlspace'
+Plug 'vim-ctrlspace/vim-ctrlspace'
+"Plug 'Konfekt/vim-ctrlspace' " Much updated version that can save split windows
 
 " Tagbar
 Plug 'liuchengxu/vista.vim'
 
 "Nvim Browser Integration
-Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+"Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
 " IDE Pack (Syntax Highlighting, Linting, Auto-Completion, etc)
 Plug 'sheerun/vim-polyglot'
@@ -37,8 +38,7 @@ Plug 'mattn/calendar-vim'
 Plug 'vimwiki/vimwiki'
 Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-Plug 'vim-pandoc/vim-pandoc'
-Plug 'vim-pandoc/vim-pandoc-syntax'
+"Plug 'vim-pandoc/vim-pandoc-syntax'
 
  " Color highlighter
 Plug 'norcalli/nvim-colorizer.lua'
@@ -56,7 +56,7 @@ Plug 'tpope/vim-rhubarb'
 Plug 'wakatime/vim-wakatime' 
 
 "Code Auto Completion
-"Plug 'mattn/emmet-vim' 
+Plug 'mattn/emmet-vim' 
 
 " Snippets
 Plug 'SirVer/ultisnips'
@@ -109,7 +109,6 @@ Plug 'mg979/vim-visual-multi'
 
 " Tmux-like Zoom Window
 Plug 'troydm/zoomwintab.vim'
-Plug 'dhruvasagar/vim-zoom'
 
 " Zen Mode
 Plug 'junegunn/goyo.vim'

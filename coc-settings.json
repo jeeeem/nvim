@@ -16,7 +16,7 @@
     "hbs"
   ],
   "coc.preferences.colorSupport": false,
-  "cSpell.enabled": false,
+  /*"cSpell.enabled": false,*/
 
   // Diagnostic Settings
   "diagnostic.enable": true,
@@ -45,7 +45,7 @@
   "explorer.width": 30,
   "explorer.icon.enableNerdfont": true,
   "explorer.previewAction.onHover": false,
-  "explorer.keyMappings": {
+  "explorer.keyMappings.global": {
     "H": "gotoParent"
   },
 
