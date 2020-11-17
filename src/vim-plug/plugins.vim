@@ -47,8 +47,9 @@ Plug 'norcalli/nvim-colorizer.lua'
 Plug 'preservim/nerdtree' 
 Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
 
-" Git Integration
-Plug 'mhinz/vim-signify'
+" Version Control Integration
+Plug 'airblade/vim-gitgutter'
+"Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 
