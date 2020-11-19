@@ -55,20 +55,3 @@ let g:airline_section_c = '[%{winnr()}] %t %r'
 "set statusline+=%c\                                     " cursor column
 "set statusline+=%l/%L\                                  " cursor line/total lines
 "set statusline+=\ %{strftime(\"%H:%M\")}                " time
-
-" Always show tabs
-set showtabline=2
-
-" We don't need to see things like -- INSERT -- anymore
-set noshowmode
-
-
-
-
-
-
-
-
-
-
-

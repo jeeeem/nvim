@@ -39,6 +39,9 @@
     "typescript.tsx"
   ],
   "eslint.run": "onSave",
+  "eslint.autoFix": false,
+  "eslint.autoFixOnSave": false,
+  "eslint.enable": false,
   "eslint.nodePath": null,
 
   // Coc-Explorer

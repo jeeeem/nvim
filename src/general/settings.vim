@@ -29,11 +29,17 @@ set inccommand=nosplit
 set guifont=Fira\ Code\ Nerd\ Font:h14
 set clipboard+=unnamedplus
 set clipboard=unnamedplus
-"set iskeyword+=-                              "Treat dash as a word text object"
+"set iskeyword+=-                              "Treat dash as a word text object
 "set splitbelow
 "set splitright
 set viewoptions-=options
 autocmd BufRead * set formatoptions-=cro      "Stop new line continuation of comments"
+
+" Always show tabs
+set showtabline=2
+
+" We don't need to see things like -- INSERT -- anymore
+set noshowmode
 
 " Some servers have issues with backup files, see #649.
 set nobackup
@@ -42,8 +48,7 @@ set nowritebackup
 " Give more space for displaying messages.
 set cmdheight=2
 
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-" delays and poor user experience.
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable delays and poor user experience.
 set updatetime=100
 
 " Don't pass messages to |ins-completion-menu|.
@@ -65,9 +70,7 @@ aug i3config_ft_detection
   au BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
 aug end
 
-
 " Automatic save and load folds
-
 "augroup folds
     "autocmd BufWritePost *
     "\   if expand('%') != '' && &buftype !~ 'nofile'

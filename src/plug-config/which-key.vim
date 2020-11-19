@@ -108,7 +108,7 @@ let g:which_key_map.g = {
       \ 'j' : ['<Plug>(GitGutterNextHunk)'         , 'Next Hunk'],
       \ 'k' : ['<Plug>(GitGutterPrevHunk)'         , 'Prev Hunk'],
       \ 'l' : [':Git log'                          , 'Log'],
-      \ 'p' : [':Git push'                         , 'Push'],
+      \ 'p' : [':terminal Git push'                , 'Push'],
       \ 'P' : [':Git pull'                         , 'Pull'],
       \ 'r' : [':GRemove'                          , 'Remove'],
       \ 's' : ['<Plug>(GitGutterStageHunk)'        , 'Stage Hunk'],
