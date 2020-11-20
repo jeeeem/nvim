@@ -4,7 +4,7 @@
     \ 'coc-snippets',
     \ 'coc-actions',
     \ 'coc-emmet',
-    \ 'coc-pairs',
+    "\ 'coc-pairs',
     \ 'coc-tsserver',
     \ 'coc-html',
     \ 'coc-css',
@@ -20,7 +20,6 @@
 " TextEdit might fail if hidden is not set.
 let g:coc_auto_copen = 1
 
-
 " Allow comments on JSON file
 autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
 
@@ -32,7 +31,6 @@ highlight CocWarningVirtualText  cterm=bold ctermfg=none ctermbg=none guifg=#fab
 highlight CocInfoVirtualText  cterm=bold ctermfg=none ctermbg=none guifg=#83a598
 highlight CocHintVirtualText  cterm=bold ctermfg=none ctermbg=none guifg=#8ec07c
 highlight CocHighlightText  cterm=bold ctermfg=none ctermbg=none guifg=none guibg=#3c3836
-
 
 " Yank Highlights
 hi HighlightedyankRegion term=bold ctermbg=0 guibg=#cc241d

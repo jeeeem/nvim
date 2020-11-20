@@ -83,3 +83,9 @@ imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 let g:zoomwintab_remap = 0
 let g:zoomwintab_hidetabbar = 0
 nmap <C-w>z :ZoomWinTabToggle <CR>
+
+inoremap <silent><expr> <cr> <sid>handle_cr()
+
+function! s:handle_cr() abort
+  return pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endfunction
