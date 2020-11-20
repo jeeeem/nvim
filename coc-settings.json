@@ -16,6 +16,7 @@
     "hbs"
   ],
   "coc.preferences.colorSupport": false,
+  "coc.preferences.bracketEnterImprove": true,
   /*"cSpell.enabled": false,*/
 
   // Diagnostic Settings
@@ -55,8 +56,7 @@
   // HTML
   "html.filetypes": ["html", "handlebars", "htmldjango"],
   "html.autoClosingTags": true,
-
-  "pairs.enableCharacters": ["(", "[", "<", "'", "\"", "`"],
+  "pairs.enableCharacters": ["(", "[", "{", "<", "'", "\"", "`"],
 
   // Prettier
   "prettier.singleQuote": true,

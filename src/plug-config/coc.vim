@@ -4,7 +4,7 @@
     \ 'coc-snippets',
     \ 'coc-actions',
     \ 'coc-emmet',
-    \ 'coc-pairs',
+    "\ 'coc-pairs',
     \ 'coc-tsserver',
     \ 'coc-html',
     \ 'coc-css',
@@ -19,7 +19,6 @@
     
 " TextEdit might fail if hidden is not set.
 let g:coc_auto_copen = 1
-
 
 " Allow comments on JSON file
 autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc

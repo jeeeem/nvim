@@ -1,17 +1,14 @@
  "vim plug https://github.com/junegunn/vim-plug
 " https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
 " Specify a directory for plugins
 " Initialize plugin system
 call plug#begin('~/.config/nvim/plugged')
-
 Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
 
 " Workspaces / Session
 Plug 'mhinz/vim-startify'
 "Plug 'szw/vim-ctrlspace'
 Plug 'vim-ctrlspace/vim-ctrlspace'
-"Plug 'Konfekt/vim-ctrlspace' " Much updated version that can save split windows
 
 " Tagbar
 Plug 'liuchengxu/vista.vim'
@@ -101,7 +98,8 @@ Plug 'Yggdroot/indentLine'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'nathanaelkane/vim-indent-guides'
 
-" Comment & Surround
+" Auto-Pairs, Commenter, Surround
+Plug 'jiangmiao/auto-pairs'
 Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-surround'
 

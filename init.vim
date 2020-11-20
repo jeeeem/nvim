@@ -1,6 +1,5 @@
 " --- SOURCE FILES
-
-" Plugin
+" Plugins
 source ~/.config/nvim/src/vim-plug/plugins.vim
 
 " General Settings (Keymaps, Additional Commands, UI/UX Settings)
