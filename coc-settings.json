@@ -16,6 +16,7 @@
     "hbs"
   ],
   "coc.preferences.colorSupport": false,
+  "coc.preferences.bracketEnterImprove": true,
   /*"cSpell.enabled": false,*/
 
   // Diagnostic Settings
