@@ -42,7 +42,7 @@ Plug 'norcalli/nvim-colorizer.lua'
 
 " File Explorer
 Plug 'preservim/nerdtree' 
-Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
+Plug 'kevinhwang91/rnvimr'
 
 " Version Control Integration
 Plug 'airblade/vim-gitgutter'

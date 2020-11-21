@@ -27,6 +27,7 @@ source ~/.config/nvim/src/plug-config/sneak.vim
 source ~/.config/nvim/src/plug-config/startify.vim
 source ~/.config/nvim/src/plug-config/tmuxline.vim
 source ~/.config/nvim/src/plug-config/rainbow-parenthesis.vim
+source ~/.config/nvim/src/plug-config/rnvimr.vim
 source ~/.config/nvim/src/plug-config/vista.vim
 source ~/.config/nvim/src/plug-config/which-key.vim
 luafile ~/.config/nvim/src/lua/plug-colorizer.lua

@@ -13,7 +13,7 @@ let g:which_key_map['/'] = [ '<plug>NERDCommenterToggle'  , 'Comment Toggle' ]
 let g:which_key_map.e = [ ':NERDTreeToggle'  , 'NERDTree' ]
 "let g:which_key_map.q = [ ':q'  , 'Quit' ]
 "let g:which_key_map.Q = [ ':q!'  , 'Force Quit' ]
-let g:which_key_map.r = [ ':FloatermNew ranger'  , 'Ranger' ]
+let g:which_key_map.r = [ ':RnvimrToggle'  , 'Ranger' ]
 let g:which_key_map.S = [ ':Startify'  , 'Start Screen' ]
 let g:which_key_map[' '] = [ ':WhichKey'  , 'Toggle Which Key' ]
 
