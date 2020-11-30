@@ -108,7 +108,7 @@ let g:which_key_map.g = {
       \ 'j' : ['<Plug>(GitGutterNextHunk)'         , 'Next Hunk'],
       \ 'k' : ['<Plug>(GitGutterPrevHunk)'         , 'Prev Hunk'],
       \ 'l' : [':Git log'                          , 'Log'],
-      \ 'p' : [':terminal Git push'                , 'Push'],
+      \ 'p' : [':terminal git push'                , 'Push'],
       \ 'P' : [':Git pull'                         , 'Pull'],
       \ 'r' : [':GRemove'                          , 'Remove'],
       \ 's' : ['<Plug>(GitGutterStageHunk)'        , 'Stage Hunk'],
@@ -130,6 +130,7 @@ let g:which_key_map.t = {
 			\ 'name' : '+Tabs' ,
 			\ 'c' : [':tabclose' , 'Close Tab'],
 			\ 'e' : [':tabedit' , 'New Tab'],
+			\ 'E' : [':tabedit %' , 'New Tab of Current File '],
 			\ 'o' : [':tabonly' , 'Close Other Tab'],
 			\ 'n' : [':tabnext' , 'Next Tab'],
 			\ 'p' : [':tabprevious' , 'Previous Tab'],
@@ -152,7 +153,7 @@ let g:which_key_map.w = {
 let g:which_key_map.z = {
 			\ 'name' : '+ZenMode' ,
 			\ 'z' : [':Goyo 150'  , 'Zen Mode '],
-			\ 'l' : [':Limelight!! .8'  , 'Focus Mode '],
+			\ 'l' : [':Limelight'  , 'Focus Mode '],
 			\ 'x' : [':Goyo'      , 'Exit Zen Mode '],
     \ }
 

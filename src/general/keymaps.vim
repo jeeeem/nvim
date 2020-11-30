@@ -15,7 +15,6 @@ nnoremap <F5> :so ~/.config/nvim/init.vim <CR>
 nnoremap <leader>mv :mkview<CR>
 nnoremap <leader>lv :loadview<CR>
 
-
 " Use alt + hjkl to resize windows
 nnoremap <A-R>    :resize <CR>
 nnoremap <A-J>    :resize -2<CR>

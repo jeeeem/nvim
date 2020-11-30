@@ -8,6 +8,7 @@ set number
 set relativenumber
 set tabstop=2
 set shiftwidth=2
+set conceallevel=2
 set list
 set listchars+=tab:->,eol:↩
 set colorcolumn=100

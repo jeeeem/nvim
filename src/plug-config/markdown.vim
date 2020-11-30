@@ -3,7 +3,7 @@
 let g:vim_markdown_folding_disabled = 1
 
 " Do not use conceal feature, the implementation is not so good
-let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal = 1
 
 " Disable math tex conceal feature
 let g:tex_conceal = ""

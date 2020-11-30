@@ -31,9 +31,9 @@ Plug 'luochen1990/rainbow'
 " Markdown
 " Tabular plugin is used to format tables
 Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 Plug 'mattn/calendar-vim'
 Plug 'vimwiki/vimwiki'
-Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 "Plug 'vim-pandoc/vim-pandoc-syntax'
 
