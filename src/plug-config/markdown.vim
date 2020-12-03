@@ -108,6 +108,9 @@ augroup pandoc_syntax
     au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
 augroup END
 
+augroup pandoc_syntax
+  autocmd! FileType vimwiki set syntax=markdown.pandoc
+augroup END
 " ---Vim Wiki Settings
 let g:vimwiki_list = [{'path': '~/vimwiki/',
                       \ 'index': 'README',

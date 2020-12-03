@@ -35,7 +35,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'mattn/calendar-vim'
 Plug 'vimwiki/vimwiki'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-"Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'vim-pandoc/vim-pandoc-syntax'
 
  " Color highlighter
 Plug 'norcalli/nvim-colorizer.lua'

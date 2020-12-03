@@ -55,8 +55,6 @@ set updatetime=100
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 
-highlight CocHighlightText  cterm=bold ctermfg=109 ctermbg=237 guifg=#83c07c
-
 " Syntax Clearing for Rainbon Parenthesis syntax highlight
 autocmd FileType javascript syntax clear jsIfElseBlock
 autocmd FileType javascript syntax clear jsFuncBlock

@@ -31,6 +31,7 @@ highlight CocWarningVirtualText  cterm=bold ctermfg=none ctermbg=none guifg=#fab
 highlight CocInfoVirtualText  cterm=bold ctermfg=none ctermbg=none guifg=#83a598
 highlight CocHintVirtualText  cterm=bold ctermfg=none ctermbg=none guifg=#8ec07c
 highlight CocHighlightText  cterm=bold ctermfg=none ctermbg=none guifg=none guibg=#3c3836
+"highlight CocHighlightText  cterm=bold ctermfg=109 ctermbg=237 guifg=#83c07c
 
 " Yank Highlights
 hi HighlightedyankRegion term=bold ctermbg=0 guibg=#cc241d

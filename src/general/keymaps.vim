@@ -12,8 +12,8 @@ nnoremap <C-S> :w <CR>
 nnoremap <S-TAB> :CtrlSpaceGoDown <CR>
 nnoremap <TAB> :CtrlSpaceGoUp <CR>
 nnoremap <F5> :so ~/.config/nvim/init.vim <CR>
-nnoremap <leader>mv :mkview<CR>
-nnoremap <leader>lv :loadview<CR>
+"nnoremap <leader>mv :mkview<CR>
+"nnoremap <leader>lv :loadview<CR>
 
 " Use alt + hjkl to resize windows
 nnoremap <A-R>    :resize <CR>
