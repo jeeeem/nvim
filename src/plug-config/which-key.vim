@@ -51,7 +51,7 @@ let g:which_key_map.c = {
       \ 'm' : [':CocList marketplace'    , 'Market Place'],
       \ 'f' : [':CocList diagnostics'    , 'FZF Diagnostics'],
       \ 's' : [':CocConfig'    , 'Coc Settings'],
-      \ 'S' : [':CocCommand cSpell.toggleEnableSpellChecker'    , 'Toggle Spell Checker'],
+      \ 'S' : [':CocList -I symbols'    , 'Search Workspace Symbols'],
       \ 't' : [':CocCommand todolist.create'    , 'Create Todo List'],
       \ 'T' : [':CocList todolist'    , 'Todo List'],
       \ 'v' : [':Vista coc'               , 'Coc Tag viewer'],

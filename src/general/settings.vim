@@ -13,6 +13,7 @@ set list
 set listchars+=tab:->,eol:↩
 set colorcolumn=100
 set timeoutlen=800
+set scrolloff=3
 set expandtab
 set smarttab
 set smartindent
@@ -23,6 +24,7 @@ set ignorecase
 set nohlsearch
 set incsearch
 set noswapfile
+set undofile
 set nocompatible 
 set encoding=UTF-8
 set cursorline

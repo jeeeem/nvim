@@ -1,19 +1,23 @@
 " --- Keymaps
 let g:mapleader = ","
 let g:maplocalleader = "\<Space>"
-
+      
 " Normal Mode
 nmap <C-z> <nop>
-nnoremap <C-p> :Files<CR>
-"nnoremap <C-e> :NERDTreeToggle<CR>
-nnoremap <A-e> :CocCommand explorer<CR>
-nnoremap <A-d> :DBUIToggle<CR>
-nnoremap <C-S> :w <CR>
-nnoremap <S-TAB> :CtrlSpaceGoDown <CR>
-nnoremap <TAB> :CtrlSpaceGoUp <CR>
+
+nnoremap <leader>mv :mkview<CR>
+nnoremap <leader>lv :loadview<CR>
+
 nnoremap <F5> :so ~/.config/nvim/init.vim <CR>
-"nnoremap <leader>mv :mkview<CR>
-"nnoremap <leader>lv :loadview<CR>
+
+nnoremap <C-p> :Files<CR>
+nnoremap <C-S> :w <CR>
+
+nnoremap <A-e> :NERDTreeToggle<CR>
+"nnoremap <A-e> :CocCommand explorer<CR>
+nnoremap <A-d> :DBUIToggle<CR>
+nnoremap <A-h> :CtrlSpaceGoDown <CR>
+nnoremap <A-l> :CtrlSpaceGoUp <CR>
 
 " Use alt + hjkl to resize windows
 nnoremap <A-R>    :resize <CR>
@@ -57,9 +61,14 @@ endfor
 
 " Insert mode
 inoremap jk <ESC>
+inoremap kj <ESC>
 inoremap <C-S> <ESC> :w <CR>
-inoremap <F2> :reg <CR>
+"inoremap <F2> :reg <CR>
 "inoremap { {<CR>}<ESC>O 
+
+" Date shortcut
+"nmap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
+imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 
 " Navigation through Pop-up menu
 " Cancel the auto-complete menu like ctrl+e would
@@ -73,10 +82,6 @@ inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 inoremap <expr> <C-l> pumvisible() ? "\<C-y>" : "\<C-l>"
 
 nmap <F2> :registers <CR>
-
-" Date shortcut
-nmap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
-imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 
 " ZoomWinTab
 let g:zoomwintab_remap = 0

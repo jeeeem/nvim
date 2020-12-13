@@ -20,7 +20,6 @@
   "coc.preferences.colorSupport": false,
   "coc.preferences.bracketEnterImprove": true,
   /*"cSpell.enabled": false,*/
-
   // Diagnostic Settings
   "diagnostic.enable": true,
   "diagnostic.checkCurrentLine": true,
@@ -28,11 +27,10 @@
   "diagnostic.virtualTextPrefix": " ",
   "diagnostic.virtualTextCurrentLineOnly": false,
   "diagnostic.infoSign": "",
-  //"diagnostic.hintSign": "➤",
+  "diagnostic.hintSign": "➤",
   "diagnostic.warningSign": "",
   "diagnostic.errorSign": "",
   "codeLens.enable": false,
-
   // ESlint settings
   "eslint.filetypes": [
     "javascript",
@@ -46,7 +44,6 @@
   "eslint.autoFixOnSave": false,
   "eslint.enable": false,
   "eslint.nodePath": null,
-
   // Coc-Explorer
   "explorer.width": 30,
   "explorer.icon.enableNerdfont": true,
@@ -54,27 +51,26 @@
   "explorer.keyMappings.global": {
     "H": "gotoParent"
   },
-
   // HTML
-  "html.filetypes": ["html", "handlebars", "htmldjango"],
+  "html.filetypes": [
+    "html",
+    "handlebars",
+    "hbs",
+    "htmldjango"
+  ],
   "html.autoClosingTags": true,
-  "pairs.enableCharacters": ["(", "[", "{", "<", "'", "\"", "`"],
-
   // Prettier
-  "prettier.singleQuote": true,
+  /*"prettier.singleQuote": true,
   "prettier.eslintIntegration": true,
   "prettier.disableSuccessMessage": true,
-  "prettier.disableLanguages": [],
-
+  "prettier.disableLanguages": [],*/
   // Python Config
-  //  "python.linting.enabled": true,
-  // "python.linting.pylintEnabled": true,
-
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": true,
   // Yank
   "yank.highlight.duration": 200,
   "yank.list.maxsize": 50,
   "yank.limit": 5
-
   // Snippet
   //"snippets.ultisnips.directories": ["UltiSnips", "~/.config/nvim/utils/snips"]
 }

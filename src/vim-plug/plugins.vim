@@ -7,7 +7,6 @@ Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
 
 " Workspaces / Session
 Plug 'mhinz/vim-startify'
-"Plug 'szw/vim-ctrlspace'
 Plug 'vim-ctrlspace/vim-ctrlspace'
 
 " Tagbar
@@ -18,7 +17,7 @@ Plug 'liuchengxu/vista.vim'
 
 " IDE Pack (Syntax Highlighting, Linting, Auto-Completion, etc)
 Plug 'sheerun/vim-polyglot'
-Plug 'neoclide/coc.nvim', {'branch': 'release'} 
+"Plug 'neoclide/coc.nvim', {'branch': 'release'} 
 Plug 'neoclide/jsonc.vim'
 Plug 'tpope/vim-dadbod'
 Plug 'kristijanhusak/vim-dadbod-ui' 
@@ -29,8 +28,7 @@ Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'luochen1990/rainbow'
 
 " Markdown
-" Tabular plugin is used to format tables
-Plug 'godlygeek/tabular'
+Plug 'godlygeek/tabular' " Tabular plugin is used to format tables
 Plug 'plasticboy/vim-markdown'
 Plug 'mattn/calendar-vim'
 Plug 'vimwiki/vimwiki'
@@ -42,6 +40,7 @@ Plug 'norcalli/nvim-colorizer.lua'
 
 " File Explorer
 Plug 'preservim/nerdtree' 
+"Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
 Plug 'kevinhwang91/rnvimr'
 
 " Version Control Integration

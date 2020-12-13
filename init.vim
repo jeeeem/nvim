@@ -13,7 +13,7 @@ source ~/.config/nvim/src/themes/gruvbox-material.vim
 source ~/.config/nvim/src/themes/airline.vim
 
 " Plugin Settings
-source ~/.config/nvim/src/plug-config/coc.vim
+"source ~/.config/nvim/src/plug-config/coc.vim
 source ~/.config/nvim/src/plug-config/ctrl-space.vim
 source ~/.config/nvim/src/plug-config/firenvim.vim
 source ~/.config/nvim/src/plug-config/floaterm.vim
@@ -32,3 +32,6 @@ source ~/.config/nvim/src/plug-config/vista.vim
 source ~/.config/nvim/src/plug-config/which-key.vim
 source ~/.config/nvim/src/plug-config/zen-mode.vim
 luafile ~/.config/nvim/src/lua/plug-colorizer.lua
+
+" Custom Plugins (or more like plugins with only a few LOC)
+source ~/.config/nvim/src/custom/delete-hidden-buffers.vim
