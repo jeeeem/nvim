@@ -16,6 +16,7 @@ let g:startify_lists = [
           \ ]
 
 let g:startify_bookmarks = [
+            \ { 'a': '~/.config/alacritty/alacritty.yml' },
             \ { 'i': '~/.config/i3/config' },
             \ { 'v': '~/.config/nvim/init.vim' },
             \ { 'p': '~/.config/polybar/config' },

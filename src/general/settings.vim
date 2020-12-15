@@ -37,25 +37,14 @@ set clipboard=unnamedplus
 "set splitright
 set viewoptions-=options
 autocmd BufRead * set formatoptions-=cro      "Stop new line continuation of comments"
-
-" Always show tabs
-set showtabline=2
-
-" We don't need to see things like -- INSERT -- anymore
-set noshowmode
-
-" Some servers have issues with backup files, see #649.
+set showtabline=2 " Always show tabs
+set noshowmode " We don't need to see things like -- INSERT -- anymore
 set nobackup
 set nowritebackup
-
-" Give more space for displaying messages.
-set cmdheight=2
-
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable delays and poor user experience.
-set updatetime=100
-
-" Don't pass messages to |ins-completion-menu|.
-set shortmess+=c
+set cmdheight=2 " Give more space for displaying messages.
+set updatetime=100 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable delays and poor user experience.
+set completeopt=menuone,noinsert,noselect " Set completeopt to have a better completion experience
+set shortmess+=c " Don't pass messages to |ins-completion-menu|.
 
 " Syntax Clearing for Rainbon Parenthesis syntax highlight
 autocmd FileType javascript syntax clear jsIfElseBlock

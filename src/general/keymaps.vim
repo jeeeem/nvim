@@ -1,10 +1,12 @@
 " --- Keymaps
 let g:mapleader = ","
 let g:maplocalleader = "\<Space>"
-      
+
+"map <c-space> to manually trigger completion
+imap <silent> <c-space> <Plug>(completion_trigger)
+
 " Normal Mode
 nmap <C-z> <nop>
-
 nnoremap <leader>mv :mkview<CR>
 nnoremap <leader>lv :loadview<CR>
 

@@ -31,7 +31,9 @@ source ~/.config/nvim/src/plug-config/rnvimr.vim
 source ~/.config/nvim/src/plug-config/vista.vim
 source ~/.config/nvim/src/plug-config/which-key.vim
 source ~/.config/nvim/src/plug-config/zen-mode.vim
+
 luafile ~/.config/nvim/src/lua/plug-colorizer.lua
+"luafile ~/.config/nvim/src/lua/lsp-config.lua
 
 " Custom Plugins (or more like plugins with only a few LOC)
 source ~/.config/nvim/src/custom/delete-hidden-buffers.vim

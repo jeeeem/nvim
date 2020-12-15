@@ -16,8 +16,11 @@ Plug 'liuchengxu/vista.vim'
 "Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
 " IDE Pack (Syntax Highlighting, Linting, Auto-Completion, etc)
-Plug 'sheerun/vim-polyglot'
+"Plug 'neovim/nvim-lspconfig'
+"Plug 'nvim-lua/completion-nvim'
+
 "Plug 'neoclide/coc.nvim', {'branch': 'release'} 
+Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/jsonc.vim'
 Plug 'tpope/vim-dadbod'
 Plug 'kristijanhusak/vim-dadbod-ui' 
@@ -79,8 +82,9 @@ Plug 'kshenoy/vim-signature'
 Plug 'sainnhe/gruvbox-material'
 Plug 'dracula/vim', { 'as': 'dracula' }
 
-" Floating Window
+" Plugins for additional features
 Plug 'voldikss/vim-floaterm'
+Plug 'airblade/vim-rooter' 
 
 " Pop-up Keybindings
 Plug 'liuchengxu/vim-which-key'
