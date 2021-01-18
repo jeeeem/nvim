@@ -152,7 +152,7 @@ let g:which_key_map.w = {
 
 let g:which_key_map.z = {
 			\ 'name' : '+ZenMode' ,
-			\ 'z' : [':Goyo 150'  , 'Zen Mode '],
+			\ 'z' : [':Goyo 120'  , 'Zen Mode '],
 			\ 'l' : [':Limelight'  , 'Focus Mode '],
 			\ 'x' : [':Goyo'      , 'Exit Zen Mode '],
     \ }

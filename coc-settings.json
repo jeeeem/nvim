@@ -6,6 +6,7 @@
     "scss",
     "markdown",
     "javascript",
+    "javascriptreact",
     "typescript",
     "graphql",
     "html",
@@ -67,10 +68,27 @@
   // Python Config
   "python.linting.enabled": true,
   "python.linting.pylintEnabled": true,
+  "python.venvPath": "~/.local/share/virtualenvs/",
+  /*"python.pythonPath": "~/.local/share/virtualenvs/server-sZrT94H9/bin/python",*/
+  "python.formatting.autopep8Args": [],
+  "python.analysis.diagnosticSeverityOverrides": {
+    "reportMissingImports": "information"
+  },
+  "python.analysis.diagnosticMode": "openFilesOnly",
   // Yank
   "yank.highlight.duration": 200,
   "yank.list.maxsize": 50,
-  "yank.limit": 5
+  "yank.limit": 5,
   // Snippet
-  //"snippets.ultisnips.directories": ["UltiSnips", "~/.config/nvim/utils/snips"]
+  "snippets.extends": {
+    "cpp": [
+      "c"
+    ],
+    "javascriptreact": [
+      "javascript"
+    ],
+    "typescript": [
+      "javascript"
+    ]
+  }
 }

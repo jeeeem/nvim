@@ -1,23 +1,32 @@
 " --- General Settings
 let g:python3_host_prog = '/usr/bin/python3'
+let g:better_escape_interval = 210
 
 syntax on
 filetype plugin indent on
 set hidden 
 set number
 set relativenumber
-set tabstop=2
-set shiftwidth=2
+"set tabstop=2
+"set shiftwidth=2
+
+" Set the tab width
+let s:tabwidth=2
+exec 'set tabstop='    .s:tabwidth
+exec 'set shiftwidth=' .s:tabwidth
+exec 'set softtabstop='.s:tabwidth
+
+set noexpandtab
+set shiftround
+"set smarttab
+set smartindent
+set autoindent
 set conceallevel=2
 set list
 set listchars+=tab:->,eol:↩
 set colorcolumn=100
-set timeoutlen=800
+set timeoutlen=200
 set scrolloff=3
-set expandtab
-set smarttab
-set smartindent
-set autoindent
 set mouse=a
 set nowrap
 set ignorecase
@@ -60,6 +69,10 @@ aug i3config_ft_detection
   au BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
 aug end
 
+"augroup filetype_jsx
+    "autocmd! FileType javascriptreact set filetype=javascript
+"augroup END
+
 " Automatic save and load folds
 "augroup folds
     "autocmd BufWritePost *
@@ -80,6 +93,4 @@ augroup highlight_yank
     autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank()
 augroup END
 
-" Clear Registers
-command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor
 

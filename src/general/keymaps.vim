@@ -13,13 +13,14 @@ nnoremap <leader>lv :loadview<CR>
 nnoremap <F5> :so ~/.config/nvim/init.vim <CR>
 
 nnoremap <C-p> :Files<CR>
-nnoremap <C-S> :w <CR>
+nnoremap <silent><C-S> :up <CR>
 
-nnoremap <A-e> :NERDTreeToggle<CR>
-"nnoremap <A-e> :CocCommand explorer<CR>
+"nnoremap <A-e> :NERDTreeToggle<CR>
+nnoremap <A-e> :CocCommand explorer<CR>
 nnoremap <A-d> :DBUIToggle<CR>
 nnoremap <A-h> :CtrlSpaceGoDown <CR>
 nnoremap <A-l> :CtrlSpaceGoUp <CR>
+nnoremap <A-u> :UndotreeToggle <CR>
 
 " Use alt + hjkl to resize windows
 nnoremap <A-R>    :resize <CR>
@@ -63,8 +64,8 @@ endfor
 
 " Insert mode
 inoremap jk <ESC>
-inoremap kj <ESC>
-inoremap <C-S> <ESC> :w <CR>
+"inoremap kj <ESC>
+inoremap <silent><C-S> <ESC> :up <CR>
 "inoremap <F2> :reg <CR>
 "inoremap { {<CR>}<ESC>O 
 
@@ -90,8 +91,9 @@ let g:zoomwintab_remap = 0
 let g:zoomwintab_hidetabbar = 0
 nmap <C-w>z :ZoomWinTabToggle <CR>
 
-inoremap <silent><expr> <cr> <sid>handle_cr()
+"inoremap <silent><expr> <cr> <sid>handle_cr()
 
-function! s:handle_cr() abort
-  return pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-endfunction
+"function! s:handle_cr() abort
+  "return pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+"endfunction
+

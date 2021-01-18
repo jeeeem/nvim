@@ -19,7 +19,7 @@ Plug 'liuchengxu/vista.vim'
 "Plug 'neovim/nvim-lspconfig'
 "Plug 'nvim-lua/completion-nvim'
 
-"Plug 'neoclide/coc.nvim', {'branch': 'release'} 
+Plug 'neoclide/coc.nvim', {'branch': 'release'} 
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/jsonc.vim'
 Plug 'tpope/vim-dadbod'
@@ -84,7 +84,8 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 
 " Plugins for additional features
 Plug 'voldikss/vim-floaterm'
-Plug 'airblade/vim-rooter' 
+Plug 'mbbill/undotree'
+"Plug 'airblade/vim-rooter' 
 
 " Pop-up Keybindings
 Plug 'liuchengxu/vim-which-key'
@@ -103,8 +104,12 @@ Plug 'nathanaelkane/vim-indent-guides'
 
 " Auto-Pairs, Commenter, Surround
 Plug 'jiangmiao/auto-pairs'
+Plug 'alvan/vim-closetag'
 Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-surround'
+
+" Better-escape
+Plug 'jdhao/better-escape.vim'
 
 " Multiple Cursor
 Plug 'mg979/vim-visual-multi'
