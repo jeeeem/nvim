@@ -1,0 +1,3 @@
+- Telescope
+  - Learn more about its functinalities
+  - Responsiveness of preview codes when searhing
