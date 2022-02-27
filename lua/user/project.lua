@@ -27,7 +27,7 @@ project.setup {
 
 	-- Don't calculate root dir on specific directories
 	-- Ex: { "~/.cargo/*", ... }
-	exclude_dirs = { "~/.nvim-lua-config/**" },
+	exclude_dirs = { "" },
 
 	---@ Show hidden files in telescope when searching for files in a project
 	show_hidden = false,

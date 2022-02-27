@@ -37,6 +37,7 @@ packer.init {
 			return require("packer.util").float { border = "rounded" }
 		end,
 	},
+	compile_path = require("packer.util").join_paths(vim.fn.stdpath "config", "lua", "user", "packer_compiled.lua"),
 }
 
 -- Install your plugins here
@@ -51,26 +52,46 @@ return packer.startup(function(use)
 	use "christoomey/vim-tmux-navigator" -- Tmux integration to Neovim
 	use "edkolev/tmuxline.vim" -- Tmux statusline generator
 	use "lukas-reineke/indent-blankline.nvim" -- Indent line
+	use "antoinemadec/FixCursorHold.nvim" -- https://github.com/neovim/neovim/issues/12587
+	use "stevearc/dressing.nvim" -- Improve vim.ui interfaces
+	use {
+		"rmagatti/goto-preview",
+		config = function()
+			require("goto-preview").setup {
+				default_mappings = true,
+			}
+		end,
+	} -- Preview definitions
+	use "tpope/vim-surround" -- Surround text object
 
 	-- General Plugins
 	use "dstein64/vim-startuptime" -- Startup profile
 	use "windwp/nvim-autopairs" -- Auto pairs
+	use "ggandor/lightspeed.nvim" -- Motion
 	use "numToStr/Comment.nvim" -- Commenter
+	use "norcalli/nvim-colorizer.lua" -- Color highlighter
 	use "kyazdani42/nvim-tree.lua" -- File Explorer Tree
 	use "kyazdani42/nvim-web-devicons" -- Devicons
-	use "nvim-telescope/telescope.nvim" -- FZF
-	use "nvim-telescope/telescope-media-files.nvim"
-	use "vim-airline/vim-airline" -- Tab line
-	use "vim-airline/vim-airline-themes" -- Airline Themes
-	use "vim-ctrlspace/vim-ctrlspace" -- Better buffer tab
 	use "akinsho/toggleterm.nvim" -- Floating terminl
 	use "ahmedkhalf/project.nvim" -- Workspaces/Project management
 	use "rcarriga/nvim-notify" -- Notifications
 	use "goolord/alpha-nvim" -- Dashboard
 	use "folke/which-key.nvim" -- Popup Keybindings
+	use "vim-airline/vim-airline" -- Tab/status line
+	use "vim-airline/vim-airline-themes" -- Airline Themes
+	use { "vim-ctrlspace/vim-ctrlspace", commit = "7ad53ecd905e22751bf3d31aef2db5f411976679" } -- Better buffer tab
 
+	-- use {
+	-- 	"kdheepak/tabline.nvim",
+	-- 	requires = { { "hoob3rt/lualine.nvim", opt = true }, { "kyazdani42/nvim-web-devicons", opt = true } },
+	-- } -- Tab/Status line
 	-- use "akinsho/bufferline.nvim" -- Tab line
 	-- use "moll/vim-bbye" -- Buffer deletion
+
+	-- FZF Plugins
+	use "nvim-telescope/telescope.nvim" -- FZF
+	use "nvim-telescope/telescope-fzf-native.nvim" -- FZF enhancement
+	use "nvim-telescope/telescope-media-files.nvim" -- Support image file
 
 	-- Completion Plugins
 	use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -80,15 +101,23 @@ return packer.startup(function(use)
 	use "saadparwaiz1/cmp_luasnip" -- snippet completions
 	use "hrsh7th/cmp-nvim-lsp" -- lsp completions
 	use "hrsh7th/cmp-nvim-lua" -- lua completions
+	use "folke/lua-dev.nvim" -- Completion for Nvim lua API
 
 	-- LSP Plugins
 	use "neovim/nvim-lspconfig" -- enable LSP
 	use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+	use "ray-x/lsp_signature.nvim" -- LSP signature hints
 	use "jose-elias-alvarez/null-ls.nvim" -- Formatters and linters
 	use "folke/trouble.nvim" -- Pretty diagnostics
+	use "simrat39/symbols-outline.nvim" -- Tree-like symbols
 	use "b0o/schemastore.nvim" -- JSON SchemaStore
 
-	-- Treesitter
+	-- Debugging Plugins
+	use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
+	use "Pocco81/DAPInstall.nvim"
+	use "theHamsta/nvim-dap-virtual-text"
+
+	-- Treesitter Plugins
 	use {
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
@@ -96,8 +125,9 @@ return packer.startup(function(use)
 	use "p00f/nvim-ts-rainbow" -- Rainbow Parenthesis
 	use "nvim-treesitter/playground" -- Treesitter Playground
 	use "JoosepAlviste/nvim-ts-context-commentstring" -- Treesitter for commentstring
+	use "nvim-treesitter/nvim-treesitter-refactor" -- Treesitter refactor module
 
-	-- Git
+	-- Git Plugins
 	use "lewis6991/gitsigns.nvim" -- Git integration
 	use "tpope/vim-fugitive" --  Git wrapper
 
@@ -105,10 +135,11 @@ return packer.startup(function(use)
 	use "L3MON4D3/LuaSnip" --snippet engine
 	use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
-	-- Colorschemes
+	-- Colorschemes Plugins
 	use "folke/tokyonight.nvim"
+	use "olimorris/onedarkpro.nvim"
 
-	-- Note Taking
+	-- Note Taking Plugins
 	use { "iamcco/markdown-preview.nvim", run = "cd app && yarn install" } --  Markdown Preview
 	use "vimwiki/vimwiki"
 	use "vim-pandoc/vim-pandoc-syntax"

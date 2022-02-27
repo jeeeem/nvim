@@ -2,10 +2,14 @@
 require "user.options"
 require "user.keymaps"
 require "user.autocommands"
+require "user.impatient"
 
 -- Plugins Configuration
 require "user.plugins"
-require "user.impatient"
+require "user.packer_compiled"
+require "user.notify"
+require "user.colorizer"
+-- require "user.dressing"
 require "user.autopairs"
 require "user.indentline"
 require "user.comment"
@@ -16,7 +20,8 @@ require "user.toggleterm"
 require "user.alpha"
 require "user.whichkey"
 
--- require "user.notify"
+-- require "user.lualine"
+-- require "user.tabline"
 -- require "bufferline"
 
 -- LSP Configuration
@@ -28,7 +33,7 @@ require "user.treesitter"
 require "user.telescope"
 
 -- Colorschemes
-require "user.colorscheme"
+require "user.colorschemes.tokyonight"
 
 -- Custom && Vim plugins
 vim.cmd [[source ~/.nvim-lua-config/nvim/vim/airline.vim]]

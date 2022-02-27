@@ -5,6 +5,9 @@ vim.cmd [[
     autocmd FileType qf,help,man,lspinfo nnoremap <silent> <buffer> q :close<CR> 
     autocmd TextYankPost * silent!lua require('vim.highlight').on_yank({higroup = 'Search', timeout = 200}) 
     autocmd BufWinEnter * :set formatoptions-=cro
+    autocmd BufWinEnter * :set nohlsearch
+    " autocmd BufWinEnter * :set iskeyword+=-
+    " autocmd BufWinEnter * :set sessionoptions+=tabpages,globals
     autocmd FileType qf set nobuflisted
   augroup end
   augroup _git
@@ -15,7 +18,7 @@ vim.cmd [[
   augroup _markdown
     autocmd!
     autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
-    autocmd FileType vimwiki set syntax=markdown.pandoc
+    autocmd FileType vimwiki set filetype=markdown.pandoc, set syntax=markdown
     autocmd FileType markdown setlocal wrap
     autocmd FileType markdown setlocal spell
   augroup end

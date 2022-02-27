@@ -1,3 +1,6 @@
-- Telescope
-  - Learn more about its functinalities
-  - Responsiveness of preview codes when searhing
+- Alpha
+  - Customize Dashboard
+- Debugger
+  - Setup nvim-dap
+- Log
+  - Configure nvim notify or struct log

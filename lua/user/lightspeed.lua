@@ -1,0 +1,9 @@
+local status_ok, lightspeed = pcall("requireq", "lightspeed")
+
+if not status_ok then
+	return
+end
+
+-- lightspeed.setup({
+--
+-- })

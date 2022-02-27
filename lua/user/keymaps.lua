@@ -10,6 +10,9 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- Remove C-z suspending key
+keymap("", "<C-z>", "<Nop>", opts)
+
 -- Modes
 --   normal_mode = "n",
 --   insert_mode = "i",
@@ -38,8 +41,10 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
+-- keymap("n", "<S-l>", ":bnext<CR>", opts)
+-- keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap("n", "<S-l>", ":CtrlSpaceGoDown<CR>", opts)
+keymap("n", "<S-h>", ":CtrlSpaceGoUp<CR>", opts)
 
 -- Source nvim config
 keymap("n", "<F5>", ":so ~/.nvim-lua-config/nvim/init.lua <CR>", opts)

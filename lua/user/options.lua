@@ -37,10 +37,11 @@ local options = {
 }
 
 vim.opt.shortmess:append "c"
+vim.opt.iskeyword:append "-"
+vim.opt.whichwrap:append "<,>,[,],h,l"
 
 for k, v in pairs(options) do
 	vim.opt[k] = v
 end
 
-vim.cmd "set whichwrap+=<,>,[,],h,l"
-vim.cmd [[set iskeyword+=-]]
+-- vim.cmd [[let g:python3_host_prog = '~/.pyenv/shims/']]

@@ -5,7 +5,9 @@ end
 
 -- local trouble = require "trouble.providers.telescope"
 
--- telescope.load_extension('media_files')
+-- telescope.load_extension "media_files"
+telescope.load_extension "fzf"
+telescope.load_extension "notify"
 
 local actions = require "telescope.actions"
 
