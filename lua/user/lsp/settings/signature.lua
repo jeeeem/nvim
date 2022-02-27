@@ -1,6 +1,12 @@
-local cfg = {
+local status_ok, signature = pcall(require, "lsp_signature")
+
+if not status_ok then
+	return
+end
+
+local opts = {
 	debug = false, -- set to true to enable debug logging
-	log_path = vim.fn.stdpath "cache" .. "/lsp_signature.log", -- log dir when debug is on
+	log_path = vim.fn.stdpath "cache" .. "/lsp_signature.log", --log dir when debug is on
 	-- default is  ~/.cache/nvim/lsp_signature.log
 	verbose = false, -- show debug line number
 
@@ -46,4 +52,5 @@ local cfg = {
 	toggle_key = "<C-x>", -- toggle signature on and off in insert mode,  e.g. toggle_key = '<M-x>'
 }
 
-require("lsp_signature").setup(cfg) ---- no need to specify bufnr if you don't use toggle_key
+signature.setup(opts) -- no need to specify bufnr if you don't use toggle_key
+-- require("lsp_signature").setup(opts)

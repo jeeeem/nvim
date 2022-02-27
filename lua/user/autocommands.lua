@@ -26,6 +26,13 @@ vim.cmd [[
     autocmd!
     autocmd VimResized * tabdo wincmd = 
   augroup end
+  augroup _lsp
+    autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb({sign= {enabled =false}, float= {enabled =true}, win_opts={win_blend=80}})
+  augroup end
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+  augroup end
   " augroup FormatAutogroup
   "   autocmd!
   "   autocmd BufWritePost *.js, *.jsx,*.rs,*.lua,.*py Format

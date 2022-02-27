@@ -15,14 +15,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
 	vim.cmd [[packadd packer.nvim]]
 end
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd [[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]]
-
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
@@ -47,27 +39,14 @@ return packer.startup(function(use)
 	use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
 	use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
 	use "lewis6991/impatient.nvim" --Improve startup time
-	use "tpope/vim-repeat" -- Repeatable Plugin
-	use "aserowy/tmux.nvim" -- Tmux integration to Neovim
-	use "christoomey/vim-tmux-navigator" -- Tmux integration to Neovim
 	use "edkolev/tmuxline.vim" -- Tmux statusline generator
 	use "lukas-reineke/indent-blankline.nvim" -- Indent line
 	use "antoinemadec/FixCursorHold.nvim" -- https://github.com/neovim/neovim/issues/12587
 	use "stevearc/dressing.nvim" -- Improve vim.ui interfaces
-	use {
-		"rmagatti/goto-preview",
-		config = function()
-			require("goto-preview").setup {
-				default_mappings = true,
-			}
-		end,
-	} -- Preview definitions
-	use "tpope/vim-surround" -- Surround text object
-
-	-- General Plugins
 	use "dstein64/vim-startuptime" -- Startup profile
+
+	-- General IDE Plugins
 	use "windwp/nvim-autopairs" -- Auto pairs
-	use "ggandor/lightspeed.nvim" -- Motion
 	use "numToStr/Comment.nvim" -- Commenter
 	use "norcalli/nvim-colorizer.lua" -- Color highlighter
 	use "kyazdani42/nvim-tree.lua" -- File Explorer Tree
@@ -76,7 +55,8 @@ return packer.startup(function(use)
 	use "ahmedkhalf/project.nvim" -- Workspaces/Project management
 	use "rcarriga/nvim-notify" -- Notifications
 	use "goolord/alpha-nvim" -- Dashboard
-	use "folke/which-key.nvim" -- Popup Keybindings
+	use "folke/zen-mode.nvim" -- Zen mode
+	use "folke/twilight.nvim" -- Dim code
 	use "vim-airline/vim-airline" -- Tab/status line
 	use "vim-airline/vim-airline-themes" -- Airline Themes
 	use { "vim-ctrlspace/vim-ctrlspace", commit = "7ad53ecd905e22751bf3d31aef2db5f411976679" } -- Better buffer tab
@@ -87,6 +67,23 @@ return packer.startup(function(use)
 	-- } -- Tab/Status line
 	-- use "akinsho/bufferline.nvim" -- Tab line
 	-- use "moll/vim-bbye" -- Buffer deletion
+
+	-- Utility Plugins
+	use "ggandor/lightspeed.nvim" -- Motion
+	use "folke/which-key.nvim" -- Popup Keybindings
+	use "aserowy/tmux.nvim" -- Tmux integration to Neovim
+	use "tpope/vim-surround" -- Surround text object
+	use "troydm/zoomwintab.vim" -- Tmux-like zoom window
+	use "christoomey/vim-tmux-navigator" -- Tmux integration to Neovim
+	use "tpope/vim-repeat" -- Repeatable Plugin
+	use {
+		"rmagatti/goto-preview",
+		config = function()
+			require("goto-preview").setup {
+				default_mappings = true,
+			}
+		end,
+	} -- Preview definitions
 
 	-- FZF Plugins
 	use "nvim-telescope/telescope.nvim" -- FZF
@@ -111,6 +108,11 @@ return packer.startup(function(use)
 	use "folke/trouble.nvim" -- Pretty diagnostics
 	use "simrat39/symbols-outline.nvim" -- Tree-like symbols
 	use "b0o/schemastore.nvim" -- JSON SchemaStore
+	use { "kosayoda/nvim-lightbulb", requires = "neovim/nvim-lspconfig" } -- Code Action light bulb
+	use {
+		"j-hui/fidget.nvim",
+		requires = "neovim/nvim-lspconfig",
+	} -- LSP Progress
 
 	-- Debugging Plugins
 	use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }

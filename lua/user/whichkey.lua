@@ -88,16 +88,21 @@ local mappings = {
 		"Buffers",
 	},
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+	["E"] = { "<cmd>SymbolsOutline<cr>", "Symbol Outline" },
 	-- ["w"] = { "<cmd>w!<CR>", "Save" },
 	-- ["q"] = { "<cmd>q!<CR>", "Quit" },
 	["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-	["f"] = {
-		"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-		"Find files",
-	},
-	["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
 	["P"] = { "<cmd>Telescope projects<cr>", "Projects" },
+
+	f = {
+		name = "FZF",
+		f = {
+			"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+			"Find Files",
+		},
+		t = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
+	},
 
 	p = {
 		name = "Packer",
@@ -135,7 +140,7 @@ local mappings = {
 		name = "LSP",
 		a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
 		d = {
-			"<cmd>Telescope lsp_document_diagnostics<cr>",
+			"<cmd>TroubleToggle document_diagnostics<cr>",
 			"Document Diagnostics",
 		},
 		w = {
@@ -194,6 +199,8 @@ local mappings = {
 		h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
 		v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
 	},
+
+	["z"] = { "<cmd>ZenMode<cr>", "Zen Mode" },
 }
 
 local vopts = {
