@@ -83,25 +83,19 @@ local mappings = {
 	-- ["Space"] = { "<cmd> Whichkey <cr>", "Close" },
 	["/"] = { '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>', "Comment" },
 	["a"] = { "<cmd>Alpha<cr>", "Alpha" },
-	["b"] = {
-		"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-		"Buffers",
-	},
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 	["E"] = { "<cmd>SymbolsOutline<cr>", "Symbol Outline" },
 	-- ["w"] = { "<cmd>w!<CR>", "Save" },
 	-- ["q"] = { "<cmd>q!<CR>", "Quit" },
-	["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-	["P"] = { "<cmd>Telescope projects<cr>", "Projects" },
 
-	f = {
-		name = "FZF",
-		f = {
-			"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-			"Find Files",
+	b = {
+		name = "Buffers",
+		b = {
+			"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+			"Buffers",
 		},
-		t = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
+		c = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 	},
 
 	p = {
@@ -143,6 +137,10 @@ local mappings = {
 			"<cmd>TroubleToggle document_diagnostics<cr>",
 			"Document Diagnostics",
 		},
+		D = {
+			"<cmd>Telescope diagnostics<cr>",
+			"Project Document Diagnostics",
+		},
 		w = {
 			"<cmd>Telescope lsp_workspace_diagnostics<cr>",
 			"Workspace Diagnostics",
@@ -171,12 +169,19 @@ local mappings = {
 		name = "Search",
 		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
 		c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
+		f = {
+			"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+			"Find Files",
+		},
 		h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
 		M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
+		p = { "<cmd>Telescope projects<cr>", "Projects" },
 		r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
 		R = { "<cmd>Telescope registers<cr>", "Registers" },
-		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-		C = { "<cmd>Telescope commands<cr>", "Commands" },
+		s = { "<cmd>lua require('legendary').find()<cr>", "Search for keymaps and commands" },
+		t = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
+		-- k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
+		-- C = { "<cmd>Telescope commands<cr>", "Commands" },
 	},
 
 	t = {

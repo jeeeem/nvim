@@ -44,6 +44,8 @@ return packer.startup(function(use)
 	use "antoinemadec/FixCursorHold.nvim" -- https://github.com/neovim/neovim/issues/12587
 	use "stevearc/dressing.nvim" -- Improve vim.ui interfaces
 	use "dstein64/vim-startuptime" -- Startup profile
+	use "wakatime/vim-wakatime" -- Tracking activity
+	use "ethanholz/nvim-lastplace" -- Last position of last edit
 
 	-- General IDE Plugins
 	use "windwp/nvim-autopairs" -- Auto pairs
@@ -71,10 +73,12 @@ return packer.startup(function(use)
 	-- Utility Plugins
 	use "ggandor/lightspeed.nvim" -- Motion
 	use "folke/which-key.nvim" -- Popup Keybindings
+	use "mrjones2014/legendary.nvim" -- Legend keymaps
 	use "aserowy/tmux.nvim" -- Tmux integration to Neovim
 	use "tpope/vim-surround" -- Surround text object
 	use "troydm/zoomwintab.vim" -- Tmux-like zoom window
 	use "christoomey/vim-tmux-navigator" -- Tmux integration to Neovim
+	use "monaqa/dial.nvim" --Enchance increment/decrement
 	use "tpope/vim-repeat" -- Repeatable Plugin
 	use {
 		"rmagatti/goto-preview",
@@ -118,6 +122,7 @@ return packer.startup(function(use)
 	use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
 	use "Pocco81/DAPInstall.nvim"
 	use "theHamsta/nvim-dap-virtual-text"
+	-- use "nvim-telescope/telescope-dap.nvim"
 
 	-- Treesitter Plugins
 	use {

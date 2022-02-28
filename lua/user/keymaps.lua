@@ -1,5 +1,6 @@
-local opts = { noremap = true, silent = true }
+local M = {}
 
+local opts = { noremap = true, silent = true }
 local term_opts = { silent = true }
 
 -- Shorten function name
