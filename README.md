@@ -13,4 +13,10 @@
 - Legendary
   - Add more keymaps and commands
   - Bind default keybindings in keymaps.lua
+- Firenvim
+  - Disable LSP
+
+### Goals
+
 - Installer Script for my own neovim config
+- Convert remaining vim configs to lua

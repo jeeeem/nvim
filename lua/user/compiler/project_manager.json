@@ -14,5 +14,10 @@
     "name": "ExapleCpp",
     "description": "Project with make file",
     "command": "make buid & cd buid/ & ./compiled_file"
+  },
+  "~/project/react-typescript/techbase/my-app": {
+    "name": "React Typescript Sample",
+    "description": "Sample React + Typescript",
+    "command": "yarn start"
   }
 }

@@ -46,6 +46,12 @@ return packer.startup(function(use)
 	use "dstein64/vim-startuptime" -- Startup profile
 	use "wakatime/vim-wakatime" -- Tracking activity
 	use "ethanholz/nvim-lastplace" -- Last position of last edit
+	use {
+		"glacambre/firenvim",
+		run = function()
+			vim.fn["firenvim#install"](0)
+		end,
+	}
 
 	-- General IDE Plugins
 	use "windwp/nvim-autopairs" -- Auto pairs
@@ -143,6 +149,7 @@ return packer.startup(function(use)
 	use "nvim-treesitter/playground" -- Treesitter Playground
 	use "JoosepAlviste/nvim-ts-context-commentstring" -- Treesitter for commentstring
 	use "nvim-treesitter/nvim-treesitter-refactor" -- Treesitter refactor module
+	use "windwp/nvim-ts-autotag" -- Auto close tag
 
 	-- Git Plugins
 	use "lewis6991/gitsigns.nvim" -- Git integration
