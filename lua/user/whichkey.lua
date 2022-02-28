@@ -14,8 +14,8 @@ local setup = {
 		-- the presets plugin, adds help for a bunch of default keybindings in Neovim
 		-- No actual key bindings are created
 		presets = {
-			operators = false, -- adds help for operators like d, y, ... and registers them for motion / text object completion
-			motions = false, -- adds help for motions
+			operators = true, -- adds help for operators like d, y, ... and registers them for motion / text object completion
+			motions = true, -- adds help for motions
 			text_objects = false, -- help for text objects triggered after entering an operator
 			windows = true, -- default bindings on <c-w>
 			nav = true, -- misc bindings to work with windows
@@ -26,7 +26,6 @@ local setup = {
 	-- add operators that will trigger motion and text object completion
 	-- to enable all native operators, set the preset / operators plugin above
 	-- operators = { gc = "Comments" },
-	operators = { gc = "Comments" },
 	key_labels = {
 		-- override the label used to display some keys. It doesn't effect WK in any other way.
 		-- For example:
@@ -81,7 +80,7 @@ local opts = {
 
 local mappings = {
 	-- ["Space"] = { "<cmd> Whichkey <cr>", "Close" },
-	["/"] = { '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>', "Comment" },
+	["/"] = { "<cmd>lua require().toggle_current_linewise()<CR>", "Comment" },
 	["a"] = { "<cmd>Alpha<cr>", "Alpha" },
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 	["E"] = { "<cmd>SymbolsOutline<cr>", "Symbol Outline" },
@@ -96,6 +95,30 @@ local mappings = {
 			"Buffers",
 		},
 		c = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+	},
+
+	c = {
+		name = "Code Runner",
+		c = {
+			"<cmd>RunCode<cr>",
+			"Run Code based on file type",
+		},
+		f = {
+			"<cmd>RunFile<cr>",
+			"Run the currenf file",
+		},
+		F = {
+			"<cmd>CRFiletype<cr>",
+			"List of supported filetypes config",
+		},
+		p = {
+			"<cmd>RunProject<cr>",
+			"Run the current project",
+		},
+		P = {
+			"<cmd>CRProjects<cr>",
+			"List of projects config",
+		},
 	},
 
 	p = {

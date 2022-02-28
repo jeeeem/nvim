@@ -62,6 +62,8 @@ return packer.startup(function(use)
 	use "vim-airline/vim-airline" -- Tab/status line
 	use "vim-airline/vim-airline-themes" -- Airline Themes
 	use { "vim-ctrlspace/vim-ctrlspace", commit = "7ad53ecd905e22751bf3d31aef2db5f411976679" } -- Better buffer tab
+	use { "michaelb/sniprun", run = "bash ./install.sh" } -- Code snippet runner
+	use { "CRAG666/code_runner.nvim", requires = "nvim-lua/plenary.nvim" } -- Code Runner
 
 	-- use {
 	-- 	"kdheepak/tabline.nvim",
@@ -80,6 +82,14 @@ return packer.startup(function(use)
 	use "christoomey/vim-tmux-navigator" -- Tmux integration to Neovim
 	use "monaqa/dial.nvim" --Enchance increment/decrement
 	use "tpope/vim-repeat" -- Repeatable Plugin
+	use {
+		"chentau/marks.nvim",
+		config = function()
+			require("marks").setup {
+				default_mappings = true,
+			}
+		end,
+	} -- Better marks experience
 	use {
 		"rmagatti/goto-preview",
 		config = function()

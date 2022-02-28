@@ -35,6 +35,9 @@ require "user.lsp"
 require "user.cmp"
 require "user.treesitter"
 
+-- Compiler Configuration
+require "user.compiler"
+
 -- Debugger Configuration
 
 -- Colorschemes

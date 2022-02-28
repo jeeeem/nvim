@@ -13,3 +13,4 @@
 - Legendary
   - Add more keymaps and commands
   - Bind default keybindings in keymaps.lua
+- Installer Script for my own neovim config

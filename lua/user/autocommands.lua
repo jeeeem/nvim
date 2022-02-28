@@ -6,6 +6,7 @@ vim.cmd [[
     autocmd TextYankPost * silent!lua require('vim.highlight').on_yank({higroup = 'Search', timeout = 200}) 
     autocmd BufWinEnter * :set formatoptions-=cro
     autocmd BufWinEnter * :set nohlsearch
+    " autocmd TermOpen * startinsert
     " autocmd BufWinEnter * :set iskeyword+=-
     " autocmd BufWinEnter * :set sessionoptions+=tabpages,globals
     autocmd FileType qf set nobuflisted
