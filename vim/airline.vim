@@ -13,6 +13,7 @@ let g:airline#extensions#tabline#right_sep = ''
 let g:airline#extensions#tabline#right_alt_sep = ''
 
 let g:airline_extensions = ['tabline', 'ctrlspace']
+" let g:airline_exclude_filetypes = ['alpha'] " see source for current list
 
 " Enable powerline fonts
 let g:airline_powerline_fonts = 1

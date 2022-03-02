@@ -78,6 +78,7 @@ local opts = {
 	nowait = true, -- use `nowait` when creating keymaps
 }
 
+local plugin_config = vim.fn.stdpath "config" .. "/lua/user/plugins.lua"
 local mappings = {
 	-- ["Space"] = { "<cmd> Whichkey <cr>", "Close" },
 	["/"] = { '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>', "Comment" },
@@ -101,7 +102,7 @@ local mappings = {
 		name = "Packer",
 		c = { "<cmd>PackerCompile<cr>", "Compile" },
 		i = { "<cmd>PackerInstall<cr>", "Install" },
-		s = { "<cmd>PackerSync<cr>", "Sync" },
+		s = { "<cmd>source ~/.nvim-lua-config/nvim/lua/user/plugins.lua | PackerSync<cr>", "Sync" },
 		S = { "<cmd>PackerStatus<cr>", "Status" },
 		u = { "<cmd>PackerUpdate<cr>", "Update" },
 	},

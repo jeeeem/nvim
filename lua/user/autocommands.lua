@@ -1,4 +1,5 @@
 -- autocmd! remove all autocommands, if entered under a group it will clear that group
+
 vim.cmd [[
   augroup _general_settings
     autocmd!
@@ -6,7 +7,6 @@ vim.cmd [[
     autocmd TextYankPost * silent!lua require('vim.highlight').on_yank({higroup = 'Search', timeout = 200}) 
     autocmd BufWinEnter * :set formatoptions-=cro
     autocmd BufWinEnter * :set nohlsearch
-    " autocmd TermOpen * startinsert
     " autocmd BufWinEnter * :set iskeyword+=-
     " autocmd BufWinEnter * :set sessionoptions+=tabpages,globals
     autocmd FileType qf set nobuflisted
@@ -30,10 +30,20 @@ vim.cmd [[
   augroup _lsp
     autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb({sign= {enabled =false}, float= {enabled =true}, win_opts={win_blend=80}})
   augroup end
-  augroup packer_user_config
+  " augroup packer_user_config
+  "   autocmd!
+  "   autocmd BufWritePost plugins.lua source <afile> | PackerSync
+  " augroup end
+  augroup fold
     autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+    autocmd BufWritePre * mkview
+    autocmd BufRead * silent! loadview
   augroup end
+  " augroup airline
+  "   autocmd!
+  "   " autocmd FileType html,css,javascriptreact,typescriptreact,lua echo "test"
+  "   " autocmd FileType html,css,javascriptreact,typescriptreact,lua AirlineRefresh
+  " augroup end
   " augroup FormatAutogroup
   "   autocmd!
   "   autocmd BufWritePost *.js, *.jsx,*.rs,*.lua,.*py Format

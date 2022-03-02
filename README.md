@@ -36,6 +36,8 @@
   - Use tokyonight colors to the table hex codes
 - DeleteHiddenBuffers
   - Ignore terminal buffer
+- Test Lua Programming
+  - return only one table per method call
 
 ### Goals
 

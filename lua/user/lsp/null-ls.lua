@@ -3,24 +3,30 @@ if not null_ls_status_ok then
 	return
 end
 
+local format_status_ok, format = pcall(require, "lsp-format")
+if not format_status_ok then
+	return
+end
+
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
 local formatting = null_ls.builtins.formatting
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
 local diagnostics = null_ls.builtins.diagnostics
 
 null_ls.setup {
-	on_attach = function(client)
-		if client.resolved_capabilities.document_formatting then
-			vim.cmd [[
-              augroup LspFormatting
-                  autocmd! * <buffer>
-                  " autocmd!
-                  " autocmd FileType lua,python
-                  autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
-              augroup END
-              ]]
-		end
-	end,
+	-- on_attach = function(client)
+	-- 	if client.resolved_capabilities.document_formatting then
+	-- 		vim.cmd [[
+	--              augroup LspFormatting
+	--                  autocmd! * <buffer>
+	--                  " autocmd!
+	--                  " autocmd FileType lua,python
+	--                  autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
+	--              augroup END
+	--              ]]
+	-- 	end
+	-- end,
+	on_attach = format.on_attach,
 	debug = false,
 	sources = {
 		-- Javascript Files

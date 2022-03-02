@@ -1,14 +1,18 @@
 -- General Configuration
+require "user.autocommands"
 require "user.options"
 require "user.keymaps"
-require "user.autocommands"
 require "user.impatient"
 require "user.custom"
 
--- Plugins Configuration
+-- Colorschemes
+require "user.colorschemes.tokyonight"
+
+-- -- Plugins Configuration
+require "user.notify"
 require "user.plugins"
 require "user.packer_compiled"
-require "user.notify"
+require "user.nvimtree"
 require "user.lastplace"
 require "user.colorizer"
 require "user.zen"
@@ -16,16 +20,16 @@ require "user.autopairs"
 require "user.indentline"
 require "user.comment"
 require "user.gitsigns"
-require "user.nvimtree"
 require "user.project"
 require "user.toggleterm"
 require "user.alpha"
 require "user.telescope"
 require "user.legendary"
-require "user.whichkey"
+-- require "user.whichkey"
 require "user.trouble"
 require "user.dial"
 require "user.prettyfold"
+require "user.focus"
 
 -- require "user.dressing"
 -- require "user.lualine"
@@ -41,9 +45,7 @@ require "user.treesitter"
 require "user.compiler"
 
 -- Debugger Configuration
-
--- Colorschemes
-require "user.colorschemes.tokyonight"
+require "user.debugger"
 
 -- Custom && Vim plugins
 vim.cmd [[source ~/.nvim-lua-config/nvim/vim/airline.vim]]
