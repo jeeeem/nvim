@@ -52,13 +52,55 @@ local commands = {
 	{ ":MyCommand [some_argument]<CR>", description = "Command with argument", unfinished = true },
 }
 
+-- Define autocommands with a slightly different table structure
+-- the elemensts of the table can be augroups or autocommands,
+-- augroups will contain autocommands inside them
+local autocommands = {
+	-- augroup example
+	{
+		name = "LspFormat",
+		clear = false, -- default true
+		{
+			-- event can be a string or table of strings like { 'BufWritePre', 'BufWritePost' }
+			"BufWritePre",
+			-- definition can be a string or a lua function
+			-- require("my-lsp-utils").format,
+			-- description is required for them to appear in finder,
+			-- but you can omit if if you don't need it to appear
+			-- in the finder
+			description = "Format with LSP on save",
+			opts = {
+				-- autocommand pattern to match, can be a string or table of strings
+				-- defaults to '*'
+				pattern = "*.lua",
+				-- you can also set `once = true` to have it only run once
+				-- once = true,
+			},
+		},
+	},
+	-- autocmd example
+	{
+		-- event can be a string or table of strings like { 'BufWritePre', 'BufWritePost' }
+		{ "FileType" },
+		-- definition can be a string or a lua function
+		":setlocal conceallevel=0",
+		opts = {
+			-- autocommand pattern to match, defaults to '*'
+			pattern = { "json", "jsonc" },
+			-- you can also specify group, it must be an *already existing*
+			-- augroup name, unless nested inside an augroup table as above
+			group = "LspFormat",
+		},
+	},
+}
 -- legendary.setup {
 legendary.setup {
 	-- Include builtins by default, set to false to disable
 	include_builtin = true,
 	-- Customize the prompt that appears on your vim.ui.select() handler
 	select_prompt = "Legendary",
-	-- keymaps = keymaps, -- Initial keymaps to bind
+	-- keymaps = keymaps, -u Initial keymaps to bind
 	-- commands = commands, -- Initial commands to create
+	-- autocmds = autocommands -- Initial autocmds to create
 	auto_register_which_key = true,
 }

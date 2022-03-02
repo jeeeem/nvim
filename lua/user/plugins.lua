@@ -57,6 +57,8 @@ return packer.startup(function(use)
 	use "windwp/nvim-autopairs" -- Auto pairs
 	use "numToStr/Comment.nvim" -- Commenter
 	use "norcalli/nvim-colorizer.lua" -- Color highlighter
+	use "anuvyklack/pretty-fold.nvim" -- Better folding text
+	-- use "beauwilliams/focus.nvim" -- Better window management
 	use "kyazdani42/nvim-tree.lua" -- File Explorer Tree
 	use "kyazdani42/nvim-web-devicons" -- Devicons
 	use "akinsho/toggleterm.nvim" -- Floating terminl
@@ -79,7 +81,7 @@ return packer.startup(function(use)
 	-- use "moll/vim-bbye" -- Buffer deletion
 
 	-- Utility Plugins
-	use "ggandor/lightspeed.nvim" -- Motion
+	-- use "ggandor/lightspeed.nvim" -- Motion
 	use "folke/which-key.nvim" -- Popup Keybindings
 	use "mrjones2014/legendary.nvim" -- Legend keymaps
 	use "aserowy/tmux.nvim" -- Tmux integration to Neovim
@@ -117,8 +119,6 @@ return packer.startup(function(use)
 	use "hrsh7th/cmp-cmdline" -- cmdline completions
 	use "saadparwaiz1/cmp_luasnip" -- snippet completions
 	use "hrsh7th/cmp-nvim-lsp" -- lsp completions
-	use "hrsh7th/cmp-nvim-lua" -- lua completions
-	use "folke/lua-dev.nvim" -- Completion for Nvim lua API
 
 	-- LSP Plugins
 	use "neovim/nvim-lspconfig" -- enable LSP
@@ -128,6 +128,7 @@ return packer.startup(function(use)
 	use "folke/trouble.nvim" -- Pretty diagnostics
 	use "simrat39/symbols-outline.nvim" -- Tree-like symbols
 	use "b0o/schemastore.nvim" -- JSON SchemaStore
+	use "mattn/emmet-vim" -- Emmet for HTML & CSS
 	use { "kosayoda/nvim-lightbulb", requires = "neovim/nvim-lspconfig" } -- Code Action light bulb
 	use {
 		"j-hui/fidget.nvim",
@@ -154,6 +155,8 @@ return packer.startup(function(use)
 	-- Git Plugins
 	use "lewis6991/gitsigns.nvim" -- Git integration
 	use "tpope/vim-fugitive" --  Git wrapper
+	-- use "ruifm/gitlinker.nvim" -- Generate permalinks for git web front-end
+	-- use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' } -- Git diff
 
 	-- Snippets Plugins
 	use "L3MON4D3/LuaSnip" --snippet engine
@@ -167,6 +170,12 @@ return packer.startup(function(use)
 	use { "iamcco/markdown-preview.nvim", run = "cd app && yarn install" } --  Markdown Preview
 	use "vimwiki/vimwiki"
 	use "vim-pandoc/vim-pandoc-syntax"
+
+	--  For Lua Development Plugin
+	-- https://github.com/ellisonleao/nvim-plugin-template
+	use "milisims/nvim-luaref" --  Manpage for 5.1 Lua reference manual
+	use "folke/lua-dev.nvim" -- Completion for Nvim lua API
+	use "hrsh7th/cmp-nvim-lua" -- Neovim Lua completions
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

@@ -91,5 +91,3 @@ keymap("n", "<C-p>", "<cmd>Telescope find_files<cr>", opts)
 
 -- Nvimtree
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
-
--- vim.cmd [[ command! Rg execute 'Telescope live_grep' ]]

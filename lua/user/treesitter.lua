@@ -3,6 +3,9 @@ if not status_ok then
 	return
 end
 
+-- List of available filetypes with rainbow parenthesis
+-- local rainbow_enabled_list = { "clojure", "fennel", "commonlisp", "query", ... }
+
 configs.setup {
 	ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
 	sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
@@ -24,11 +27,29 @@ configs.setup {
 		enable_autocmd = false,
 	},
 	rainbow = {
-		enable = false,
+		enable = true,
 		-- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
+		-- disable = vim.tbl_filter(
+		--    function(p)
+		--        local disable = true
+		--        for _, lang in pairs(enabled_list) do
+		--          if p==lang then disable = false end
+		--        end
+		--        return disable
+		--    end,
+		--    parsers.available_parsers()
+		--  )
 		extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
 		max_file_lines = nil, -- Do not enable for files with more than n lines, int
-		-- colors = {}, -- table of hex strings
+		colors = {
+			"#EBCB8B",
+			"#D08770",
+			"#BF616A",
+			"#A3BE8C",
+			"#B48EAD",
+			"#8FBCBB",
+			"#81A1C1",
+		}, -- table of hex strings
 		-- termcolors = {} -- table of colour name strings
 	},
 	playground = {

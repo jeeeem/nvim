@@ -14,13 +14,13 @@ local setup = {
 		-- the presets plugin, adds help for a bunch of default keybindings in Neovim
 		-- No actual key bindings are created
 		presets = {
-			operators = true, -- adds help for operators like d, y, ... and registers them for motion / text object completion
+			operators = false, -- adds help for operators like d, y, ... and registers them for motion / text object completion
 			motions = true, -- adds help for motions
 			text_objects = false, -- help for text objects triggered after entering an operator
 			windows = true, -- default bindings on <c-w>
 			nav = true, -- misc bindings to work with windows
 			z = true, -- bindings for folds, spelling and others prefixed with z
-			g = true, -- bindings for prefixed with g
+			g = false, -- bindings for prefixed with g
 		},
 	},
 	-- add operators that will trigger motion and text object completion
@@ -80,7 +80,7 @@ local opts = {
 
 local mappings = {
 	-- ["Space"] = { "<cmd> Whichkey <cr>", "Close" },
-	["/"] = { "<cmd>lua require().toggle_current_linewise()<CR>", "Comment" },
+	["/"] = { '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>', "Comment" },
 	["a"] = { "<cmd>Alpha<cr>", "Alpha" },
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 	["E"] = { "<cmd>SymbolsOutline<cr>", "Symbol Outline" },
@@ -95,30 +95,6 @@ local mappings = {
 			"Buffers",
 		},
 		c = { "<cmd>Bdelete!<CR>", "Close Buffer" },
-	},
-
-	c = {
-		name = "Code Runner",
-		c = {
-			"<cmd>RunCode<cr>",
-			"Run Code based on file type",
-		},
-		f = {
-			"<cmd>RunFile<cr>",
-			"Run the currenf file",
-		},
-		F = {
-			"<cmd>CRFiletype<cr>",
-			"List of supported filetypes config",
-		},
-		p = {
-			"<cmd>RunProject<cr>",
-			"Run the current project",
-		},
-		P = {
-			"<cmd>CRProjects<cr>",
-			"List of projects config",
-		},
 	},
 
 	p = {
@@ -207,6 +183,30 @@ local mappings = {
 		-- C = { "<cmd>Telescope commands<cr>", "Commands" },
 	},
 
+	r = {
+		name = "Code Runner",
+		c = {
+			"<cmd>RunCode<cr>",
+			"Run Code based on file type",
+		},
+		f = {
+			"<cmd>RunFile<cr>",
+			"Run the current file",
+		},
+		F = {
+			"<cmd>CRFiletype<cr>",
+			"List of supported filetypes config",
+		},
+		p = {
+			"<cmd>RunProject<cr>",
+			"Run the current project",
+		},
+		P = {
+			"<cmd>CRProjects<cr>",
+			"List of projects config",
+		},
+	},
+
 	t = {
 		name = "Tab",
 		c = { "<cmd>tabclose<cr>", "Close tab" },
@@ -219,16 +219,21 @@ local mappings = {
 
 	T = {
 		name = "Terminal",
-		n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
-		u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
-		t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
-		p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
+		c = { "<cmd>ToggleTerm<cr>", "Close terminal" },
 		f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
 		h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
+		n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
+		p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
+		t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
+		u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
 		v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
 	},
 
-	["z"] = { "<cmd>ZenMode<cr>", "Zen Mode" },
+	z = {
+		name = "Zen Mode",
+		t = { "<cmd>Twilight<cr>", "Toggle Dim" },
+		z = { "<cmd>ZenMode<cr>", "Toggle Zen Mode" },
+	},
 }
 
 local vopts = {
