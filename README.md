@@ -1,5 +1,7 @@
 ### TODO
 
+#### Configuration
+
 - Alpha
   - Customize Dashboard
 - Debugger
@@ -13,10 +15,6 @@
 - Legendary
   - Add more keymaps and commands
   - Bind default keybindings in keymaps.lua
-- Pretty-Fold
-  - Test and configure
-- Focus
-  - Test and configure
 - Firenvim
   - Disable LSP
     > https://www.reddit.com/r/neovim/comments/lqj21o/how_to_temporarily_disable_lsp/
@@ -38,8 +36,25 @@
   - Ignore terminal buffer
 - Test Lua Programming
   - return only one table per method call
+- LSP Floating window
+  - Adjust z index
+- Airline
+  - Add devicons to buffers
+
+#### Custom Snippets
+- .justfile
+  - create a snippet for running package json
+
+#### Breaking Changes
+- Legendary 623ccfca90b1d8645a1b16ab5a58115b7db83532
 
 ### Goals
 
 - Installer Script for my own neovim config
 - Convert remaining vim configs to lua
+- Create a documentation for all keybindings, plugins and other utilities use in the config
+
+### Custom Plugin
+
+- Cheatsheet Plugin
+  - Viewing personal notes for how the function words by fuzzy searching

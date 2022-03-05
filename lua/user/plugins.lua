@@ -13,19 +13,40 @@ end
 
 function M.lazy_load()
 	vim.defer_fn(function()
-		if packer_plugins["ctrlspace"].loaded == true then
-			-- vim.notify "Lazy Load"
-			-- vim.cmd [[AirlineRefresh]]
-			loader "airline"
-		end
+		vim.cmd [[AirlineRefresh]]
+		-- if packer_plugins["ctrlspace"].loaded == true then
+		-- vim.notify "Lazy Load"
+		-- vim.cmd [[AirlineRefresh]]
+		-- 	loader "airline"
+		-- end
 	end, 5)
 end
 
 --------------------------------
 local fn = vim.fn
 
-local lazy_load_ft = { "alpha", "lua", "javascript", "python", "typescript", "javascriptreact", "typescriptreact" }
-local dev_ft = { "lua", "javascript", "python", "typescript", "javascriptreact", "typescriptreact", "html" }
+local lazy_load_ft = {
+	"alpha",
+	"vim",
+	"lua",
+	"java",
+	"javascript",
+	"python",
+	"typescript",
+	"javascriptreact",
+	"typescriptreact",
+}
+local dev_ft = {
+	"vim",
+	"lua",
+	"java",
+	"javascript",
+	"python",
+	"typescript",
+	"javascriptreact",
+	"typescriptreact",
+	"html",
+}
 
 -- Automatically install packer
 local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
@@ -69,8 +90,11 @@ return packer.startup(function(use)
 	use "edkolev/tmuxline.vim" -- Tmux statusline generator
 	use {
 		"lukas-reineke/indent-blankline.nvim",
-		ft = lazy_load_ft,
 		cmd = { "IndentBlanklineRefresh" },
+		setup = function()
+			require "user.indentline"
+		end,
+		after = "nvim-treesitter",
 		opt = true,
 	} -- Indent line
 	use {
@@ -108,20 +132,16 @@ return packer.startup(function(use)
 		as = "ctrlspace",
 		opt = true,
 		ft = dev_ft,
-		-- ft = lazy_load_ft,
-		-- config = M.lazy_load(),
-		cmd = "CtrlSpace",
 		commit = "7ad53ecd905e22751bf3d31aef2db5f411976679",
 	} -- Better buffer tab
 	use {
 		"vim-airline/vim-airline",
 		as = "airline",
-		ft = dev_ft,
 		after = "ctrlspace",
 		opt = true,
-		-- cond = M.lazy_load(),
-		-- cmd = { "AirlineRefresh" },
-		-- config = "vim.cmd[[AirlineRefresh]]",
+		config = function()
+			vim.cmd [[Tmuxline]]
+		end,
 	} -- Tab/status line
 	use "vim-airline/vim-airline-themes" -- Airline Themes
 	use { "michaelb/sniprun", opt = true, cmd = { "SnipRun" }, run = "bash ./install.sh" } -- Code snippet runner
@@ -139,7 +159,7 @@ return packer.startup(function(use)
 	-- Utility Plugins
 	-- use "ggandor/lightspeed.nvim" -- Motion
 	use { "folke/which-key.nvim", opt = true, ft = dev_ft, config = "vim.cmd[[lua require'user.whichkey']]" } -- Popup Keybindings
-	use { "mrjones2014/legendary.nvim", opt = true, ft = dev_ft } -- Legend keymaps
+	use { "mrjones2014/legendary.nvim", opt = true, ft = dev_ft, commit = "f30c658f4d97e28a535fa026a8dc0d58fa121183" } -- Legend keymaps
 	use "tpope/vim-surround" -- Surround text object;
 	use "troydm/zoomwintab.vim" -- Tmux-like zoom window
 	use {
@@ -167,9 +187,22 @@ return packer.startup(function(use)
 	} -- Preview definitions
 
 	-- FZF Plugins
-	use "nvim-telescope/telescope.nvim" -- FZF
-	use "nvim-telescope/telescope-fzf-native.nvim" -- FZF enhancement
-	use "nvim-telescope/telescope-media-files.nvim" -- Support image file
+	use {
+		"nvim-telescope/telescope.nvim",
+		opt = true,
+		after = "nvim-treesitter",
+		cmd = "Telescope",
+	} -- FZF
+	use {
+		"nvim-telescope/telescope-fzf-native.nvim",
+		opt = true,
+		after = "telescope.nvim",
+		config = "vim.cmd[[lua require('user.telescope')]]",
+	} -- FZF enhancement
+	use {
+		"nvim-telescope/telescope-media-files.nvim", --[[ opt = true, after = "telescope.nvim" ]]
+	} -- Support image file
+	-- use "nvim-telescope/telescope-dap.nvim" -- Telescope extension for dap
 
 	-- Completion Plugins
 	use {
@@ -177,36 +210,38 @@ return packer.startup(function(use)
 		-- ft = M.remove(lazy_load_ft, "alpha"),
 		ft = dev_ft,
 		event = "VimEnter",
+		config = "vim.cmd[[lua require('user.cmp')]]",
 		opt = true,
 	} -- The completion plugin
 	use {
 		"hrsh7th/cmp-buffer",
-		ft = dev_ft,
+		after = "nvim-cmp",
 		opt = true,
 	} -- buffer completions
 	use {
 		"hrsh7th/cmp-path",
-		ft = dev_ft,
+		after = "nvim-cmp",
 		opt = true,
 	} -- path completions
 	use {
 		"hrsh7th/cmp-cmdline",
-		ft = dev_ft,
+		after = "nvim-cmp",
 		opt = true,
 	} -- cmdline completions
 	use {
 		"saadparwaiz1/cmp_luasnip",
-		ft = dev_ft,
+		after = "nvim-cmp",
 		opt = true,
 	} -- snippet completions
 	use {
 		"hrsh7th/cmp-nvim-lsp",
-		ft = dev_ft,
+		after = "nvim-cmp",
 		opt = true,
 	} -- LSP completions
 
 	-- LSP Plugins
-	use "neovim/nvim-lspconfig" -- enable LSP
+	-- use "neovim/nvim-lspconfig" -- enable LSP
+	use { "neovim/nvim-lspconfig", opt = true, ft = dev_ft, config = "vim.cmd[[lua require('user.lsp')]]" } -- enable LSP
 	use "williamboman/nvim-lsp-installer" -- simple to use language server installer
 	use "ray-x/lsp_signature.nvim" -- LSP signature hints
 	use "jose-elias-alvarez/null-ls.nvim" -- Formatters and linters
@@ -226,24 +261,31 @@ return packer.startup(function(use)
 	} -- LSP Progress
 
 	-- Debugging Plugins
-	use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
-	use "Pocco81/DAPInstall.nvim"
-	use "theHamsta/nvim-dap-virtual-text"
-	-- use "nvim-telescope/telescope-dap.nvim"
+	use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } } -- Debugger
+	use "Pocco81/DAPInstall.nvim" -- Debug Adapter Protoocal Installer
+	use "theHamsta/nvim-dap-virtual-text" -- Virtual Text for nvim-dap
+	use "mfussenegger/nvim-dap-python" -- Python extension for Nvim-dap
+	-- use "mfussenegger/nvim-jdtls"
 
 	-- Treesitter Plugins
 	use {
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
+		opt = true,
+		event = { "User TelescopePreviewerLoaded" },
+		ft = lazy_load_ft,
+		config = "vim.cmd[[lua require('user.treesitter')]]",
 	}
-	use "p00f/nvim-ts-rainbow" -- Rainbow Parenthesis
-	use "nvim-treesitter/playground" -- Treesitter Playground
-	use "JoosepAlviste/nvim-ts-context-commentstring" -- Treesitter for commentstring
-	use "nvim-treesitter/nvim-treesitter-refactor" -- Treesitter refactor module
-	use "windwp/nvim-ts-autotag" -- Auto close tag
+	use { "nvim-treesitter/playground", opt = true, after = "nvim-treesitter" } -- Treesitter Playground
+	use { "JoosepAlviste/nvim-ts-context-commentstring", opt = true, after = "nvim-treesitter" } -- Treesitter for commentstring
+	use { "nvim-treesitter/nvim-treesitter-refactor", opt = true, after = "nvim-treesitter" } -- Treesitter refactor module
+	use { "p00f/nvim-ts-rainbow", opt = true, after = "nvim-treesitter" } -- Rainbow Parenthesis
+	use { "windwp/nvim-ts-autotag", opt = true, after = "nvim-treesitter" } -- Auto close tag
 
 	-- Git Plugins
-	use "lewis6991/gitsigns.nvim" -- Git integration
+	use {
+		"lewis6991/gitsigns.nvim", --[[ commit = "06aefb1867687ee2b1d206fd5d19a2b254c62f2c"  ]]
+	} -- Git integration
 	use { "tpope/vim-fugitive", opt = true, cmd = { "G" } } --  Git wrapper
 	-- use "ruifm/gitlinker.nvim" -- Generate permalinks for git web front-end
 	-- use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' } -- Git diff
@@ -257,7 +299,14 @@ return packer.startup(function(use)
 	use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
 	-- Colorschemes Plugins
-	use "folke/tokyonight.nvim"
+	use {
+		"folke/tokyonight.nvim",
+		-- opt = true,
+		-- event = "VimEnter",
+		-- setup = function()
+		-- 	require "user.packer_compiled"
+		-- end,
+	}
 	use "olimorris/onedarkpro.nvim"
 
 	-- Note Taking Plugins

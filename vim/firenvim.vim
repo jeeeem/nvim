@@ -61,6 +61,7 @@ if exists('g:started_by_firenvim') && g:started_by_firenvim
 		"" Disable status line and tab line
 		autocmd BufRead,BufNewFile * set laststatus=0
 		autocmd BufRead,BufNewFile * set showtabline=0
+    autocmd BufWinEnter * :lua vim.lsp.stop_client(vim.lsp.get_active_clients())
 
 		"" set filetype markdown when editing github textboxs
 		autocmd BufEnter github.com_*.txt set filetype=markdown

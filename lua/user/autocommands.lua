@@ -1,5 +1,4 @@
 -- autocmd! remove all autocommands, if entered under a group it will clear that group
-
 vim.cmd [[
   augroup _general_settings
     autocmd!
@@ -27,8 +26,16 @@ vim.cmd [[
     autocmd!
     autocmd VimResized * tabdo wincmd = 
   augroup end
-  augroup _lsp
-    autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb({sign= {enabled =false}, float= {enabled =true}, win_opts={win_blend=80}})
+  augroup _lsp_codeaction
+    autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb({sign= {enabled =false}, float= {enabled =true, text="ﯦ"}, win_opts={win_blend=80}, ignore={"null-ls"}})
+    autocmd ColorScheme * highlight LightBulbFloatWin guifg=#EED333 
+  augroup end
+  augroup diagnostics_highlight
+    autocmd!
+    autocmd ColorScheme * highlight DiagnosticVirtualTextError  guifg=#f53131 guibg=#fff
+    " autocmd ColorScheme * highlight DiagnosticFloatingError  guifg=#f53131 guibg=#fff
+    " autocmd ColorScheme * highlight DiagnosticVirtualTextError  guifg=#fff guibg=#fff
+    autocmd ColorScheme * highlight DiagnosticFloatingError  guifg=#fff guibg=#fff
   augroup end
   " augroup packer_user_config
   "   autocmd!

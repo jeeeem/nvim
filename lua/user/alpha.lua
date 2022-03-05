@@ -25,6 +25,7 @@ dashboard.section.buttons.val = {
 	dashboard.button("p", "  Polybar Configuration", ":e ~/.config/polybar/config <CR>"),
 	dashboard.button("v", "  Neovim Configuration", ":e ~/.nvim-lua-config/nvim/init.lua <CR>"),
 	dashboard.button("z", "  Zsh Configuration", ":e ~/.zshrc <CR>"),
+	dashboard.button("h", "  Hide Startup", ":Alpha<CR>"),
 	dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
 }
 

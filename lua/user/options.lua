@@ -4,6 +4,7 @@ local options = {
 	cmdheight = 2, -- more space in the neovim command line for displaying messages
 	completeopt = { "menuone", "noselect" }, -- mostly just for cmp
 	conceallevel = 0, -- so that `` is visible in markdown files
+	colorcolumn = "100", -- line down for margin
 	fileencoding = "utf-8", -- the encoding written to a file
 	hlsearch = true, -- highlight all matches on previous search pattern
 	ignorecase = true, -- ignore case in search patterns
@@ -47,4 +48,5 @@ end
 
 -- vim.cmd [[let g:python3_host_prog = '~/.pyenv/shims/']]
 -- Highlights
-vim.cmd [[highlight FidgetTask ctermfg=110 guifg=#FFF ]]
+vim.cmd [[highlight FidgetTask ctermfg=242 guifg=#364A82 ]]
+-- vim.fn.sign_define("LightBulbSign", { text = "ﯦ", texthl = "#FFF", linehl = "", numhl = "" })

@@ -78,7 +78,6 @@ local opts = {
 	nowait = true, -- use `nowait` when creating keymaps
 }
 
-local plugin_config = vim.fn.stdpath "config" .. "/lua/user/plugins.lua"
 local mappings = {
 	-- ["Space"] = { "<cmd> Whichkey <cr>", "Close" },
 	["/"] = { '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>', "Comment" },
@@ -88,6 +87,8 @@ local mappings = {
 	-- ["w"] = { "<cmd>w!<CR>", "Save" },
 	-- ["q"] = { "<cmd>q!<CR>", "Quit" },
 	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
+	-- ["U"] = { "<cmd>source $MYVIMRC<CR>", "Update config" },
+	["U"] = { "<cmd>lua reload_nvim_conf()<CR>", "Update config" },
 
 	b = {
 		name = "Buffers",
@@ -96,6 +97,59 @@ local mappings = {
 			"Buffers",
 		},
 		c = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+	},
+
+	d = {
+		name = "Debugging",
+		b = { "<cmd>lua require'dap'.step_back()<cr>", "Step Back" },
+		c = { "<cmd>lua require'dap'.continue()<cr>", "Continue/Start" },
+		C = { "<cmd>lua require'dap'.run_to_cursor()<cr>", "Run To Cursor" },
+		d = { "<cmd>lua require'dap'.disconnect()<cr>", "Disconnect" },
+		g = { "<cmd>lua require'dap'.session()<cr>", "Get Session" },
+		i = { "<cmd>lua require'dap'.step_into()<cr>", "Step Into" },
+		I = { "<cmd>lua require'dapui'.toggle()<cr>", "Step Into" },
+		l = { "<cmd>lua require'dapui'.list_breakpoints()<cr>", "List breakpoints" },
+		o = { "<cmd>lua require'dap'.step_over()<cr>", "Step Over" },
+		p = { "<cmd>lua require'dap'.pause.toggle()<cr>", "Pause" },
+		q = { "<cmd>lua require'dap'.close()<cr>", "Quit" },
+		r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Toggle Repl" },
+		s = { "<cmd>lua require'dap'.set_breakpoint()<cr>", "Set Breakpoint" },
+		t = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
+		u = { "<cmd>lua require'dap'.step_out()<cr>", "Step Out" },
+		-- x = { "<cmd>lua require'dap'.clear_breakpoints()<cr>", "Clear Breakpoints" },
+		x = { "<cmd>lua clear_debug_details()<cr>", "Clear Breakpoints" },
+	},
+
+	f = {
+		name = "Focus Mode Window",
+		e = {
+			"<cmd>FocusEqualise<cr>",
+			"Equalize Windows",
+		},
+		h = {
+			"<cmd>FocusSplitLeft<cr>",
+			"Move to existing left window or create a new split to the left",
+		},
+		j = {
+			"<cmd>FocusSplitDown<cr>",
+			"Move to existing down window or create a new split to the down",
+		},
+		k = {
+			"<cmd>FocusSplitUp<cr>",
+			"Move to existing up indow or create a new split to the up",
+		},
+		l = {
+			"<cmd>FocusSplitRight<cr>",
+			"Move to existing right indow or create a new split to the right",
+		},
+		m = {
+			"<cmd>FocusMaxOrEqual<cr>",
+			"Toggle Maximize or Equalize the Window",
+		},
+		t = {
+			"<cmd>FocusToggle<cr>",
+			"Toggle Focus mode",
+		},
 	},
 
 	p = {
@@ -164,6 +218,7 @@ local mappings = {
 			"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
 			"Workspace Symbols",
 		},
+		x = { "<cmd>lua vim.lsp.stop_client(vim.lsp.get_active_clients())<cr>", "Stop all LSP clients" },
 	},
 	s = {
 		name = "Search",

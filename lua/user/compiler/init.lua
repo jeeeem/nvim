@@ -4,11 +4,13 @@ if not status_ok then
 	return
 end
 
--- Variables
--- $file -- file path to currend file opened
--- $fileName -- file name to curren file opened
--- $fileNameWithoutExt -- file without extension file opened
--- $dir -- path of directory to file opened
+-- Plugin Variables
+--[[
+$file -- file path to currend file opened
+$fileName -- file name to curren file opened
+$fileNameWithoutExt -- file without extension file opened
+$dir -- path of directory to file opened
+]]
 
 code_runner.setup {
 	term = {
