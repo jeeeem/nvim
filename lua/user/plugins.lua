@@ -158,8 +158,22 @@ return packer.startup(function(use)
 
 	-- Utility Plugins
 	-- use "ggandor/lightspeed.nvim" -- Motion
-	use { "folke/which-key.nvim", opt = true, ft = dev_ft, config = "vim.cmd[[lua require'user.whichkey']]" } -- Popup Keybindings
-	use { "mrjones2014/legendary.nvim", opt = true, ft = dev_ft, commit = "f30c658f4d97e28a535fa026a8dc0d58fa121183" } -- Legend keymaps
+	use {
+		"folke/which-key.nvim",
+		opt = true,
+		ft = dev_ft,
+		config = function()
+			require "user.whichkey"
+		end,
+	} -- Popup Keybindings
+	use {
+		"mrjones2014/legendary.nvim",
+		opt = true,
+		config = function()
+			require "user.legendary"
+		end,
+		ft = dev_ft, --[[ commit = "f30c658f4d97e28a535fa026a8dc0d58fa121183"  ]]
+	} -- Legend keymaps
 	use "tpope/vim-surround" -- Surround text object;
 	use "troydm/zoomwintab.vim" -- Tmux-like zoom window
 	use {
