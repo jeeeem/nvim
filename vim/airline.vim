@@ -25,6 +25,8 @@ let g:airline_right_alt_sep = ''
 " Switch to your current theme
 let g:airline_theme = 'tomorrow'
 " let g:airline_theme = 'dark_minimal'
+let g:nvim_web_devicons_airline = 1
+
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:webdevicons_enable_airline_tabline = 1
 

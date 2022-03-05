@@ -144,6 +144,7 @@ return packer.startup(function(use)
 		end,
 	} -- Tab/status line
 	use "vim-airline/vim-airline-themes" -- Airline Themes
+	use "~/.nvim-lua-config/nvim/custom-plugins/nvim-web-devicons-airline" -- Web-Devicons for airline
 	use { "michaelb/sniprun", opt = true, cmd = { "SnipRun" }, run = "bash ./install.sh" } -- Code snippet runner
 	use { "CRAG666/code_runner.nvim", requires = "nvim-lua/plenary.nvim" } -- Code Runner
 

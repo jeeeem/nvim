@@ -4,8 +4,6 @@
 
 - Alpha
   - Customize Dashboard
-- Debugger
-  - Setup nvim-dap
 - Log
   - Configure nvim notify or struct log
 - Dial
@@ -18,6 +16,7 @@
 - Firenvim
   - Disable LSP
     > https://www.reddit.com/r/neovim/comments/lqj21o/how_to_temporarily_disable_lsp/
+
 - Try Plugins
   - Harpoon
   - Refactor
@@ -25,6 +24,8 @@
   - Add more snippets make it usable
 - Signature
   - Float in the top
+- LSP Floating window
+  - Adjust z index
 - Persistence
   - Try session management plugin
 - PrettyFold
@@ -36,8 +37,6 @@
   - Ignore terminal buffer
 - Test Lua Programming
   - return only one table per method call
-- LSP Floating window
-  - Adjust z index
 - Airline
   - Add devicons to buffers
 
@@ -46,7 +45,6 @@
   - create a snippet for running package json
 
 #### Breaking Changes
-- Legendary 623ccfca90b1d8645a1b16ab5a58115b7db83532
 
 ### Goals
 
