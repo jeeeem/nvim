@@ -117,6 +117,7 @@ return packer.startup(function(use)
 	use "windwp/nvim-autopairs" -- auto pairs
 	use "numToStr/Comment.nvim" -- Commenter
 	use "norcalli/nvim-colorizer.lua" -- Color highlighter
+	use "nvim-pack/nvim-spectre" -- Better search and replace
 	use "anuvyklack/pretty-fold.nvim" -- Better folding text
 	use "beauwilliams/focus.nvim" -- Better window management
 	use "kyazdani42/nvim-tree.lua" -- File Explorer Tree

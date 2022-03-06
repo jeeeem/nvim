@@ -39,6 +39,8 @@
   - return only one table per method call
 - Airline
   - Add devicons to buffers
+- Built in spell checker
+  - learn how it works in vim
 
 #### Custom Snippets
 - .justfile

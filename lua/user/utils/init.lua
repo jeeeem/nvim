@@ -20,3 +20,23 @@ function _G.clear_debug_details()
 	require("dap").clear_breakpoints()
 	vim.cmd [[DapVirtualTextForceRefresh]]
 end
+
+-- Snapshot Plugins before updating
+function _G.packer_update()
+	local datetime = os.date "%d-%m-%Y1"
+
+	-- Delete the existing snapshot
+	vim.cmd("PackerSnapshotDelete " .. datetime)
+
+	-- Snapshot the current plugins with name of current date time
+	vim.defer_fn(function()
+		vim.cmd("PackerSnapshot " .. datetime)
+	end, 100)
+
+	vim.defer_fn(function()
+		vim.notify "Initializing Packer Update..."
+	end, 700)
+	vim.cmd [[source ~/.nvim-lua-config/nvim/lua/user/plugins.lua | PackerSync]]
+
+	-- Update the plugins
+end

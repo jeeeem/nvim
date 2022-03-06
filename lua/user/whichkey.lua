@@ -81,14 +81,20 @@ local opts = {
 local mappings = {
 	-- ["Space"] = { "<cmd> Whichkey <cr>", "Close" },
 	["/"] = { '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>', "Comment" },
-	["a"] = { "<cmd>Alpha<cr>", "Alpha" },
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 	["E"] = { "<cmd>SymbolsOutline<cr>", "Symbol Outline" },
-	-- ["w"] = { "<cmd>w!<CR>", "Save" },
-	-- ["q"] = { "<cmd>q!<CR>", "Quit" },
 	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-	-- ["U"] = { "<cmd>source $MYVIMRC<CR>", "Update config" },
 	["U"] = { "<cmd>lua reload_nvim_conf()<CR>", "Update config" },
+
+	a = {
+		name = "Actions",
+		d = { "<cmd>Alpha<CR>", "Dashboard" },
+		m = { "<cmd>MarkdownPreview<CR>", "Markdown Preview" },
+		l = { "<cmd>lua require('pretty-fold.preview').keymap_open_close()<CR>", "Preview Fold" },
+		s = { "<cmd>lua require('spectre').open()<cr>", "Search and Replace" },
+		v = { "<cmd>VimwikiIndex<CR>", "Vimwiki" },
+		x = { "<cmd>DeleteHiddenBuffers<CR>", "Delete Hidden Buffers" },
+	},
 
 	b = {
 		name = "Buffers",
@@ -96,7 +102,7 @@ local mappings = {
 			"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
 			"Buffers",
 		},
-		c = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+		c = { "<cmd>Bd<CR>", "Close Buffer" },
 	},
 
 	d = {
@@ -155,8 +161,10 @@ local mappings = {
 	p = {
 		name = "Packer",
 		c = { "<cmd>PackerCompile<cr>", "Compile" },
+		-- d = { ":PackerSnapshotDelete ", "Compile" },
 		i = { "<cmd>PackerInstall<cr>", "Install" },
-		s = { "<cmd>source ~/.nvim-lua-config/nvim/lua/user/plugins.lua | PackerSync<cr>", "Sync" },
+		-- s = { "<cmd>source ~/.nvim-lua-config/nvim/lua/user/plugins.lua | PackerSync<cr>", "Sync" },
+		s = { "<cmd>lua packer_update()<cr>", "test" },
 		S = { "<cmd>PackerStatus<cr>", "Status" },
 		u = { "<cmd>PackerUpdate<cr>", "Update" },
 	},
@@ -307,3 +315,4 @@ local vmappings = {
 which_key.setup(setup)
 which_key.register(mappings, opts)
 which_key.register(vmappings, vopts)
+return M

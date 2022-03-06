@@ -37,6 +37,11 @@ vim.cmd [[
     " autocmd ColorScheme * highlight DiagnosticVirtualTextError  guifg=#fff guibg=#fff
     autocmd ColorScheme * highlight DiagnosticFloatingError  guifg=#fff guibg=#fff
   augroup end
+  augroup spectre_highlight
+    autocmd!
+    autocmd ColorScheme * highlight DiffChange  guifg=#f53131 guibg=#fff
+    autocmd ColorScheme * highlight DiffDelete  guifg=#00FF00 guibg=#fff
+  augroup end
   " augroup packer_user_config
   "   autocmd!
   "   autocmd BufWritePost plugins.lua source <afile> | PackerSync

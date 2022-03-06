@@ -31,6 +31,7 @@ require "user.trouble"
 require "user.dial"
 require "user.prettyfold"
 require "user.focus"
+require "user.spectre"
 
 -----------------------
 -- require "user.dressing"
@@ -44,7 +45,7 @@ require "user.focus"
 -- require "user.cmp" --lazyloaded
 -- require "user.treesitter" --lazyloaded
 
--- -- Compiler Configuration
+-- Compiler Configuration
 require "user.compiler"
 
 -- Debugger Configuration

@@ -83,3 +83,4 @@ We'll cover this in more detail later when we refactor our plugin's code to take
 Finally, the ~/.vim/doc/ directory is where you can add documentation for your plugin. Vim has a huge
 focus on documentation (as evidenced by all the :help commands we've been running) so it's important
 to document your plugins.
+
