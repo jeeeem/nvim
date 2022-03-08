@@ -1,5 +1,14 @@
 local M = {}
 
+-- Vim specific map
+-- :nmap - Display normal mode maps
+-- :imap - Display insert mode maps
+-- :vmap - Display visual and select mode maps
+-- :smap - Display select mode maps
+-- :xmap - Display visual mode maps
+-- :cmap - Display command-line mode maps
+-- :omap - Display operator pending mode maps
+
 local opts = { noremap = true, silent = true }
 local term_opts = { silent = true }
 

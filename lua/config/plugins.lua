@@ -139,11 +139,10 @@ return packer.startup(function(use)
 	} --Regex explainer
 	use "folke/twilight.nvim" -- Dim code
 	use {
-		"vim-ctrlspace/vim-ctrlspace",
+		"~/nvim-plugins/vim-ctrlspace/",
 		as = "ctrlspace",
 		opt = true,
 		ft = dev_ft,
-		commit = "7ad53ecd905e22751bf3d31aef2db5f411976679",
 	} -- Better buffer tab
 	use {
 		"vim-airline/vim-airline",

@@ -19,6 +19,7 @@ require "config.lastplace"
 require "config.colorizer"
 require "config.zen"
 require "config.autopairs"
+
 -- require "config.indentline" --lazyloaded
 require "config.gitsigns"
 require "config.project"
