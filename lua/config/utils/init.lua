@@ -5,7 +5,7 @@ local loader = require("packer").loader
 -- TODO: Add more details for reloading lazy loeaded plugins (airline and telescope)
 function _G.reload_nvim_conf()
 	for name, _ in pairs(package.loaded) do
-		if name:match "^user" then
+		if name:match "^config" then
 			package.loaded[name] = nil
 		end
 	end
@@ -23,7 +23,7 @@ end
 
 -- Snapshot Plugins before updating
 function _G.packer_update()
-	local datetime = os.date "%d-%m-%Y1"
+	local datetime = os.date "%d-%m-%Y"
 
 	-- Delete the existing snapshot
 	vim.cmd("PackerSnapshotDelete " .. datetime)
@@ -36,7 +36,7 @@ function _G.packer_update()
 	vim.defer_fn(function()
 		vim.notify "Initializing Packer Update..."
 	end, 700)
-	vim.cmd [[source ~/.nvim-lua-config/nvim/lua/user/plugins.lua | PackerSync]]
+	vim.cmd [[source ~/.nvim-lua-config/nvim/lua/config/plugins.lua | PackerSync]]
 
 	-- Update the plugins
 end

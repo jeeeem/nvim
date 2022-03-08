@@ -3,7 +3,7 @@ if not cmp_status_ok then
 	return
 end
 
-local luasnip = require "user.luasnip"
+local luasnip = require "config.luasnip"
 
 local check_backspace = function()
 	local col = vim.fn.col "." - 1
@@ -43,7 +43,7 @@ local kind_icons = {
 cmp.setup {
 	snippet = {
 		expand = function(args)
-			luasnip.lsp_expand(args.body) -- For `luasnip` users.
+			luasnip.lsp_expand(args.body) -- For `luasnip` configs.
 		end,
 	},
 	mapping = {

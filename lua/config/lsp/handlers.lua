@@ -88,6 +88,8 @@ M.on_attach = function(client, bufnr)
 		client.resolved_capabilities.document_formatting = false
 	elseif client.name == "jsonls" then
 		client.resolved_capabilities.document_formatting = false
+	-- elseif client.name == "lua" then
+	-- 	client.resolved_capabilities.document_formatting = false
 	end
 	lsp_keymaps(bufnr)
 	-- lsp_highlight_document(client)

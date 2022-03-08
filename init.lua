@@ -1,55 +1,50 @@
 -- General Configuration
-require "user.autocommands"
-require "user.options"
-require "user.keymaps"
-require "user.impatient"
-require "user.custom"
-require "user.utils"
+require "config.autocommands"
+require "config.options"
+require "config.keymaps"
+require "config.impatient"
+require "config.custom"
+require "config.utils"
 
 -- Colorschemes
-require "user.colorschemes.tokyonight"
+require "config.colorschemes.tokyonight"
 
 -- Plugins Configuration
-require "user.notify"
-require "user.plugins"
-require "user.packer_compiled"
-require "user.comment"
-require "user.nvimtree"
-require "user.lastplace"
-require "user.colorizer"
-require "user.zen"
-require "user.autopairs"
--- require "user.indentline" --lazyloaded
-require "user.gitsigns"
-require "user.project"
-require "user.toggleterm"
-require "user.alpha"
---  require "user.telescope" -- lazyloaded
--- require "user.legendary" -- lazyloaded
--- require "user.whichkey" -- lazyloaded
-require "user.trouble"
-require "user.dial"
-require "user.prettyfold"
-require "user.focus"
-require "user.spectre"
-
------------------------
--- require "user.dressing"
--- require "user.lualine"
--- require "user.tabline"
--- require "bufferline"
------------------------
+require "config.notify"
+require "config.plugins"
+require "config.packer_compiled"
+require "config.comment"
+require "config.nvimtree"
+require "config.lastplace"
+require "config.colorizer"
+require "config.zen"
+require "config.autopairs"
+-- require "config.indentline" --lazyloaded
+require "config.gitsigns"
+require "config.project"
+require "config.toggleterm"
+require "config.alpha"
+--  require "config.telescope" -- lazyloaded
+-- require "config.legendary" -- lazyloaded
+-- require "config.whichkey" -- lazyloaded
+require "config.trouble"
+require "config.dial"
+require "config.prettyfold"
+require "config.focus"
+require "config.spectre"
+require "config.regex"
+require "config.hop"
 
 -- LSP Configuration
--- require "user.lsp" -- lazyloaded
--- require "user.cmp" --lazyloaded
--- require "user.treesitter" --lazyloaded
+-- require "config.lsp" -- lazyloaded
+-- require "config.cmp" --lazyloaded
+-- require "config.treesitter" --lazyloaded
 
 -- Compiler Configuration
-require "user.compiler"
+require "config.compiler"
 
 -- Debugger Configuration
-require "user.debugger"
+require "config.debugger"
 
 -- Custom && Vim plugins
 vim.cmd [[source ~/.nvim-lua-config/nvim/vim/airline.vim]]

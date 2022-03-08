@@ -77,7 +77,7 @@ packer.init {
 			return require("packer.util").float { border = "rounded" }
 		end,
 	},
-	compile_path = require("packer.util").join_paths(vim.fn.stdpath "config", "lua", "user", "packer_compiled.lua"),
+	compile_path = require("packer.util").join_paths(vim.fn.stdpath "config", "lua", "config", "packer_compiled.lua"),
 }
 
 -- Install your plugins here
@@ -92,7 +92,7 @@ return packer.startup(function(use)
 		"lukas-reineke/indent-blankline.nvim",
 		cmd = { "IndentBlanklineRefresh" },
 		setup = function()
-			require "user.indentline"
+			require "config.indentline"
 		end,
 		after = "nvim-treesitter",
 		opt = true,
@@ -127,6 +127,16 @@ return packer.startup(function(use)
 	use "rcarriga/nvim-notify" -- Notifications
 	use "goolord/alpha-nvim" -- Dashboard
 	use "folke/zen-mode.nvim" -- Zen mode
+	use {
+		"bennypowers/nvim-regexplainer",
+		config = function()
+			require("regexplainer").setup()
+		end,
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"MunifTanjim/nui.nvim",
+		},
+	} --Regex explainer
 	use "folke/twilight.nvim" -- Dim code
 	use {
 		"vim-ctrlspace/vim-ctrlspace",
@@ -145,7 +155,7 @@ return packer.startup(function(use)
 		end,
 	} -- Tab/status line
 	use "vim-airline/vim-airline-themes" -- Airline Themes
-	use "~/.nvim-lua-config/nvim/custom-plugins/nvim-web-devicons-airline" -- Web-Devicons for airline
+	use "~/nvim-plugins/nvim-web-devicons-airline" -- Web-Devicons for airline
 	use { "michaelb/sniprun", opt = true, cmd = { "SnipRun" }, run = "bash ./install.sh" } -- Code snippet runner
 	use { "CRAG666/code_runner.nvim", requires = "nvim-lua/plenary.nvim" } -- Code Runner
 
@@ -160,19 +170,20 @@ return packer.startup(function(use)
 
 	-- Utility Plugins
 	-- use "ggandor/lightspeed.nvim" -- Motion
+	use "phaazon/hop.nvim" -- Easymotion
 	use {
 		"folke/which-key.nvim",
 		opt = true,
 		ft = dev_ft,
 		config = function()
-			require "user.whichkey"
+			require "config.whichkey"
 		end,
 	} -- Popup Keybindings
 	use {
 		"mrjones2014/legendary.nvim",
 		opt = true,
 		config = function()
-			require "user.legendary"
+			require "config.legendary"
 		end,
 		ft = dev_ft, --[[ commit = "f30c658f4d97e28a535fa026a8dc0d58fa121183"  ]]
 	} -- Legend keymaps
@@ -213,7 +224,7 @@ return packer.startup(function(use)
 		"nvim-telescope/telescope-fzf-native.nvim",
 		opt = true,
 		after = "telescope.nvim",
-		config = "vim.cmd[[lua require('user.telescope')]]",
+		config = "vim.cmd[[lua require('config.telescope')]]",
 	} -- FZF enhancement
 	use {
 		"nvim-telescope/telescope-media-files.nvim", --[[ opt = true, after = "telescope.nvim" ]]
@@ -226,7 +237,7 @@ return packer.startup(function(use)
 		-- ft = M.remove(lazy_load_ft, "alpha"),
 		ft = dev_ft,
 		event = "VimEnter",
-		config = "vim.cmd[[lua require('user.cmp')]]",
+		config = "vim.cmd[[lua require('config.cmp')]]",
 		opt = true,
 	} -- The completion plugin
 	use {
@@ -257,7 +268,7 @@ return packer.startup(function(use)
 
 	-- LSP Plugins
 	-- use "neovim/nvim-lspconfig" -- enable LSP
-	use { "neovim/nvim-lspconfig", opt = true, ft = dev_ft, config = "vim.cmd[[lua require('user.lsp')]]" } -- enable LSP
+	use { "neovim/nvim-lspconfig", opt = true, ft = dev_ft, config = "vim.cmd[[lua require('config.lsp')]]" } -- enable LSP
 	use "williamboman/nvim-lsp-installer" -- simple to use language server installer
 	use "ray-x/lsp_signature.nvim" -- LSP signature hints
 	use "jose-elias-alvarez/null-ls.nvim" -- Formatters and linters
@@ -290,7 +301,7 @@ return packer.startup(function(use)
 		opt = true,
 		event = { "User TelescopePreviewerLoaded" },
 		ft = lazy_load_ft,
-		config = "vim.cmd[[lua require('user.treesitter')]]",
+		config = "vim.cmd[[lua require('config.treesitter')]]",
 	}
 	use { "nvim-treesitter/playground", opt = true, after = "nvim-treesitter" } -- Treesitter Playground
 	use { "JoosepAlviste/nvim-ts-context-commentstring", opt = true, after = "nvim-treesitter" } -- Treesitter for commentstring
@@ -320,7 +331,7 @@ return packer.startup(function(use)
 		-- opt = true,
 		-- event = "VimEnter",
 		-- setup = function()
-		-- 	require "user.packer_compiled"
+		-- 	require "config.packer_compiled"
 		-- end,
 	}
 	use "olimorris/onedarkpro.nvim"

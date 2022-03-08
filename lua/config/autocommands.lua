@@ -1,4 +1,39 @@
 -- autocmd! remove all autocommands, if entered under a group it will clear that group
+
+local api = vim.api
+
+local general_settings = api.nvim_create_augroup("General Settings", { clear = true })
+local diagnostics_highlight = api.nvim_create_augroup("Diagnostics Highlight", { clear = true })
+local markdown = api.nvim_create_augroup("Markdown Settings", { clear = true })
+local spectre = api.nvim_create_augroup("Markdown Settings", { clear = true })
+local fold = api.nvim_create_augroup("Markdown Settings", { clear = true })
+
+-- General settings augroup
+-- api.nvim_create_autocmd("FileType qf,")
+
+-- Diagnostics Highlight augroup
+api.nvim_create_autocmd(
+	"ColorScheme",
+	{ command = "highlight DiagnosticVirtualTextError  guifg=#f53131 guibg=#fff", group = diagnostics_highlight }
+)
+
+api.nvim_create_autocmd(
+	"ColorScheme",
+	{ command = "highlight DiagnosticFloatingError  guifg=#fff guibg=#fff", group = diagnostics_highlight }
+)
+
+-- Markdown Augroup
+-- api.nvim_create_autocmd(
+-- 	"BufNewFile, BufFilePre, BufRead *.md",
+-- 	{ command = "set filetype=markdown.pandoc", group = markdown }
+-- )
+-- api.nvim_create_autocmd("FileType vimwiki", {
+-- 	callback = function()
+-- 		vim.cmd [[set filetype=markdown.pancoc, set syntax=markdown]]
+-- 	end,
+-- 	group = markdown,
+-- })
+
 vim.cmd [[
   augroup _general_settings
     autocmd!
@@ -30,38 +65,19 @@ vim.cmd [[
     autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb({sign= {enabled =false}, float= {enabled =true, text="ﯦ"}, win_opts={win_blend=80}, ignore={"null-ls"}})
     autocmd ColorScheme * highlight LightBulbFloatWin guifg=#EED333 
   augroup end
-  augroup diagnostics_highlight
-    autocmd!
-    autocmd ColorScheme * highlight DiagnosticVirtualTextError  guifg=#f53131 guibg=#fff
-    " autocmd ColorScheme * highlight DiagnosticFloatingError  guifg=#f53131 guibg=#fff
-    " autocmd ColorScheme * highlight DiagnosticVirtualTextError  guifg=#fff guibg=#fff
-    autocmd ColorScheme * highlight DiagnosticFloatingError  guifg=#fff guibg=#fff
-  augroup end
+  " augroup diagnostics_highlight
+  "   autocmd!
+  "   autocmd ColorScheme * highlight DiagnosticVirtualTextError  guifg=#f53131 guibg=#fff
+  "   autocmd ColorScheme * highlight DiagnosticFloatingError  guifg=#fff guibg=#fff
+  " augroup end
   augroup spectre_highlight
     autocmd!
     autocmd ColorScheme * highlight DiffChange  guifg=#f53131 guibg=#fff
     autocmd ColorScheme * highlight DiffDelete  guifg=#00FF00 guibg=#fff
   augroup end
-  " augroup packer_user_config
-  "   autocmd!
-  "   autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  " augroup end
   augroup fold
     autocmd!
     autocmd BufWritePre * mkview
     autocmd BufRead * silent! loadview
   augroup end
-  " augroup airline
-  "   autocmd!
-  "   " autocmd FileType html,css,javascriptreact,typescriptreact,lua echo "test"
-  "   " autocmd FileType html,css,javascriptreact,typescriptreact,lua AirlineRefresh
-  " augroup end
-  " augroup FormatAutogroup
-  "   autocmd!
-  "   autocmd BufWritePost *.js, *.jsx,*.rs,*.lua,.*py Format
-  " augroup END
-  " augroup _alpha
-  "   autocmd!
-  "   autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
-  " augroup end
 ]]

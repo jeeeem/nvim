@@ -17,17 +17,16 @@ null_ls.setup {
 	on_attach = function(client)
 		if client.resolved_capabilities.document_formatting then
 			vim.cmd [[
-	             augroup LspFormatting
-	                 autocmd! * <buffer>
-	                 " autocmd!
-	                 " autocmd FileType lua,python
-	                 autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
-	             augroup END
-	             ]]
+			           augroup LspFormatting
+			               autocmd! * <buffer>
+			               autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
+			           augroup END
+			           ]]
 		end
 	end,
-	-- on_attach = format.on_attach,
-	debug = false,
+
+	-- on_attach = format.on_attach, -- lsp-format config
+	-- debug = false,
 	sources = {
 		-- Javascript Files
 		-- formatting.prettier.with { extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } },

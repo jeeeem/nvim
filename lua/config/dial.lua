@@ -1,4 +1,4 @@
--- local keymap = require "user.keymaps"
+-- local keymap = require "config.keymaps"
 -- print(keymap)
 
 local status_ok, dial = pcall(require, "dial.config")
@@ -11,6 +11,9 @@ local augend = require "dial.augend"
 
 dial.augends:register_group {
 	default = {
+		augend.integer.alias.decimal, -- nonnegative decimal number (0, 1, 2, 3, ...)
+		augend.integer.alias.hex, -- nonnegative hex number  (0x01, 0x1a1f, etc.)
+		augend.date.alias["%Y/%m/%d"], -- date (2022/02/19, etc.)
 		-- uppercase hex number (0x1A1A, 0xEEFE, etc.)
 		augend.constant.new {
 			elements = { "and", "or" },

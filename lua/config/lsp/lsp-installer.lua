@@ -8,8 +8,8 @@ end
 -- Alternatively, you may also register handlers on specific server instances instead (see example below).
 lsp_installer.on_server_ready(function(server)
 	local opts = {
-		on_attach = require("user.lsp.handlers").on_attach,
-		capabilities = require("user.lsp.handlers").capabilities,
+		on_attach = require("config.lsp.handlers").on_attach,
+		capabilities = require("config.lsp.handlers").capabilities,
 	}
 
 	if server.name == "jsonls" then
@@ -31,20 +31,20 @@ lsp_installer.on_server_ready(function(server)
 	end
 
 	if server.name == "sumneko_lua" then
-		local sumneko_opts = require "user.lsp.settings.sumneko_lua"
+		local sumneko_opts = require "config.lsp.settings.sumneko_lua"
 		opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
 	elseif server.name == "pyright" then
-		local pyright_opts = require "user.lsp.settings.pyright"
+		local pyright_opts = require "config.lsp.settings.pyright"
 		opts = vim.tbl_deep_extend("force", pyright_opts, opts)
 	end
 
 	-- if server.name == "pyright" then
-	-- 	local pyright_opts = require "user.lsp.settings.pyright"
+	-- 	local pyright_opts = require "config.lsp.settings.pyright"
 	-- 	opts = vim.tbl_deep_extend("force", pyright_opts, opts)
 	-- end
 	--
 	-- if server.name == "emmet_ls" then
-	-- 	local emmet_opts = require "user.lsp.settings.emmet"
+	-- 	local emmet_opts = require "config.lsp.settings.emmet"
 	-- 	opts = vim.tbl_deep_extend("force", emmet_opts, opts)
 	-- end
 

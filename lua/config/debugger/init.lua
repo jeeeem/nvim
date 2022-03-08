@@ -72,7 +72,7 @@ table.insert(require("dap").configurations.python, {
 	redirectOutput = true,
 })
 
-local dapui = require "user.debugger.dap-ui"
+local dapui = require "config.debugger.dap-ui"
 
 dap.listeners.after.event_initialized["dapui"] = function()
 	dapui.open()
