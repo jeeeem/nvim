@@ -1,3 +1,4 @@
 /lua/config/packer_compiled.lua
 test.lua
 .luarc.json
+*.log

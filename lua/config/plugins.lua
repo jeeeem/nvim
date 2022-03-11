@@ -26,7 +26,7 @@ end
 local fn = vim.fn
 
 local lazy_load_ft = {
-	"alpha",
+	-- "alpha",
 	"vim",
 	"lua",
 	"java",
@@ -37,15 +37,16 @@ local lazy_load_ft = {
 	"typescriptreact",
 }
 local dev_ft = {
-	"vim",
-	"lua",
+	"html",
 	"java",
 	"javascript",
+	"javascriptreact",
+	"lua",
+	"md",
 	"python",
 	"typescript",
-	"javascriptreact",
 	"typescriptreact",
-	"html",
+	"vim",
 }
 
 -- Automatically install packer
@@ -73,28 +74,34 @@ end
 -- Have packer use a popup window
 packer.init {
 	display = {
+		non_interactive = false,
 		open_fn = function()
 			return require("packer.util").float { border = "rounded" }
 		end,
 	},
 	compile_path = require("packer.util").join_paths(vim.fn.stdpath "config", "lua", "config", "packer_compiled.lua"),
+	profile = {
+		enable = false,
+		threshold = 1, -- integer in milliseconds, plugins which load faster than this won't be shown in profile output
+	},
 }
 
 -- Install your plugins here
 return packer.startup(function(use)
 	-- Essential Plugins
-	use "wbthomason/packer.nvim" -- Have packer manage itself
+	use { "wbthomason/packer.nvim" } -- Have packer manage itself
 	use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
 	use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
 	use "lewis6991/impatient.nvim" --Improve startup time
+	use "nathom/filetype.nvim" -- Improve startup time
 	use "edkolev/tmuxline.vim" -- Tmux statusline generator
 	use {
 		"lukas-reineke/indent-blankline.nvim",
 		cmd = { "IndentBlanklineRefresh" },
-		setup = function()
+		config = function()
 			require "config.indentline"
 		end,
-		after = "nvim-treesitter",
+		-- after = "nvim-treesitter",
 		opt = true,
 	} -- Indent line
 	use {
@@ -104,7 +111,7 @@ return packer.startup(function(use)
 	} -- https://github.com/neovim/neovim/issues/12587
 	use "stevearc/dressing.nvim" -- Improve vim.ui interfaces
 	use "dstein64/vim-startuptime" -- Startup profile
-	use "wakatime/vim-wakatime" -- Tracking activity
+	use { "wakatime/vim-wakatime", opt = true, ft = dev_ft } -- Tracking activity
 	use "ethanholz/nvim-lastplace" -- Last position of last edit
 	use {
 		"glacambre/firenvim",
@@ -126,6 +133,15 @@ return packer.startup(function(use)
 	use "ahmedkhalf/project.nvim" -- Workspaces/Project management
 	use "rcarriga/nvim-notify" -- Notifications
 	use "goolord/alpha-nvim" -- Dashboard
+	-- use {
+	-- 	"goolord/alpha-nvim",
+	-- 	opt = true,
+	-- 	event = "VimEnter",
+	-- 	-- cmd = { "Alpha" },
+	-- 	config = function()
+	-- 		require "config.alpha"
+	-- 	end,
+	-- } -- Dashboard
 	use "folke/zen-mode.nvim" -- Zen mode
 	use {
 		"bennypowers/nvim-regexplainer",
@@ -233,7 +249,6 @@ return packer.startup(function(use)
 	-- Completion Plugins
 	use {
 		"hrsh7th/nvim-cmp",
-		-- ft = M.remove(lazy_load_ft, "alpha"),
 		ft = dev_ft,
 		event = "VimEnter",
 		config = "vim.cmd[[lua require('config.cmp')]]",

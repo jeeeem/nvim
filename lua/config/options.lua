@@ -5,6 +5,7 @@ local options = {
 	completeopt = { "menuone", "noselect" }, -- mostly just for cmp
 	conceallevel = 0, -- so that `` is visible in markdown files
 	colorcolumn = "100", -- line down for margin
+	textwidth = 100, -- Maximum width for text
 	fileencoding = "utf-8", -- the encoding written to a file
 	hlsearch = true, -- highlight all matches on previous search pattern
 	ignorecase = true, -- ignore case in search patterns
@@ -42,6 +43,10 @@ local options = {
 vim.opt.shortmess:append "c"
 vim.opt.iskeyword:append "-"
 vim.opt.whichwrap:append "<,>,[,],h,l"
+
+-- Do not source the default filetype.vim
+-- vim.g.do_filetype_lua = 1
+vim.g.did_load_filetypes = 1
 
 for k, v in pairs(options) do
 	vim.opt[k] = v

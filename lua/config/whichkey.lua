@@ -236,6 +236,7 @@ local mappings = {
 			"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
 			"Find Files",
 		},
+		g = { "<cmd>Telescope git_files<cr>", "Git Files" },
 		h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
 		M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
 		p = { "<cmd>Telescope projects<cr>", "Projects" },

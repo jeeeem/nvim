@@ -95,6 +95,9 @@ telescope.setup {
 		-- }
 		-- Now the picker_config_key will be applied every time you call this
 		-- builtin picker
+		git_files = {
+			-- use_git_root = false,
+		},
 	},
 	extensions = {
 		media_files = {

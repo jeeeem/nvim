@@ -18,7 +18,12 @@ regex.setup {
 	display = "split",
 
 	mappings = {
-		show = "gR",
+		-- show = "gR",
+		toggle = "gR",
+		-- show = 'gS',
+		-- hide = 'gH',
+		-- showSplit = 'gP',
+		-- showPopup = 'gU',
 	},
 
 	narrative = {
