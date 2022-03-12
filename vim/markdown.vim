@@ -120,6 +120,7 @@ let g:mkdp_filetypes = ['markdown']
 " " ---Vim Wiki Settings
 let g:vimwiki_list = [{'path': '~/vimwiki/',
                       \ 'index': 'README',
+                      \ 'filetype': 'markdown.pandoc',
                       \ 'syntax': 'markdown',
                       \  'ext': '.md'}]
 let g:vimwiki_global_ext = 0

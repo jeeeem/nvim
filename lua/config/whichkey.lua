@@ -228,6 +228,21 @@ local mappings = {
 		},
 		x = { "<cmd>lua vim.lsp.stop_client(vim.lsp.get_active_clients())<cr>", "Stop all LSP clients" },
 	},
+
+	m = {
+		name = "Mark Harpoon",
+		["1"] = { "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", "Navigate to 1st mark file" },
+		["2"] = { "<cmd>lua require('harpoon.ui').nav_file(2)<cr>", "Navigate to 2nd mark file" },
+		["3"] = { "<cmd>lua require('harpoon.ui').nav_file(3)<cr>", "Navigate to 3rd mark file" },
+		["4"] = { "<cmd>lua require('harpoon.ui').nav_file(4)<cr>", "Navigate to 4th mark file" },
+		["5"] = { "<cmd>lua require('harpoon.ui').nav_file(5)<cr>", "Navigate to 5th mark file" },
+		a = { "<cmd>lua require('harpoon.mark').add_file()<cr>", "Add file" },
+		n = { "<cmd>lua require('harpoon.ui').nav_next()<cr>", "Next Mark" },
+		p = { "<cmd>lua require('harpoon.ui').nav_prev()<cr>", "Previous Mark" },
+		q = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "Quick Menu" },
+		s = { "<cmd>Telescope harpoon marks<cr>", "Telescope harpoon marks" },
+	},
+
 	s = {
 		name = "Search",
 		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
@@ -275,10 +290,10 @@ local mappings = {
 	t = {
 		name = "Tab",
 		c = { "<cmd>tabclose<cr>", "Close tab" },
+		e = { "<cmd>tabedit<cr>", "New Tab Edit" },
 		f = { "<cmd>tabfirst<cr>", "Move to first tab" },
 		l = { "<cmd>tablast<cr>", "Move to last tab" },
 		o = { "<cmd>tabonly<cr>", "Close other tab" },
-		n = { "<cmd>tabnew<cr>", "New Tab" },
 		r = { "<cmd>CtrlSpaceTabLabel<cr>", "Rename Tab" },
 	},
 

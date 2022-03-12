@@ -80,4 +80,8 @@ vim.cmd [[
     autocmd BufWritePre * mkview
     autocmd BufRead * silent! loadview
   augroup end
+  aug i3config_ft_detection
+    au!
+    au BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
+  aug end
 ]]

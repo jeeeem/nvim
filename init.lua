@@ -36,6 +36,7 @@ require "config.focus"
 require "config.spectre"
 require "config.regex"
 require "config.hop"
+require "config.harpoon"
 
 -- LSP Configuration
 -- require "config.lsp" -- lazyloaded

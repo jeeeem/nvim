@@ -29,12 +29,14 @@ local lazy_load_ft = {
 	-- "alpha",
 	"vim",
 	"lua",
+	"md",
 	"java",
 	"javascript",
 	"python",
 	"typescript",
 	"javascriptreact",
 	"typescriptreact",
+	"vimwiki",
 }
 local dev_ft = {
 	"html",
@@ -47,6 +49,7 @@ local dev_ft = {
 	"typescript",
 	"typescriptreact",
 	"vim",
+	"vimwiki",
 }
 
 -- Automatically install packer
@@ -95,6 +98,7 @@ return packer.startup(function(use)
 	use "lewis6991/impatient.nvim" --Improve startup time
 	use "nathom/filetype.nvim" -- Improve startup time
 	use "edkolev/tmuxline.vim" -- Tmux statusline generator
+	use "mboughaba/i3config.vim" -- i3 config syntax highlighting
 	use {
 		"lukas-reineke/indent-blankline.nvim",
 		cmd = { "IndentBlanklineRefresh" },
@@ -133,15 +137,6 @@ return packer.startup(function(use)
 	use "ahmedkhalf/project.nvim" -- Workspaces/Project management
 	use "rcarriga/nvim-notify" -- Notifications
 	use "goolord/alpha-nvim" -- Dashboard
-	-- use {
-	-- 	"goolord/alpha-nvim",
-	-- 	opt = true,
-	-- 	event = "VimEnter",
-	-- 	-- cmd = { "Alpha" },
-	-- 	config = function()
-	-- 		require "config.alpha"
-	-- 	end,
-	-- } -- Dashboard
 	use "folke/zen-mode.nvim" -- Zen mode
 	use {
 		"bennypowers/nvim-regexplainer",
@@ -185,6 +180,7 @@ return packer.startup(function(use)
 
 	-- Utility Plugins
 	-- use "ggandor/lightspeed.nvim" -- Motion
+	use "ThePrimeagen/harpoon" -- Better mark usage
 	use "phaazon/hop.nvim" -- Easymotion
 	use {
 		"folke/which-key.nvim",
@@ -281,7 +277,6 @@ return packer.startup(function(use)
 	} -- LSP completions
 
 	-- LSP Plugins
-	-- use "neovim/nvim-lspconfig" -- enable LSP
 	use { "neovim/nvim-lspconfig", opt = true, ft = dev_ft, config = "vim.cmd[[lua require('config.lsp')]]" } -- enable LSP
 	use "williamboman/nvim-lsp-installer" -- simple to use language server installer
 	use "ray-x/lsp_signature.nvim" -- LSP signature hints
