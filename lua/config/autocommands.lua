@@ -1,87 +1,104 @@
--- autocmd! remove all autocommands, if entered under a group it will clear that group
-
 local api = vim.api
+local augroup = api.nvim_create_augroup
+local autocmd = api.nvim_create_autocmd
 
-local general_settings = api.nvim_create_augroup("General Settings", { clear = true })
-local diagnostics_highlight = api.nvim_create_augroup("Diagnostics Highlight", { clear = true })
-local markdown = api.nvim_create_augroup("Markdown Settings", { clear = true })
-local spectre = api.nvim_create_augroup("Markdown Settings", { clear = true })
-local fold = api.nvim_create_augroup("Markdown Settings", { clear = true })
+-- Augroups
+local general_settings = augroup("General Settings", { clear = true })
+local lsp = augroup("Lsp Settings", { clear = true })
+local git = augroup("Git Settings", { clear = true })
+local markdown = augroup("Markdown Settings", { clear = true })
+local spectre = augroup("Specter Highlights", { clear = true })
+local fold = augroup("Fold Persistence", { clear = true })
+local i3config = augroup("I3config Syntax Highlight", { clear = true })
 
--- General settings augroup
--- api.nvim_create_autocmd("FileType qf,")
+-- General settings Augroup
+autocmd("FileType", {
+	pattern = { "qf", "help", "man", "lspinfo" },
+	command = "nnoremap <silent> <buffer> q :close<CR>",
+	group = general_settings,
+})
 
--- Diagnostics Highlight augroup
-api.nvim_create_autocmd(
-	"ColorScheme",
-	{ command = "highlight DiagnosticVirtualTextError  guifg=#f53131 guibg=#fff", group = diagnostics_highlight }
-)
+autocmd("FileType", {
+	pattern = "qf",
+	command = "set nobuflisted",
+	group = general_settings,
+})
 
-api.nvim_create_autocmd(
-	"ColorScheme",
-	{ command = "highlight DiagnosticFloatingError  guifg=#fff guibg=#fff", group = diagnostics_highlight }
-)
+autocmd("BufWinEnter", {
+	command = "set formatoptions-=cro | set nohlsearch",
+	group = general_settings,
+})
+
+autocmd("TextYankPost", {
+	pattern = "*",
+	callback = function()
+		vim.cmd [[silent! lua require('vim.highlight').on_yank({higroup = 'Search', timeout = 200})]]
+	end,
+	group = general_settings,
+})
+
+autocmd("VimResized", {
+	command = "tabdo wincmd =",
+	group = general_settings,
+})
+
+-- Diagnostics Highlight Augroup
+autocmd("ColorScheme", { command = "highlight DiagnosticVirtualTextError  guifg=#f53131 guibg=#fff", group = lsp })
+autocmd("ColorScheme", { command = "highlight DiagnosticFloatingError  guifg=#fff guibg=#fff", group = lsp })
+autocmd("ColorScheme", { command = "highlight LightBulbFloatWin guifg=#EED333 ", group = lsp })
+autocmd({ "CursorHold", "CursorHoldI" }, {
+	pattern = "*",
+	callback = function()
+		vim.cmd [[lua require'nvim-lightbulb'.update_lightbulb({sign= {enabled =false}, float= {enabled =true, text="ﯦ"}, win_opts={win_blend=80}, ignore={"null-ls"}})]]
+	end,
+})
+
+-- Git Settings Augroup
+autocmd("FileType", {
+	pattern = "gitcommit",
+	command = "setlocal wrap | setlocal spell",
+	group = git,
+})
 
 -- Markdown Augroup
--- api.nvim_create_autocmd(
--- 	"BufNewFile, BufFilePre, BufRead *.md",
--- 	{ command = "set filetype=markdown.pandoc", group = markdown }
--- )
--- api.nvim_create_autocmd("FileType vimwiki", {
--- 	callback = function()
--- 		vim.cmd [[set filetype=markdown.pancoc, set syntax=markdown]]
--- 	end,
--- 	group = markdown,
--- })
+autocmd(
+	{ "BufNewFile", "BufFilePre", "BufRead" },
+	{ pattern = "*.md", command = "set filetype=markdown.pandoc", group = markdown }
+)
 
-vim.cmd [[
-  augroup _general_settings
-    autocmd!
-    autocmd FileType qf,help,man,lspinfo nnoremap <silent> <buffer> q :close<CR> 
-    autocmd TextYankPost * silent!lua require('vim.highlight').on_yank({higroup = 'Search', timeout = 200}) 
-    autocmd BufWinEnter * :set formatoptions-=cro
-    autocmd BufWinEnter * :set nohlsearch
-    " autocmd BufWinEnter * :set iskeyword+=-
-    " autocmd BufWinEnter * :set sessionoptions+=tabpages,globals
-    autocmd FileType qf set nobuflisted
-  augroup end
-  augroup _git
-    autocmd!
-    autocmd FileType gitcommit setlocal wrap
-    autocmd FileType gitcommit setlocal spell
-  augroup end
-  augroup _markdown
-    autocmd!
-    autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
-    autocmd FileType vimwiki set filetype=markdown.pandoc, set syntax=markdown
-    autocmd FileType markdown setlocal wrap
-    autocmd FileType markdown setlocal spell
-  augroup end
-  augroup _auto_resize
-    autocmd!
-    autocmd VimResized * tabdo wincmd = 
-  augroup end
-  augroup _lsp_codeaction
-    autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb({sign= {enabled =false}, float= {enabled =true, text="ﯦ"}, win_opts={win_blend=80}, ignore={"null-ls"}})
-    autocmd ColorScheme * highlight LightBulbFloatWin guifg=#EED333 
-  augroup end
-  " augroup diagnostics_highlight
-  "   autocmd!
-  "   autocmd ColorScheme * highlight DiagnosticVirtualTextError  guifg=#f53131 guibg=#fff
-  "   autocmd ColorScheme * highlight DiagnosticFloatingError  guifg=#fff guibg=#fff
-  " augroup end
-  augroup spectre_highlight
-    autocmd!
-    autocmd ColorScheme * highlight DiffChange  guifg=#f53131 guibg=#fff
-    autocmd ColorScheme * highlight DiffDelete  guifg=#00FF00 guibg=#fff
-  augroup end
-  augroup fold
-    autocmd!
-    autocmd BufWritePre * mkview
-    autocmd BufRead * silent! loadview
-  augroup end
-  aug i3config_ft_detection
-    au!
-    au BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
-  aug end
-]]
+autocmd("FileType", {
+	pattern = "vimwiki",
+	callback = function()
+		vim.cmd [[set filetype=markdown.pancoc, set syntax=markdown]]
+	end,
+	group = markdown,
+})
+
+autocmd("FileType", {
+	pattern = { "markdown", "markdown.pandoc" },
+	callback = function()
+		vim.cmd [[setlocal wrap | setlocal spell]]
+	end,
+	group = markdown,
+})
+
+-- Spectre Augroup
+autocmd("ColorScheme", { pattern = "*", command = "highlight DiffChange  guifg=#f53131 guibg=#fff", group = spectre })
+autocmd("ColorScheme", { pattern = "*", command = "highlight DiffDelete  guifg=#00FF00 guibg=#fff", group = spectre })
+
+-- Fold Augroup
+autocmd("BufWritePre", { pattern = "*", command = "mkview", group = fold })
+autocmd("BufRead", { pattern = "*", command = "silent! loadview", group = fold })
+
+-- i3 Augruop
+autocmd("FileType", {
+	pattern = "i3",
+	callback = function()
+		vim.schedule(function()
+			vim.cmd [[set filetype=i3config]]
+		end)
+	end,
+	group = i3config,
+})
+
+-- autocmd BufWinEnter * :set sessionoptions+=tabpages,globals

@@ -41,7 +41,6 @@ local options = {
 }
 
 vim.opt.shortmess:append "c"
-vim.opt.iskeyword:append "-"
 vim.opt.whichwrap:append "<,>,[,],h,l"
 
 -- Do not source the default filetype.vim

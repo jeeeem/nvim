@@ -39,10 +39,12 @@ local lazy_load_ft = {
 	"vimwiki",
 }
 local dev_ft = {
+	"css",
 	"html",
 	"java",
 	"javascript",
 	"javascriptreact",
+	"json",
 	"lua",
 	"md",
 	"python",
