@@ -29,15 +29,6 @@ dashboard.section.buttons.val = {
 	dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
 }
 
--- local function footer()
--- 	-- NOTE: requires the fortune-mod package to work
--- 	-- local handle = io.popen("fortune")
--- 	-- local fortune = handle:read("*a")
--- 	-- handle:close()
--- 	-- return fortune
--- 	return "chrisatmachine.com"
--- end
-
 local function footer()
 	local plugins = #vim.tbl_keys(packer_plugins)
 	local v = vim.version()

@@ -11,9 +11,35 @@ local spectre = augroup("Specter Highlights", { clear = true })
 local fold = augroup("Fold Persistence", { clear = true })
 local i3config = augroup("I3config Syntax Highlight", { clear = true })
 
+-- :h expand
+-- %		current file name
+-- #		alternate file name
+-- #n		alternate file name n
+-- <cfile>		file name under the cursor
+-- <afile>		autocmd file name
+-- <abuf>		autocmd buffer number (as a String!)
+-- <amatch>	autocmd matched name
+-- <sfile>		sourced script file or function name
+-- <slnum>		sourced script line number or function
+--     line number
+-- <sflnum>	script file line number, also when in
+--     a function
+-- <SID>		"<SNR>123_"  where "123" is the
+--     current script ID  |<SID>|
+-- <cword>		word under the cursor
+-- <cWORD>		WORD under the cursor
+-- <client>	the {clientid} of the last received
+--     message |server2client()|
+-- Modifiers:
+-- :p		expand to full path
+-- :h		head (last path component removed)
+-- :t		tail (last path component only)
+-- :r		root (one extension removed)
+-- :e		extension only
+
 -- General settings Augroup
 autocmd("FileType", {
-	pattern = { "qf", "help", "man", "lspinfo" },
+	pattern = { "qf", "help", "man", "lspinfo", "spectre_panel" },
 	command = "nnoremap <silent> <buffer> q :close<CR>",
 	group = general_settings,
 })
@@ -49,8 +75,16 @@ autocmd("ColorScheme", { command = "highlight LightBulbFloatWin guifg=#EED333 ",
 autocmd({ "CursorHold", "CursorHoldI" }, {
 	pattern = "*",
 	callback = function()
+		local lightbulb = [[lua require("nvim-lightbulb").update_lightbulb {
+			sign = { enabled = false },
+			float = { enabled = true, text = "ﯦ" },
+			win_opts = { win_blend = 80 },
+			ignore = { "null-ls" },
+		}]]
+		-- vim.cmd(lightbulb)
 		vim.cmd [[lua require'nvim-lightbulb'.update_lightbulb({sign= {enabled =false}, float= {enabled =true, text="ﯦ"}, win_opts={win_blend=80}, ignore={"null-ls"}})]]
 	end,
+	group = lsp,
 })
 
 -- Git Settings Augroup
@@ -68,9 +102,7 @@ autocmd(
 
 autocmd("FileType", {
 	pattern = "vimwiki",
-	callback = function()
-		vim.cmd [[set filetype=markdown.pancoc, set syntax=markdown]]
-	end,
+	command = "set filetype=markdown.pandoc",
 	group = markdown,
 })
 

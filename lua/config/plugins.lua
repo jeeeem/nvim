@@ -117,6 +117,7 @@ return packer.startup(function(use)
 	} -- https://github.com/neovim/neovim/issues/12587
 	use "stevearc/dressing.nvim" -- Improve vim.ui interfaces
 	use "dstein64/vim-startuptime" -- Startup profile
+	-- use "tweekmonster/startuptime.vim" -- Startup profile
 	use { "wakatime/vim-wakatime", opt = true, ft = dev_ft } -- Tracking activity
 	use "ethanholz/nvim-lastplace" -- Last position of last edit
 	use {
@@ -140,6 +141,7 @@ return packer.startup(function(use)
 	use "rcarriga/nvim-notify" -- Notifications
 	use "goolord/alpha-nvim" -- Dashboard
 	use "folke/zen-mode.nvim" -- Zen mode
+	use { "mg979/vim-visual-multi", opt = true, ft = dev_ft } -- Multiple cursors
 	use {
 		"bennypowers/nvim-regexplainer",
 		config = function()
@@ -182,6 +184,7 @@ return packer.startup(function(use)
 
 	-- Utility Plugins
 	-- use "ggandor/lightspeed.nvim" -- Motion
+	-- use "lalitmee/browse.nvim" -- Open browser
 	use "ThePrimeagen/harpoon" -- Better mark usage
 	use "phaazon/hop.nvim" -- Easymotion
 	use {
@@ -227,12 +230,13 @@ return packer.startup(function(use)
 	} -- Preview definitions
 
 	-- FZF Plugins
+	use { "junegunn/fzf.vim", requires = "junegunn/fzf" } -- FZF
 	use {
 		"nvim-telescope/telescope.nvim",
 		opt = true,
 		after = "nvim-treesitter",
 		cmd = "Telescope",
-	} -- FZF
+	} -- Pretty fzf
 	use {
 		"nvim-telescope/telescope-fzf-native.nvim",
 		opt = true,
@@ -248,7 +252,6 @@ return packer.startup(function(use)
 	use {
 		"hrsh7th/nvim-cmp",
 		ft = dev_ft,
-		event = "VimEnter",
 		config = "vim.cmd[[lua require('config.cmp')]]",
 		opt = true,
 	} -- The completion plugin
@@ -346,6 +349,8 @@ return packer.startup(function(use)
 		-- end,
 	}
 	use "olimorris/onedarkpro.nvim"
+	use "dracula/vim"
+	-- use "Mofiqul/dracula.nvim"
 
 	-- Note Taking Plugins
 	use { "iamcco/markdown-preview.nvim", run = "cd app && yarn install" } --  Markdown Preview

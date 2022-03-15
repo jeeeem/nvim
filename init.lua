@@ -8,13 +8,14 @@ require "config.custom"
 require "config.utils"
 
 -- Colorschemes
+-- require "config.colorschemes.dracula"
 require "config.colorschemes.tokyonight"
 
 -- Plugins Configuration
 require "config.notify"
-require "config.plugins"
-require "config.packer_compiled"
 require "config.comment"
+require "config.packer_compiled"
+require "config.plugins"
 require "config.nvimtree"
 require "config.lastplace"
 require "config.colorizer"

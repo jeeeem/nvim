@@ -3,8 +3,8 @@ if has("guirunning")
     let g:CtrlSpaceSymbols = { "File": "◯", "CTab": "▣", "Tabs": "▢" }
 endif
 
-" let g:CtrlSpaceDefaultMappingKey = "<C-space> "
-let g:CtrlSpaceDefaultMappingKey = "<nop>"
+let g:CtrlSpaceDefaultMappingKey = "<C-space> "
+" let g:CtrlSpaceDefaultMappingKey = "<nop>"
 "let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
 let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
 "let g:CtrlSpaceSaveWorkspaceOnExit = 1
