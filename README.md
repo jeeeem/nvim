@@ -14,6 +14,7 @@
   - Add more keymaps and commands
   - Bind default keybindings in keymaps.lua
 - Firenvim
+
   - Disable LSP
     > https://www.reddit.com/r/neovim/comments/lqj21o/how_to_temporarily_disable_lsp/
 
@@ -43,6 +44,7 @@
   - learn how it works in vim
 
 #### Custom Snippets
+
 - .justfile
   - create a snippet for running package json
 

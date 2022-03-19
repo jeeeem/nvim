@@ -5,7 +5,8 @@ end
 
 notify.setup {
 	-- Animation style (see below for details)
-	stages = "fade",
+	-- stages = "fade",
+	stages = "static", -- much better for quickier dissapearance
 
 	-- Function called when a new window is opened, use for changing win settings/config
 	on_open = nil,
@@ -17,7 +18,7 @@ notify.setup {
 	render = "default",
 
 	-- Default timeout for notifications
-	timeout = 1000,
+	timeout = 1500,
 
 	-- Max number of columns for messages
 	max_width = nil,

@@ -93,6 +93,7 @@ local mappings = {
 		l = { "<cmd>lua require('pretty-fold.preview').keymap_open_close()<CR>", "Preview Fold" },
 		p = { "<cmd>ProjectRoot<cr>", "Project root " },
 		s = { "<cmd>lua require('spectre').open()<cr>", "Search and Replace" },
+		u = { "<cmd>UndotreeToggle<cr>", "Undo Tree" },
 		v = { "<cmd>VimwikiIndex<CR>", "Vimwiki" },
 		x = { "<cmd>DeleteHiddenBuffers<CR>", "Delete Hidden Buffers" },
 	},

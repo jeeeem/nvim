@@ -50,6 +50,12 @@ autocmd("FileType", {
 	group = general_settings,
 })
 
+autocmd("FileType", {
+	pattern = "undotree",
+	command = "vertical resize 40",
+	group = general_settings,
+})
+
 autocmd("BufWinEnter", {
 	command = "set formatoptions-=cro | set nohlsearch",
 	group = general_settings,

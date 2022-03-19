@@ -100,14 +100,18 @@ return packer.startup(function(use)
 	use "lewis6991/impatient.nvim" --Improve startup time
 	use "nathom/filetype.nvim" -- Improve startup time
 	use "edkolev/tmuxline.vim" -- Tmux statusline generator
+	use "duggiefresh/vim-easydir" -- Create nested file/dir using :e / :new
+	use "mbbill/undotree" -- Undo history
 	use "mboughaba/i3config.vim" -- i3 config syntax highlighting
 	use {
 		"lukas-reineke/indent-blankline.nvim",
 		cmd = { "IndentBlanklineRefresh" },
+		-- ft = dev_ft,
 		config = function()
 			require "config.indentline"
+			-- vim.cmd [[IndentBlanklineRefresh]]
 		end,
-		-- after = "nvim-treesitter",
+		after = "nvim-treesitter",
 		opt = true,
 	} -- Indent line
 	use {
@@ -350,6 +354,7 @@ return packer.startup(function(use)
 	}
 	use "olimorris/onedarkpro.nvim"
 	use "dracula/vim"
+	use "mvpopuk/inspired-github.vim"
 	-- use "Mofiqul/dracula.nvim"
 
 	-- Note Taking Plugins
