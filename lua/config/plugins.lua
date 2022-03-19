@@ -324,6 +324,7 @@ return packer.startup(function(use)
 	use { "nvim-treesitter/playground", opt = true, after = "nvim-treesitter" } -- Treesitter Playground
 	use { "JoosepAlviste/nvim-ts-context-commentstring", opt = true, after = "nvim-treesitter" } -- Treesitter for commentstring
 	use { "nvim-treesitter/nvim-treesitter-refactor", opt = true, after = "nvim-treesitter" } -- Treesitter refactor module
+	use { "nvim-treesitter/nvim-treesitter-textobjects", opt = true, after = "nvim-treesitter" } -- Treesitter refactor module
 	use { "p00f/nvim-ts-rainbow", opt = true, after = "nvim-treesitter" } -- Rainbow Parenthesis
 	use { "windwp/nvim-ts-autotag", opt = true, after = "nvim-treesitter" } -- Auto close tag
 
