@@ -17,7 +17,7 @@ code_runner.setup {
 		mode = "startinsert",
 		tab = false,
 		position = "belowright",
-		size = 8,
+		size = 12,
 	},
 	-- If you want to use path than the pure lua config, you must use the absolute path to the JSON file configuration
 	filetype_path = vim.fn.expand "~/.nvim-lua-config/nvim/lua/config/compiler/code_runner.json",

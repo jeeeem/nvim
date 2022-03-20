@@ -51,10 +51,15 @@ autocmd("FileType", {
 })
 
 autocmd("FileType", {
-	pattern = "undotree",
+	pattern = { "undotree" },
 	command = "vertical resize 40",
 	group = general_settings,
 })
+
+-- autocmd("DapuiWindowsSetup BufWinLeave", {
+-- 	command = "vertical resize 40",
+-- 	group = general_settings,
+-- })
 
 autocmd("BufWinEnter", {
 	command = "set formatoptions-=cro | set nohlsearch",
@@ -62,7 +67,6 @@ autocmd("BufWinEnter", {
 })
 
 autocmd("TextYankPost", {
-	pattern = "*",
 	callback = function()
 		vim.cmd [[silent! lua require('vim.highlight').on_yank({higroup = 'Search', timeout = 200})]]
 	end,
@@ -74,19 +78,25 @@ autocmd("VimResized", {
 	group = general_settings,
 })
 
--- Diagnostics Highlight Augroup
-autocmd("ColorScheme", { command = "highlight DiagnosticVirtualTextError  guifg=#f53131 guibg=#fff", group = lsp })
-autocmd("ColorScheme", { command = "highlight DiagnosticFloatingError  guifg=#fff guibg=#fff", group = lsp })
-autocmd("ColorScheme", { command = "highlight LightBulbFloatWin guifg=#EED333 ", group = lsp })
-autocmd({ "CursorHold", "CursorHoldI" }, {
-	pattern = "*",
+-- LSP Highlight Augroup
+autocmd("ColorScheme", {
 	callback = function()
-		local lightbulb = [[lua require("nvim-lightbulb").update_lightbulb {
-			sign = { enabled = false },
-			float = { enabled = true, text = "ﯦ" },
-			win_opts = { win_blend = 80 },
-			ignore = { "null-ls" },
-		}]]
+		vim.cmd [[highlight DiagnosticVirtualTextError  guifg=#f53131 guibg=#fff]]
+		vim.cmd [[highlight DiagnosticFloatingError  guifg=#fff guibg=#fff]]
+		vim.cmd [[highlight FidgetTask ctermfg=242 guifg=#364A82]]
+		vim.cmd [[highlight LightBulbFloatWin guifg=#EED333 ]]
+	end,
+	group = lsp,
+})
+
+autocmd({ "CursorHold", "CursorHoldI" }, {
+	callback = function()
+		-- local lightbulb = [[lua require("nvim-lightbulb").update_lightbulb {
+		-- 	sign = { enabled = false },
+		-- 	float = { enabled = true, text = "ﯦ" },
+		-- 	win_opts = { win_blend = 80 },
+		-- 	ignore = { "null-ls" },
+		-- }]]
 		-- vim.cmd(lightbulb)
 		vim.cmd [[lua require'nvim-lightbulb'.update_lightbulb({sign= {enabled =false}, float= {enabled =true, text="ﯦ"}, win_opts={win_blend=80}, ignore={"null-ls"}})]]
 	end,
@@ -121,12 +131,17 @@ autocmd("FileType", {
 })
 
 -- Spectre Augroup
-autocmd("ColorScheme", { pattern = "*", command = "highlight DiffChange  guifg=#f53131 guibg=#fff", group = spectre })
-autocmd("ColorScheme", { pattern = "*", command = "highlight DiffDelete  guifg=#00FF00 guibg=#fff", group = spectre })
+autocmd("ColorScheme", {
+	callback = function()
+		vim.cmd [[highlight DiffChange  guifg=#f53131 guibg=#fff]]
+		vim.cmd [[highlight DiffDelete  guifg=#00FF00 guibg=#fff]]
+	end,
+	group = spectre,
+})
 
 -- Fold Augroup
-autocmd("BufWritePre", { pattern = "*", command = "mkview", group = fold })
-autocmd("BufRead", { pattern = "*", command = "silent! loadview", group = fold })
+autocmd("BufWritePre", { command = "mkview", group = fold })
+autocmd("BufRead", { command = "silent! loadview", group = fold })
 
 -- i3 Augruop
 autocmd("FileType", {

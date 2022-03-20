@@ -177,18 +177,8 @@ return packer.startup(function(use)
 	use { "michaelb/sniprun", opt = true, cmd = { "SnipRun" }, run = "bash ./install.sh" } -- Code snippet runner
 	use { "CRAG666/code_runner.nvim", requires = "nvim-lua/plenary.nvim" } -- Code Runner
 
-	----------------
-	-- use {
-	-- 	"kdheepak/tabline.nvim",
-	-- 	requires = { { "hoob3rt/lualine.nvim", opt = true }, { "kyazdani42/nvim-web-devicons", opt = true } },
-	-- } -- Tab/Status line
-	-- use "akinsho/bufferline.nvim" -- Tab line
-	-- use "moll/vim-bbye" -- Buffer deletion
-	------------------
-
 	-- Utility Plugins
-	-- use "ggandor/lightspeed.nvim" -- Motion
-	-- use "lalitmee/browse.nvim" -- Open browser
+	use "lalitmee/browse.nvim" -- Open browser
 	use "ThePrimeagen/harpoon" -- Better mark usage
 	use "phaazon/hop.nvim" -- Easymotion
 	use {
@@ -353,6 +343,7 @@ return packer.startup(function(use)
 		-- 	require "config.packer_compiled"
 		-- end,
 	}
+	use "rebelot/kanagawa.nvim"
 	use "olimorris/onedarkpro.nvim"
 	use "dracula/vim"
 	use "mvpopuk/inspired-github.vim"

@@ -1,3 +1,4 @@
+---@diagnostic disable: lowercase-global
 local loader = require("packer").loader
 
 -- Reload configuration without exiting vim
@@ -39,4 +40,14 @@ function _G.packer_update()
 	vim.cmd [[source ~/.nvim-lua-config/nvim/lua/config/plugins.lua | PackerSync]]
 
 	-- Update the plugins
+end
+
+browser = function()
+	local bookmarks = {
+		"https://github.com/neovim/neovim",
+		"https://neovim.discourse.group/",
+		"https://github.com/nvim-telescope/telescope.nvim",
+		"https://github.com/rockerBOO/awesome-neovim",
+	}
+	require("browse").browse { bookmarks = bookmarks }
 end

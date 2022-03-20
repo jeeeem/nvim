@@ -3,7 +3,17 @@ if not status_ok then
 	return
 end
 
+local path_ok, path = pcall(require, "plenary.path")
+if not path_ok then
+	return
+end
+
 local dashboard = require "alpha.themes.dashboard"
+--
+-- local dashboard = require "alpha.themes.dashboard"
+-- local nvim_web_devicons = require "nvim-web-devicons"
+-- local cdir = vim.fn.getcwd()
+
 dashboard.section.header.val = {
 	[[                               __                ]],
 	[[  ___     ___    ___   __  __ /\_\    ___ ___    ]],

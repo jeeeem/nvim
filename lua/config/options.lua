@@ -1,7 +1,7 @@
 local options = {
 	backup = false, -- creates a backup file
 	clipboard = "unnamedplus", -- allows neovim to access the system clipboard
-	cmdheight = 2, -- more space in the neovim command line for displaying messages
+	cmdheight = 1, -- Space in neovim command line for displaying messages
 	completeopt = { "menuone", "noselect" }, -- mostly just for cmp
 	conceallevel = 0, -- so that `` is visible in markdown files
 	colorcolumn = "100", -- line down for margin
@@ -13,7 +13,7 @@ local options = {
 	pumheight = 10, -- pop up menu height
 	showmode = false, -- we don't need to see things like -- INSERT -- anymore
 	showtabline = 0, -- disable tabline at startup until entering in the speicfic filetype
-	laststatus = 0, -- disable statusline at startup until entering in the speicfic filetype
+	laststatus = 3, -- disable statusline at startup until entering in the speicfic filetype
 	smartcase = true, -- smart case
 	smartindent = true, -- make indenting smarter again
 	splitbelow = true, -- force all horizontal splits to go below current window
@@ -40,6 +40,17 @@ local options = {
 	guifont = "Iosevka Nerd Font:h12", -- the font used in graphical neovim applications
 }
 
+-- Better line seperator when using global status `laststatus=3`
+vim.opt.fillchars = {
+	horiz = "━",
+	horizup = "┻",
+	horizdown = "┳",
+	vert = "┃",
+	vertleft = "┫",
+	vertright = "┣",
+	verthoriz = "╋",
+}
+
 vim.opt.shortmess:append "c"
 vim.opt.whichwrap:append "<,>,[,],h,l"
 
@@ -50,8 +61,3 @@ vim.g.did_load_filetypes = 1
 for k, v in pairs(options) do
 	vim.opt[k] = v
 end
-
--- vim.cmd [[let g:python3_host_prog = '~/.pyenv/shims/']]
--- Highlights
-vim.cmd [[highlight FidgetTask ctermfg=242 guifg=#364A82 ]]
--- vim.fn.sign_define("LightBulbSign", { text = "ﯦ", texthl = "#FFF", linehl = "", numhl = "" })

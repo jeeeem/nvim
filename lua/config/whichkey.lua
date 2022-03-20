@@ -79,7 +79,6 @@ local opts = {
 }
 
 local mappings = {
-	-- ["Space"] = { "<cmd> Whichkey <cr>", "Close" },
 	["/"] = { '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>', "Comment" },
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 	["E"] = { "<cmd>SymbolsOutline<cr>", "Symbol Outline" },
@@ -88,11 +87,13 @@ local mappings = {
 
 	a = {
 		name = "Actions",
+		b = { "<cmd>lua browser()<CR>", "Browser Search" },
 		d = { "<cmd>Alpha<CR>", "Dashboard" },
 		m = { "<cmd>MarkdownPreview<CR>", "Markdown Preview" },
 		l = { "<cmd>lua require('pretty-fold.preview').keymap_open_close()<CR>", "Preview Fold" },
 		p = { "<cmd>ProjectRoot<cr>", "Project root " },
 		s = { "<cmd>lua require('spectre').open()<cr>", "Search and Replace" },
+		r = { "<cmd>vertical resize 40<cr>", "Vertical resize 40" },
 		u = { "<cmd>UndotreeToggle<cr>", "Undo Tree" },
 		v = { "<cmd>VimwikiIndex<CR>", "Vimwiki" },
 		x = { "<cmd>DeleteHiddenBuffers<CR>", "Delete Hidden Buffers" },
@@ -115,7 +116,7 @@ local mappings = {
 		d = { "<cmd>lua require'dap'.disconnect()<cr>", "Disconnect" },
 		g = { "<cmd>lua require'dap'.session()<cr>", "Get Session" },
 		i = { "<cmd>lua require'dap'.step_into()<cr>", "Step Into" },
-		I = { "<cmd>lua require'dapui'.toggle()<cr>", "Step Into" },
+		I = { "<cmd>lua require'dapui'.toggle()<cr>", "Toggle UI" },
 		l = { "<cmd>lua require'dapui'.list_breakpoints()<cr>", "List breakpoints" },
 		o = { "<cmd>lua require'dap'.step_over()<cr>", "Step Over" },
 		p = { "<cmd>lua require'dap'.pause.toggle()<cr>", "Pause" },

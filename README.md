@@ -60,3 +60,15 @@
 
 - Cheatsheet Plugin
   - Viewing personal notes for how the function words by fuzzy searching
+
+### Documentation
+- This is my own neovim configuration, this may not work properly in your machine  as it is
+  configured for my own personal use.
+
+#### Plugins
+
+#### Keymaps
+
+#### Autocommands & Commands
+
+
