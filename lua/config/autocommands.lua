@@ -38,6 +38,12 @@ local i3config = augroup("I3config Syntax Highlight", { clear = true })
 -- :e		extension only
 
 -- General settings Augroup
+-- autocmd("FileType", {
+-- 	pattern = { "alpha" },
+-- 	command = "set laststatus=0",
+-- 	group = general_settings,
+-- })
+
 autocmd("FileType", {
 	pattern = { "qf", "help", "man", "lspinfo", "spectre_panel" },
 	command = "nnoremap <silent> <buffer> q :close<CR>",
@@ -85,6 +91,7 @@ autocmd("ColorScheme", {
 		vim.cmd [[highlight DiagnosticFloatingError  guifg=#fff guibg=#fff]]
 		vim.cmd [[highlight FidgetTask ctermfg=242 guifg=#364A82]]
 		vim.cmd [[highlight LightBulbFloatWin guifg=#EED333 ]]
+		vim.cmd [[highlight FocusedSymbol cterm=italic ctermfg=4 ctermbg=11 gui=bold,italic guifg=red guibg=#FFF]]
 	end,
 	group = lsp,
 })

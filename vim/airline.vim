@@ -13,7 +13,25 @@ let g:airline#extensions#tabline#right_sep = ''
 let g:airline#extensions#tabline#right_alt_sep = ''
 
 let g:airline_extensions = ['tabline', 'ctrlspace']
-" let g:airline_exclude_filetypes = ['alpha'] " see source for current list
+let g:airline_exclude_filetypes = ['alpha'] " see source for current list
+
+let g:airline_filetype_overrides = {
+  \ 'fugitive': ['fugitive', '%{airline#util#wrap(airline#extensions#branch#get_head(),80)}'],
+  \ 'help':  [ 'Help', '%f' ],
+  \ 'alpha': [ 'Alpha', '' ],
+  \ 'dapui_scopes': [ 'Scopes', '' ],
+  \ 'dapui_breakpoints': [ 'Breakpoints', '' ],
+  \ 'dapui_watches': [ 'Watches', '' ],
+  \ 'dapui_stacks': [ 'Stacks', '' ],
+  \ 'dap-repl': [ 'REPL', '' ],
+  \ 'Outline': [ 'LSP Symbols', '' ],
+  \ 'NvimTree': [ 'File Tree', '' ],
+  \ 'spectre_panel': [ 'Search and Replace', '' ],
+  \ 'vimfiler': [ 'vimfiler', '%{vimfiler#get_status_string()}' ],
+  \ 'vimshell': ['vimshell','%{vimshell#get_status_string()}'],
+  \ 'vaffle' : [ 'Vaffle', '%{b:vaffle.dir}' ],
+  \ 'undotree' : [ 'Undo Tree', '' ],
+  \ }
 
 " Enable powerline fonts
 let g:airline_powerline_fonts = 1

@@ -282,7 +282,14 @@ return packer.startup(function(use)
 	use "jose-elias-alvarez/null-ls.nvim" -- Formatters and linters
 	use "lukas-reineke/lsp-format.nvim" -- Async formatting
 	use { "folke/trouble.nvim", opt = true, cmd = { "TroubleToggle" } } -- Pretty diagnostics
-	use { "simrat39/symbols-outline.nvim", opt = true, cmd = { "SymbolOutline" } } -- Tree-like symbols
+	use {
+		"simrat39/symbols-outline.nvim",
+		opt = true,
+		cmd = { "SymbolsOutline" },
+		config = function()
+			vim.cmd [[lua require('config.symbols')]]
+		end,
+	} -- Tree-like symbols
 	use "b0o/schemastore.nvim" -- JSON SchemaStore
 	use {
 		"mattn/emmet-vim",

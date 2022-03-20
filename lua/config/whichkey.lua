@@ -89,6 +89,7 @@ local mappings = {
 		name = "Actions",
 		b = { "<cmd>lua browser()<CR>", "Browser Search" },
 		d = { "<cmd>Alpha<CR>", "Dashboard" },
+		i = { "<cmd>lua input_search()<CR>", "Browser Search" },
 		m = { "<cmd>MarkdownPreview<CR>", "Markdown Preview" },
 		l = { "<cmd>lua require('pretty-fold.preview').keymap_open_close()<CR>", "Preview Fold" },
 		p = { "<cmd>ProjectRoot<cr>", "Project root " },
