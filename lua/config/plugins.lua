@@ -143,7 +143,8 @@ return packer.startup(function(use)
 	use "akinsho/toggleterm.nvim" -- Floating terminl
 	use "ahmedkhalf/project.nvim" -- Workspaces/Project management
 	use "rcarriga/nvim-notify" -- Notifications
-	use "goolord/alpha-nvim" -- Dashboard
+	-- use "ThePrimeagen/refactoring.nvim" -- Refactoring Library
+	use { "goolord/alpha-nvim", config = "vim.cmd[[set laststatus=0]]" } -- Dashboard
 	use "folke/zen-mode.nvim" -- Zen mode
 	use { "mg979/vim-visual-multi", opt = true, ft = dev_ft } -- Multiple cursors
 	use {
@@ -169,7 +170,13 @@ return packer.startup(function(use)
 		after = "ctrlspace",
 		opt = true,
 		config = function()
-			vim.cmd [[Tmuxline]]
+			-- Check if tmux is in session
+			local tmux_socket = vim.fn.split(vim.env.TMUX, ",")[1]
+			if tmux_socket == "null" then
+				return
+			else
+				vim.cmd [[Tmuxline]]
+			end
 		end,
 	} -- Tab/status line
 	use "vim-airline/vim-airline-themes" -- Airline Themes
@@ -178,6 +185,8 @@ return packer.startup(function(use)
 	use { "CRAG666/code_runner.nvim", requires = "nvim-lua/plenary.nvim" } -- Code Runner
 
 	-- Utility Plugins
+	-- use "rafcamlet/nvim-luapad" -- Lua Scratchpad
+	use "metakirby5/codi.vim" -- Scratchpad
 	use "lalitmee/browse.nvim" -- Open browser
 	use "ThePrimeagen/harpoon" -- Better mark usage
 	use "phaazon/hop.nvim" -- Easymotion
@@ -276,11 +285,11 @@ return packer.startup(function(use)
 	} -- LSP completions
 
 	-- LSP Plugins
-	use { "neovim/nvim-lspconfig", opt = true, ft = dev_ft, config = "vim.cmd[[lua require('config.lsp')]]" } -- enable LSP
 	use "williamboman/nvim-lsp-installer" -- simple to use language server installer
 	use "ray-x/lsp_signature.nvim" -- LSP signature hints
 	use "jose-elias-alvarez/null-ls.nvim" -- Formatters and linters
 	use "lukas-reineke/lsp-format.nvim" -- Async formatting
+	use { "neovim/nvim-lspconfig", opt = true, ft = dev_ft, config = "vim.cmd[[lua require('config.lsp')]]" } -- enable LSP
 	use { "folke/trouble.nvim", opt = true, cmd = { "TroubleToggle" } } -- Pretty diagnostics
 	use {
 		"simrat39/symbols-outline.nvim",
@@ -290,6 +299,7 @@ return packer.startup(function(use)
 			vim.cmd [[lua require('config.symbols')]]
 		end,
 	} -- Tree-like symbols
+	-- use "stevearc/aerial.nvim"
 	use "b0o/schemastore.nvim" -- JSON SchemaStore
 	use {
 		"mattn/emmet-vim",
@@ -338,6 +348,7 @@ return packer.startup(function(use)
 		"L3MON4D3/LuaSnip",
 		ft = dev_ft,
 		opt = true,
+		config = "vim.cmd[[lua require('config.luasnip')]]",
 	} --snippet engine
 	use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 

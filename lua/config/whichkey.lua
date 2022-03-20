@@ -89,6 +89,7 @@ local mappings = {
 		name = "Actions",
 		b = { "<cmd>lua browser()<CR>", "Browser Search" },
 		d = { "<cmd>Alpha<CR>", "Dashboard" },
+		e = { "<cmd>lua require('luasnip.loaders.from_lua').edit_snippet_files()<CR>", "Edit Snippet files" },
 		i = { "<cmd>lua input_search()<CR>", "Browser Search" },
 		m = { "<cmd>MarkdownPreview<CR>", "Markdown Preview" },
 		l = { "<cmd>lua require('pretty-fold.preview').keymap_open_close()<CR>", "Preview Fold" },
@@ -114,14 +115,14 @@ local mappings = {
 		b = { "<cmd>lua require'dap'.step_back()<cr>", "Step Back" },
 		c = { "<cmd>lua require'dap'.continue()<cr>", "Continue/Start" },
 		C = { "<cmd>lua require'dap'.run_to_cursor()<cr>", "Run To Cursor" },
-		d = { "<cmd>lua require'dap'.disconnect()<cr>", "Disconnect" },
 		g = { "<cmd>lua require'dap'.session()<cr>", "Get Session" },
 		i = { "<cmd>lua require'dap'.step_into()<cr>", "Step Into" },
 		I = { "<cmd>lua require'dapui'.toggle()<cr>", "Toggle UI" },
 		l = { "<cmd>lua require'dapui'.list_breakpoints()<cr>", "List breakpoints" },
 		o = { "<cmd>lua require'dap'.step_over()<cr>", "Step Over" },
 		p = { "<cmd>lua require'dap'.pause.toggle()<cr>", "Pause" },
-		q = { "<cmd>lua require'dap'.close()<cr>", "Quit" },
+		q = { "<cmd>lua require'dap'.disconnect()<cr>", "Quit/Disconnect" },
+		-- q = { "<cmd>lua require'dap'.close()<cr>", "Quit" },
 		r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Toggle Repl" },
 		s = { "<cmd>lua require'dap'.set_breakpoint()<cr>", "Set Breakpoint" },
 		t = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
@@ -335,6 +336,7 @@ local vopts = {
 }
 local vmappings = {
 	["/"] = { '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', "Comment" },
+	-- ["r"] = { '<ESC><CMD>lua require("refactoring").select_refactor()<CR>', "Comment" },
 }
 
 which_key.setup(setup)

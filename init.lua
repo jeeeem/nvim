@@ -38,6 +38,7 @@ require "config.spectre"
 require "config.regex"
 require "config.hop"
 require "config.harpoon"
+-- require "config.refactor"
 
 -- LSP Configuration
 -- require "config.lsp" -- lazyloaded

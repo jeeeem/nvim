@@ -1,6 +1,6 @@
 " Enable tabline
+
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_highlighting_cache = 1
 let g:airline#extensions#tabline#show_buffers = 1
 let g:airline#extensions#tabline#current_first = 1
 let g:airline#extensions#tabline#fnamecollapse = 1
@@ -11,9 +11,10 @@ let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = ''
 let g:airline#extensions#tabline#right_sep = ''
 let g:airline#extensions#tabline#right_alt_sep = ''
+let g:airline_highlighting_cache = 1
 
 let g:airline_extensions = ['tabline', 'ctrlspace']
-let g:airline_exclude_filetypes = ['alpha'] " see source for current list
+let g:airline_exclude_filetypes = ['alpha'] 
 
 let g:airline_filetype_overrides = {
   \ 'fugitive': ['fugitive', '%{airline#util#wrap(airline#extensions#branch#get_head(),80)}'],
