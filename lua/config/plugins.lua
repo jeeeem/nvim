@@ -112,6 +112,12 @@ return packer.startup(function(use)
 	use "dstein64/vim-startuptime" -- Startup profile
 	-- use "tweekmonster/startuptime.vim" -- Startup profile
 	use { "wakatime/vim-wakatime", opt = true, ft = dev_ft } -- Tracking activity
+	-- use {
+	-- 	"andweeb/presence.nvim",
+	-- 	config = function()
+	-- 		require("pressence").setup()
+	-- 	end,
+	-- }
 	use "ethanholz/nvim-lastplace" -- Last position of last edit
 	use {
 		"glacambre/firenvim",
