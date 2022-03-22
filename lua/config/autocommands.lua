@@ -44,6 +44,11 @@ local i3config = augroup("I3config Syntax Highlight", { clear = true })
 -- 	group = general_settings,
 -- })
 
+-- autocmd("FileType", {
+-- 	command = "set laststatus=3",
+-- 	group = general_settings,
+-- })
+--
 autocmd("FileType", {
 	pattern = { "qf", "help", "man", "lspinfo", "spectre_panel" },
 	command = "nnoremap <silent> <buffer> q :close<CR>",

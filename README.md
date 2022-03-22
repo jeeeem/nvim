@@ -13,16 +13,11 @@
 - Legendary
   - Add more keymaps and commands
   - Bind default keybindings in keymaps.lua
-- Firenvim
-
-  - Disable LSP
-    > https://www.reddit.com/r/neovim/comments/lqj21o/how_to_temporarily_disable_lsp/
-
 - Try Plugins
-  - Harpoon
   - Refactor
 - Luasnip
   - Add more snippets make it usable
+  - Keymap for choice nodes (luasnip-next-choice)
 - Signature
   - Float in the top
 - LSP Floating window
@@ -62,7 +57,8 @@
   - Viewing personal notes for how the function words by fuzzy searching
 
 ### Documentation
-- This is my own neovim configuration, this may not work properly in your machine  as it is
+
+- This is my own neovim configuration, this may not work properly in your machine as it is
   configured for my own personal use.
 
 #### Plugins
@@ -70,5 +66,3 @@
 #### Keymaps
 
 #### Autocommands & Commands
-
-

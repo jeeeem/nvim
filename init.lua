@@ -21,15 +21,10 @@ require "config.lastplace"
 require "config.colorizer"
 require "config.zen"
 require "config.autopairs"
-
--- require "config.indentline" --lazyloaded
 require "config.gitsigns"
 require "config.project"
 require "config.toggleterm"
 require "config.alpha"
---  require "config.telescope" -- lazyloaded
--- require "config.legendary" -- lazyloaded
--- require "config.whichkey" -- lazyloaded
 require "config.trouble"
 require "config.dial"
 require "config.prettyfold"
@@ -37,8 +32,13 @@ require "config.focus"
 require "config.spectre"
 require "config.regex"
 require "config.hop"
-require "config.harpoon"
 -- require "config.refactor"
+
+-- require "config.indentline" --lazyloaded
+--  require "config.telescope" -- lazyloaded
+-- require "config.legendary" -- lazyloaded
+-- require "config.whichkey" -- lazyloaded
+-- require "config.harpoon" -- lazyloaded
 
 -- LSP Configuration
 -- require "config.lsp" -- lazyloaded

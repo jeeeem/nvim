@@ -25,20 +25,8 @@ end
 --------------------------------
 local fn = vim.fn
 
-local lazy_load_ft = {
-	-- "alpha",
-	"vim",
-	"lua",
-	"md",
-	"java",
-	"javascript",
-	"python",
-	"typescript",
-	"javascriptreact",
-	"typescriptreact",
-	"vimwiki",
-}
 local dev_ft = {
+	"bash",
 	"css",
 	"html",
 	"java",
@@ -48,6 +36,7 @@ local dev_ft = {
 	"lua",
 	"md",
 	"python",
+	"sh",
 	"typescript",
 	"typescriptreact",
 	"vim",
@@ -116,7 +105,7 @@ return packer.startup(function(use)
 	} -- Indent line
 	use {
 		"antoinemadec/FixCursorHold.nvim",
-		ft = lazy_load_ft,
+		ft = dev_ft,
 		opt = true,
 	} -- https://github.com/neovim/neovim/issues/12587
 	use "stevearc/dressing.nvim" -- Improve vim.ui interfaces
@@ -145,6 +134,7 @@ return packer.startup(function(use)
 	use "rcarriga/nvim-notify" -- Notifications
 	-- use "ThePrimeagen/refactoring.nvim" -- Refactoring Library
 	use { "goolord/alpha-nvim", config = "vim.cmd[[set laststatus=0]]" } -- Dashboard
+	-- use "goolord/alpha-nvim" -- Dashboard
 	use "folke/zen-mode.nvim" -- Zen mode
 	use { "mg979/vim-visual-multi", opt = true, ft = dev_ft } -- Multiple cursors
 	use {
@@ -188,7 +178,13 @@ return packer.startup(function(use)
 	-- use "rafcamlet/nvim-luapad" -- Lua Scratchpad
 	use "metakirby5/codi.vim" -- Scratchpad
 	use "lalitmee/browse.nvim" -- Open browser
-	use "ThePrimeagen/harpoon" -- Better mark usage
+	use {
+		"ThePrimeagen/harpoon",
+		ft = dev_ft,
+		callback = function()
+			requires "config.harpoon"
+		end,
+	} -- Better mark usage
 	use "phaazon/hop.nvim" -- Easymotion
 	use {
 		"folke/which-key.nvim",
@@ -325,7 +321,7 @@ return packer.startup(function(use)
 		run = ":TSUpdate",
 		opt = true,
 		event = { "User TelescopePreviewerLoaded" },
-		ft = lazy_load_ft,
+		ft = dev_ft,
 		config = "vim.cmd[[lua require('config.treesitter')]]",
 	}
 	use { "nvim-treesitter/playground", opt = true, after = "nvim-treesitter" } -- Treesitter Playground

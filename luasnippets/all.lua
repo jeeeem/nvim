@@ -15,11 +15,17 @@ local r = ls.restore_node
 -- local events = require "luasnip.util.events"
 -- local ai = require "luasnip.nodes.absolute_indexer"
 
+local function simple_restore(args, _)
+	return sn(nil, { i(1, args[1]), r(2, "dyn", i(nil, "user_text")) })
+end
+
 return {
+	-- Current time
 	s(
 		"curtime",
 		f(function()
 			return os.date "%D - %H: %M"
 		end)
 	),
+	--
 }
