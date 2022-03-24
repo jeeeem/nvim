@@ -1,33 +1,50 @@
-" --- Keymaps
+" Keymaps
 let g:mapleader = ","
 let g:maplocalleader = "\<Space>"
 
-"map <c-space> to manually trigger completion
 imap <silent> <c-space> <Plug>(completion_trigger)
+"map <c-space> to manually trigger completion
 
 " Normal Mode
 nmap <C-z> <nop>
 nnoremap <leader>mv :mkview<CR>
 nnoremap <leader>lv :loadview<CR>
+nnoremap <leader>lv :loadview<CR>
 
+"nnoremap <F1> :sp <bar> resize 10 <bar> te time javac -d compiled/ src/main/java/com/*.java && echo && echo Output: && java -cp compiled/ com.Main<CR>
+"nnoremap <F1> :sp <bar> resize 10 <bar> te time javac -d compiled ./*.java && echo && echo Output: && java -cp compiled/ com.Main<CR>
+
+"nnoremap <F1> :sp <bar> resize 10 <bar> te time && echo && echo Output: &&  python % <CR>
+"nnoremap <F2> :sp <bar> resize 10 <bar> te time javac -d compiled/ % && echo && echo Output: && java -cp compiled/ %:r<CR>
+nnoremap <F1> :!time && echo && echo Output: &&  python % <CR>
+nnoremap <F2> :!time javac -d compiled/ % && echo && echo Output: && java -cp compiled/ %:r<CR>
+"nmap <F2> :registers <CR>
+nnoremap <F4> :sp <bar> resize 10 <bar> te <CR>
+"nnoremap <F1> :FloatermNew --height=0.4 --width=0.5 time javac -d compiled src/main/java/test/*.java && echo && echo Output: && java -cp compiled/ Main<CR>
 nnoremap <F5> :so ~/.config/nvim/init.vim <CR>
 
 nnoremap <C-p> :Files<CR>
 nnoremap <silent><C-S> :up <CR>
 
 "nnoremap <A-e> :NERDTreeToggle<CR>
-nnoremap <A-e> :CocCommand explorer<CR>
-nnoremap <A-d> :DBUIToggle<CR>
-nnoremap <A-h> :CtrlSpaceGoDown <CR>
-nnoremap <A-l> :CtrlSpaceGoUp <CR>
+nnoremap <A-C-e> :CocCommand explorer<CR>
+"nnoremap <A-d> :DBUIToggle<CR>
+nnoremap <A-C-h> :CtrlSpaceGoDown <CR>
+nnoremap <A-C-l> :CtrlSpaceGoUp <CR>
 nnoremap <A-u> :UndotreeToggle <CR>
 
 " Use alt + hjkl to resize windows
-nnoremap <A-R>    :resize <CR>
-nnoremap <A-J>    :resize -2<CR>
-nnoremap <A-K>    :resize +2<CR>
-nnoremap <A-H>    :vertical resize -2<CR>
-nnoremap <A-L>    :vertical resize +2<CR>
+"nnoremap <A-C-R>    :resize <CR>
+"nnoremap <A-C-J>    :resize -2<CR>
+"nnoremap <A-C-K>    :resize +2<CR>
+"nnoremap <A-C-H>    :vertical resize -2<CR>
+"nnoremap <A-C-L>    :vertical resize +2<CR>
+
+" Better Terminal Nagivation
+"tnoremap <C-h> <C-\><C-n><C-h>
+"tnoremap <C-j> <C-\><C-n><C-j>
+"tnoremap <C-k> <C-\><C-n><C-k>
+"tnoremap <C-l> <C-\><C-n><C-l>
 
 " Move line up & down like vscode
 nnoremap <silent><A-j> :move .+1<CR>
@@ -84,7 +101,6 @@ inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 " Select the auto-complete menu like ctrl+y would
 inoremap <expr> <C-l> pumvisible() ? "\<C-y>" : "\<C-l>"
 
-nmap <F2> :registers <CR>
 
 " ZoomWinTab
 let g:zoomwintab_remap = 0

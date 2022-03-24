@@ -5,6 +5,7 @@
     "sass",
     "scss",
     "markdown",
+    "java",
     "javascript",
     "javascriptreact",
     "typescript",
@@ -16,11 +17,13 @@
     "python",
     "vim",
     "vue",
+    "xml",
     "hbs"
   ],
   "coc.preferences.colorSupport": false,
   "coc.preferences.bracketEnterImprove": true,
   /*"cSpell.enabled": false,*/
+
   // Diagnostic Settings
   "diagnostic.enable": true,
   "diagnostic.checkCurrentLine": true,
@@ -32,6 +35,7 @@
   "diagnostic.warningSign": "",
   "diagnostic.errorSign": "",
   "codeLens.enable": false,
+
   // ESlint settings
   "eslint.filetypes": [
     "javascript",
@@ -41,10 +45,9 @@
     "typescript.tsx"
   ],
   "eslint.run": "onSave",
-  "eslint.autoFix": false,
   "eslint.autoFixOnSave": false,
-  "eslint.enable": false,
   "eslint.nodePath": null,
+
   // Coc-Explorer
   "explorer.width": 30,
   "explorer.icon.enableNerdfont": true,
@@ -52,19 +55,41 @@
   "explorer.keyMappings.global": {
     "H": "gotoParent"
   },
+
   // HTML
-  "html.filetypes": [
-    "html",
-    "handlebars",
-    "hbs",
-    "htmldjango"
-  ],
+  "html.filetypes": ["html", "handlebars", "hbs", "htmldjango"],
   "html.autoClosingTags": true,
   // Prettier
   /*"prettier.singleQuote": true,
   "prettier.eslintIntegration": true,
   "prettier.disableSuccessMessage": true,
   "prettier.disableLanguages": [],*/
+
+  // Language Server
+  //"languageserver": {
+  //"rust": {
+  //"command": "rust-analyzer",
+  //"filetypes": ["rust"],
+  //"rootPatterns": ["Cargo.toml"]
+  //}
+  //},
+
+  // Java Config
+  "java.referencesCodeLens.enabled": true,
+  "java.signatureHelp.enabled": true,
+  "java.implementationsCodeLens.enabled": true,
+  "java.completion.enabled": true,
+  "java.format.comments.enabled": true,
+  "java.completion.overwrite": true,
+  "java.home": "/usr/lib/jvm/default/",
+  //"java.format.settings.profile":"
+  "java.jdt.ls.home": "/usr/share/java/jdtls",
+  //"java.jdt.ls.vmargs": "-javaagent:/usr/local/share/lombok/lombok.jar",
+  //"java.errors.incompleteClasspath.severity": "ignore"
+
+  //"java.jdt.ls.vmargs": "--add-modules=ALL-SYSTEM --add-opens java.base/util=ALL-UNNAMED --add-opens java.base/java.lang=ALL-UNNAMED",
+  "java.trace.server": "verbose",
+
   // Python Config
   "python.linting.enabled": true,
   "python.linting.pylintEnabled": true,
@@ -75,20 +100,18 @@
     "reportMissingImports": "information"
   },
   "python.analysis.diagnosticMode": "openFilesOnly",
+  //"pyright.completion.snippetSupport": false,
+  //"python.linting.pydocstyleEnabled": true,
+
   // Yank
   "yank.highlight.duration": 200,
   "yank.list.maxsize": 50,
   "yank.limit": 5,
+
   // Snippet
   "snippets.extends": {
-    "cpp": [
-      "c"
-    ],
-    "javascriptreact": [
-      "javascript"
-    ],
-    "typescript": [
-      "javascript"
-    ]
+    "cpp": ["c"],
+    "javascriptreact": ["javascript"],
+    "typescript": ["typescript"]
   }
 }

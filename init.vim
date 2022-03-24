@@ -19,6 +19,7 @@ source ~/.config/nvim/src/plug-config/ctrl-space.vim
 source ~/.config/nvim/src/plug-config/firenvim.vim
 source ~/.config/nvim/src/plug-config/floaterm.vim
 source ~/.config/nvim/src/plug-config/fugitive.vim
+source ~/.config/nvim/src/plug-config/fzf.vim
 source ~/.config/nvim/src/plug-config/markdown.vim
 source ~/.config/nvim/src/plug-config/multiple-cursor.vim
 source ~/.config/nvim/src/plug-config/quickscope.vim

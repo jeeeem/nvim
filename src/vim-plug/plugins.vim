@@ -13,7 +13,7 @@ Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'liuchengxu/vista.vim'
 
 "Nvim Browser Integration
-"Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
 " IDE Pack (Syntax Highlighting, Linting, Auto-Completion, etc)
 "Plug 'neovim/nvim-lspconfig'

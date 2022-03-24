@@ -33,7 +33,7 @@ let g:mkdp_refresh_slow = 1
 " set to 1, the MarkdownPreview command can be use for all files,
 " by default it can be use in markdown file
 " default: 0
-let g:mkdp_command_for_global = 0
+let g:mkdp_command_for_global = 1
 
 " set to 1, preview server available to others in your network
 " by default, the server listens on localhost (127.0.0.1)
@@ -46,18 +46,26 @@ let g:mkdp_open_to_the_world = 0
 " default empty
 let g:mkdp_open_ip = ''
 
+" use a custom port to start server or random for empty
+let g:mkdp_port = 1111
+
 " specify browser to open preview page
 " default: ''
 let g:mkdp_browser = ''
 
 " set to 1, echo preview page url in command line when open preview page
 " default is 0
-let g:mkdp_echo_preview_url = 0
+let g:mkdp_echo_preview_url = 1
+
+function! g:Open_browser(url)
+    "silent exe '!lemonade open 'a:url
+    silent exe '!firefox'a:url
+endfunction
 
 " a custom vim function name to open preview page
 " this function will receive url as param
 " default is empty
-let g:mkdp_browserfunc = ''
+let g:mkdp_browserfunc = 'g:Open_browser'
 
 " options for markdown render
 " mkit: markdown-it options for render
@@ -95,13 +103,13 @@ let g:mkdp_markdown_css = ''
 " like '/Users/username/highlight.css' or expand('~/highlight.css')
 let g:mkdp_highlight_css = ''
 
-" use a custom port to start server or random for empty
-let g:mkdp_port = ''
-
 " preview page title
 " ${name} will be replace with the file name
 let g:mkdp_page_title = '「${name}」'
 
+" recognized filetypes
+" these filetypes will have MarkdownPreview... commands
+let g:mkdp_filetypes = ['markdown']
 
 " ---Pandoc Settings
 augroup pandoc_syntax
@@ -109,8 +117,8 @@ augroup pandoc_syntax
     autocmd! FileType vimwiki set syntax=markdown.pandoc
 augroup END
 
-augroup pandoc_syntax
-augroup END
+"augroup pandoc_syntax
+"augroup END
 " ---Vim Wiki Settings
 let g:vimwiki_list = [{'path': '~/vimwiki/',
                       \ 'index': 'README',

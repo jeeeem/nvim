@@ -35,10 +35,10 @@ let g:which_key_map.a = {
        \ }
 
 let g:which_key_map.b = {
-			\ 'name' : '+Buffer' ,
-			\ 'l' : [':Buffers' , 'List Buffers'],
-			\ 'n' : [':bnext'   , 'Next Buffer'],
-			\ 'd' : [':Bd'      , 'Delete Buffer']
+      \ 'name' : '+Buffer' ,
+      \ 'l' : [':Buffers' , 'List Buffers'],
+      \ 'n' : [':bnext'   , 'Next Buffer'],
+      \ 'd' : [':Bd'      , 'Delete Buffer']
     \ }
 
 let g:which_key_map.c = {
@@ -62,16 +62,16 @@ let g:which_key_map.c = {
     \ }
 
 let g:which_key_map.f = {
-			\ 'name' : '+FZF' ,
-			\ '/' : [':History/'     , 'history'],
-			\ ';' : [':Commands'     , 'commands'],
-			\ 'a' : [':Ag'           , 'text Ag'],
-			\ 'b' : [':BLines'       , 'current buffer'],
-			\ 'B' : [':Buffers'      , 'open buffers'],
+      \ 'name' : '+FZF' ,
+      \ '/' : [':History/'     , 'history'],
+      \ ';' : [':Commands'     , 'commands'],
+      \ 'a' : [':Ag'           , 'text Ag'],
+      \ 'b' : [':BLines'       , 'current buffer'],
+      \ 'B' : [':Buffers'      , 'open buffers'],
       \ 'c' : [':Commits'      , 'commits'],
-			\ 'C' : [':BCommits'     , 'buffer commits'],
-	  	\ 'f' : [':Files'        , 'files'],
-	    \ 'g' : [':GFiles'       , 'git files'],
+      \ 'C' : [':BCommits'     , 'buffer commits'],
+      \ 'f' : [':Files'        , 'files'],
+      \ 'g' : [':GFiles'       , 'git files'],
       \ 'G' : [':GFiles?'      , 'modified git files'],
       \ 'h' : [':History'      , 'file history'],
       \ 'H' : [':History:'     , 'command history'],
@@ -119,42 +119,42 @@ let g:which_key_map.g = {
       \ }
 
 let g:which_key_map.m = {
-			\ 'name' : '+Session' ,
-			\ 's' : [':SSave'   , 'Save Session'],
-			\ 'l' : [':SLoad'      , 'Load Session'],
-			\ 'd' : [':SDelete'      , 'Delete Session'],
-			\ 'c' : [':SClose'      , 'Close Session'],
+      \ 'name' : '+Session' ,
+      \ 's' : [':SSave'   , 'Save Session'],
+      \ 'l' : [':SLoad'      , 'Load Session'],
+      \ 'd' : [':SDelete'      , 'Delete Session'],
+      \ 'c' : [':SClose'      , 'Close Session'],
     \ }
 
 let g:which_key_map.t = {
-			\ 'name' : '+Tabs' ,
-			\ 'c' : [':tabclose' , 'Close Tab'],
-			\ 'e' : [':tabedit' , 'New Tab'],
-			\ 'E' : [':tabedit %' , 'New Tab of Current File '],
-			\ 'o' : [':tabonly' , 'Close Other Tab'],
-			\ 'n' : [':tabnext' , 'Next Tab'],
-			\ 'p' : [':tabprevious' , 'Previous Tab'],
-			\ 't' : [':CtrlSpaceTabLabel' , 'Tab Label'],
-			\ 'r' : [':tabrewind' , 'Rewind Tab'],
-			\ 'f' : [':tabfirst' , 'First Tab'],
-			\ 'l' : [':tablast' , 'Last Tab'],
+      \ 'name' : '+Tabs' ,
+      \ 'c' : [':tabclose' , 'Close Tab'],
+      \ 'e' : [':tabedit' , 'New Tab'],
+      \ 'E' : [':tabedit %' , 'New Tab of Current File '],
+      \ 'o' : [':tabonly' , 'Close Other Tab'],
+      \ 'n' : [':tabnext' , 'Next Tab'],
+      \ 'p' : [':tabprevious' , 'Previous Tab'],
+      \ 't' : [':CtrlSpaceTabLabel' , 'Tab Label'],
+      \ 'r' : [':tabrewind' , 'Rewind Tab'],
+      \ 'f' : [':tabfirst' , 'First Tab'],
+      \ 'l' : [':tablast' , 'Last Tab'],
     \ }
 
 let g:which_key_map.w = {
-			\ 'name' : '+Workspace' ,
-			\ 'b' : [':CtrlSpace' , 'Buffer List'],
-			\ 'n' : [':CtrlSpaceNewWorkspace' , 'New Workspace'],
-			\ 's' : [':CtrlSpaceSaveWorkspace' , 'Save Workspace'],
-			\ 'l' : [':CtrlSpaceLoadWorkspace' , 'Load Workspace'],
-			\ 'a' : [':CtrlSpaceAddProjectRoot' , 'Add Project Root'],
-			\ 'r' : [':CtrlSpaceRemoveProjectRoot' , 'Remove Project Root'],
+      \ 'name' : '+Workspace' ,
+      \ 'b' : [':CtrlSpace' , 'Buffer List'],
+      \ 'n' : [':CtrlSpaceNewWorkspace' , 'New Workspace'],
+      \ 's' : [':CtrlSpaceSaveWorkspace' , 'Save Workspace'],
+      \ 'l' : [':CtrlSpaceLoadWorkspace' , 'Load Workspace'],
+      \ 'a' : [':CtrlSpaceAddProjectRoot' , 'Add Project Root'],
+      \ 'r' : [':CtrlSpaceRemoveProjectRoot' , 'Remove Project Root'],
     \ }
 
 let g:which_key_map.z = {
-			\ 'name' : '+ZenMode' ,
-			\ 'z' : [':Goyo 120'  , 'Zen Mode '],
-			\ 'l' : [':Limelight'  , 'Focus Mode '],
-			\ 'x' : [':Goyo'      , 'Exit Zen Mode '],
+      \ 'name' : '+ZenMode' ,
+      \ 'z' : [':Goyo 120'  , 'Zen Mode '],
+      \ 'l' : [':Limelight'  , 'Focus Mode '],
+      \ 'x' : [':Goyo'      , 'Exit Zen Mode '],
     \ }
 
 "let g:which_key_map.f = {

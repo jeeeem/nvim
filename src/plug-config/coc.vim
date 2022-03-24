@@ -4,7 +4,6 @@
     \ 'coc-snippets',
     \ 'coc-actions',
     \ 'coc-emmet',
-    "\ 'coc-pairs',
     \ 'coc-tsserver',
     \ 'coc-html',
     \ 'coc-css',

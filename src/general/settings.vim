@@ -38,11 +38,12 @@ set nocompatible
 set encoding=UTF-8
 set cursorline
 set inccommand=nosplit
-set guifont=Fira\ Code\ Nerd\ Font:h14
+set guifont=Iosevka\ Nerd\ Font
 set clipboard+=unnamedplus
 set clipboard=unnamedplus
 "set iskeyword+=-                              "Treat dash as a word text object
-"set splitbelow
+set sh
+set splitbelow
 "set splitright
 set viewoptions-=options
 autocmd BufRead * set formatoptions-=cro      "Stop new line continuation of comments"
@@ -93,4 +94,27 @@ augroup highlight_yank
     autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank()
 augroup END
 
+"let g:clipboard = {
+      "\   'name': 'win32yank-wsl',
+      "\   'copy': {
+      "\      '+': 'win32yank.exe -i --crlf',
+      "\      '*': 'win32yank.exe -i --crlf',
+      "\    },
+      "\   'paste': {
+      "\      '+': 'win32yank.exe -o --lf',
+      "\      '*': 'win32yank.exe -o --lf',
+      "\   },
+      "\   'cache_enabled': 0,
+      "\ }
 
+" WSL yak support
+"let s:clip = '/mnt/c/Windows/System32/clip.exe'  " change this path according to your mount point
+"if executable(s:clip)
+    "augroup WSLYank
+        "autocmd!
+        "autocmd TextYankPost * if v:event.operator ==# 'y' | call system('cat |' . s:clip, @0) | endif
+    "augroup END
+"endif
+
+" Auto insert whenever a terminal open
+autocmd TermOpen * startinsert
