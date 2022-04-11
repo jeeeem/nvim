@@ -8,4 +8,5 @@ local ts_utils = require "nvim-treesitter.ts_utils"
 
 -- Custom Plugins
 
+-- Custom Global functions
 require "config.custom.functions"

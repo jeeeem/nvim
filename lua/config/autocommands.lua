@@ -38,17 +38,13 @@ local i3config = augroup("I3config Syntax Highlight", { clear = true })
 -- :e		extension only
 
 -- General settings Augroup
--- autocmd("FileType", {
--- 	pattern = { "alpha" },
--- 	command = "set laststatus=0",
--- 	group = general_settings,
--- })
 
--- autocmd("FileType", {
--- 	command = "set laststatus=3",
--- 	group = general_settings,
--- })
---
+autocmd("FileType", {
+	command = "set laststatus=3",
+	group = general_settings,
+	once = true,
+})
+
 autocmd("FileType", {
 	pattern = { "qf", "help", "man", "lspinfo", "spectre_panel" },
 	command = "nnoremap <silent> <buffer> q :close<CR>",
@@ -129,7 +125,7 @@ autocmd(
 )
 
 autocmd("FileType", {
-	pattern = "vimwiki",
+	pattern = { "vimwiki", "md" },
 	command = "set filetype=markdown.pandoc",
 	group = markdown,
 })
@@ -145,8 +141,8 @@ autocmd("FileType", {
 -- Spectre Augroup
 autocmd("ColorScheme", {
 	callback = function()
-		vim.cmd [[highlight DiffChange  guifg=#f53131 guibg=#fff]]
-		vim.cmd [[highlight DiffDelete  guifg=#00FF00 guibg=#fff]]
+		vim.cmd [[highlight DiffChange guifg=#f53131 guibg=#fff]]
+		vim.cmd [[highlight DiffDelete guifg=#00FF00 guibg=#fff]]
 	end,
 	group = spectre,
 })

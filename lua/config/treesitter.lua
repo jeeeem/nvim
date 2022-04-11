@@ -7,7 +7,42 @@ end
 -- local rainbow_enabled_list = { "clojure", "fennel", "commonlisp", "query", ... }
 
 configs.setup {
-	ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+	-- ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+	ensure_installed = {
+		"bash",
+		"c",
+		"c_sharp",
+		"cmake",
+		"comment",
+		"css",
+		"dockerfile",
+		"gdscript",
+		"godot_resource",
+		"graphql",
+		"html",
+		"http",
+		"java",
+		"javascript",
+		"jsdoc",
+		"json",
+		"json5",
+		"jsonc",
+		"lua",
+		"make",
+		"markdown",
+		"norg",
+		"python",
+		"regex",
+		"rust",
+		"scss",
+		"solidity",
+		"todotxt",
+		"toml",
+		"tsx",
+		"vim",
+		"vue",
+		"yaml",
+	},
 	sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
 	ignore_install = { "" }, -- List of parsers to ignore installing
 	autopairs = {

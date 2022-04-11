@@ -4,6 +4,8 @@
 
 - Alpha
   - Customize Dashboard
+- Alacritty
+  - Shift key
 - Log
   - Configure nvim notify or struct log
 - Dial

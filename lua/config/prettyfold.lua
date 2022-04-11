@@ -62,5 +62,5 @@ prettyfold.setup {
 }
 
 prettypreview.setup {
-	key = nil, -- choose 'h' or 'l' key
+	key = "l", -- choose 'h' or 'l' key
 }

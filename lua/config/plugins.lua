@@ -1,26 +1,26 @@
-local M = {}
-local loader = require("packer").loader
-local vi = vim.inspect
-
-function M.remove(table, item)
-	for i, value in ipairs(table) do
-		if value == item then
-			table[i] = nil
-		end
-	end
-	return table
-end
-
-function M.lazy_load()
-	vim.defer_fn(function()
-		vim.cmd [[AirlineRefresh]]
-		-- if packer_plugins["ctrlspace"].loaded == true then
-		-- vim.notify "Lazy Load"
-		-- vim.cmd [[AirlineRefresh]]
-		-- 	loader "airline"
-		-- end
-	end, 5)
-end
+-- local M = {}
+-- local loader = require("packer").loader
+-- local vi = vim.inspect
+--
+-- function M.remove(table, item)
+-- 	for i, value in ipairs(table) do
+-- 		if value == item then
+-- 			table[i] = nil
+-- 		end
+-- 	end
+-- 	return table
+-- end
+--
+-- function M.lazy_load()
+-- 	vim.defer_fn(function()
+-- 		vim.cmd [[AirlineRefresh]]
+-- 		-- if packer_plugins["ctrlspace"].loaded == true then
+-- 		-- vim.notify "Lazy Load"
+-- 		-- vim.cmd [[AirlineRefresh]]
+-- 		-- 	loader "airline"
+-- 		-- end
+-- 	end, 5)
+-- end
 
 --------------------------------
 local fn = vim.fn
@@ -127,6 +127,8 @@ return packer.startup(function(use)
 	}
 
 	-- General IDE Plugins
+	-- use "jedrzejboczar/possession.nvim" -- Session management
+	use "rmagatti/auto-session" -- Auto Session
 	use "windwp/nvim-autopairs" -- auto pairs
 	use "numToStr/Comment.nvim" -- Commenter
 	use "norcalli/nvim-colorizer.lua" -- Color highlighter
@@ -138,9 +140,8 @@ return packer.startup(function(use)
 	use "akinsho/toggleterm.nvim" -- Floating terminl
 	use "ahmedkhalf/project.nvim" -- Workspaces/Project management
 	use "rcarriga/nvim-notify" -- Notifications
-	-- use "ThePrimeagen/refactoring.nvim" -- Refactoring Library
+	use "ThePrimeagen/refactoring.nvim" -- Refactoring Library
 	use { "goolord/alpha-nvim", config = "vim.cmd[[set laststatus=0]]" } -- Dashboard
-	-- use "goolord/alpha-nvim" -- Dashboard
 	use "folke/zen-mode.nvim" -- Zen mode
 	use { "mg979/vim-visual-multi", opt = true, ft = dev_ft } -- Multiple cursors
 	use {
@@ -183,6 +184,7 @@ return packer.startup(function(use)
 	-- Utility Plugins
 	-- use "rafcamlet/nvim-luapad" -- Lua Scratchpad
 	use "metakirby5/codi.vim" -- Scratchpad
+	-- use "mrjones2014/smart-splits.nvim" -- Smart resizing
 	use "lalitmee/browse.nvim" -- Open browser
 	use {
 		"ThePrimeagen/harpoon",
@@ -200,14 +202,14 @@ return packer.startup(function(use)
 			require "config.whichkey"
 		end,
 	} -- Popup Keybindings
-	use {
-		"mrjones2014/legendary.nvim",
-		opt = true,
-		config = function()
-			require "config.legendary"
-		end,
-		ft = dev_ft, --[[ commit = "f30c658f4d97e28a535fa026a8dc0d58fa121183"  ]]
-	} -- Legend keymaps
+	-- use {
+	-- 	"mrjones2014/legendary.nvim",
+	-- 	opt = true,
+	-- 	config = function()
+	-- 		require "config.legendary"
+	-- 	end,
+	-- 	ft = dev_ft, --[[ commit = "f30c658f4d97e28a535fa026a8dc0d58fa121183"  ]]
+	-- } -- Legend keymaps
 	use "tpope/vim-surround" -- Surround text object;
 	use "troydm/zoomwintab.vim" -- Tmux-like zoom window
 	use {
@@ -235,7 +237,22 @@ return packer.startup(function(use)
 	} -- Preview definitions
 
 	-- FZF Plugins
-	use { "junegunn/fzf.vim", requires = "junegunn/fzf" } -- FZF
+	use {
+		"ibhagwan/fzf-lua",
+		config = function()
+			local tnoremap = function(lhs, rhs)
+				vim.api.nvim_buf_set_keymap(0, "t", lhs, rhs, { silent = true, noremap = true })
+			end
+			require("fzf-lua").setup {
+				winopts = {
+					window_on_create = function()
+						tnoremap("<c-j>", "<down>")
+						tnoremap("<c-k>", "<up>")
+					end,
+				},
+			}
+		end,
+	} -- FZF
 	use {
 		"nvim-telescope/telescope.nvim",
 		opt = true,
@@ -246,6 +263,7 @@ return packer.startup(function(use)
 		"nvim-telescope/telescope-fzf-native.nvim",
 		opt = true,
 		after = "telescope.nvim",
+		run = "make",
 		config = "vim.cmd[[lua require('config.telescope')]]",
 	} -- FZF enhancement
 	use {
@@ -285,6 +303,11 @@ return packer.startup(function(use)
 		after = "nvim-cmp",
 		opt = true,
 	} -- LSP completions
+	use {
+		"f3fora/cmp-spell",
+		after = "nvim-cmp",
+		opt = true,
+	} -- Spell completions
 
 	-- LSP Plugins
 	use "williamboman/nvim-lsp-installer" -- simple to use language server installer
@@ -338,6 +361,7 @@ return packer.startup(function(use)
 	use { "windwp/nvim-ts-autotag", opt = true, after = "nvim-treesitter" } -- Auto close tag
 
 	-- Git Plugins
+	-- use "kdheepak/lazygit.nvim" -- Lazygit integration
 	use {
 		"lewis6991/gitsigns.nvim", --[[ commit = "06aefb1867687ee2b1d206fd5d19a2b254c62f2c"  ]]
 	} -- Git integration
@@ -370,8 +394,19 @@ return packer.startup(function(use)
 	-- use "Mofiqul/dracula.nvim"
 
 	-- Note Taking Plugins
-	use { "iamcco/markdown-preview.nvim", run = "cd app && yarn install" } --  Markdown Preview
 	use { "vimwiki/vimwiki", opt = true, cmd = { "VimwikiIndex" } }
+	-- use {
+	-- 	"nvim-neorg/neorg",
+	-- 	-- tag = "latest",
+	-- 	ft = "norg",
+	-- 	after = "nvim-treesitter", -- You may want to specify Telescope here as well
+	-- 	-- config = function()
+	-- 	-- 	require("neorg").setup {
+	-- 	-- 		...,
+	-- 	-- 	}
+	-- 	-- end,
+	-- }
+	use { "iamcco/markdown-preview.nvim", run = "cd app && yarn install" } --  Markdown Preview
 	use "vim-pandoc/vim-pandoc-syntax"
 
 	--  For Lua Development Plugin

@@ -45,11 +45,21 @@ keymap("n", "<C-s>", ":up <CR>", opts)
 keymap("n", "<leader>e", ":Lex 30<cr>", opts)
 
 -- Resize with arrows
-keymap("n", "<C-Up>", ":resize +2<CR>", opts)
-keymap("n", "<C-Down>", ":resize -2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+-- keymap("n", "<C-Up>", ":resize +2<CR>", opts)
+-- keymap("n", "<C-Down>", ":resize -2<CR>", opts)
+-- keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
+-- keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
+-- keymap("n", "<C-S-h>", "require('smart-splits').resize_left()<cr>", opts)
+-- keymap("n", "<C-S-j>", "require('smart-splits').resize_down()<cr>", opts)
+-- keymap("n", "<C-S-k>", "require('smart-splits').resize_up()<cr>", opts)
+-- keymap("n", "<C-S-l>", "require('smart-splits').resize_right()<cr>", opts)
+
+-- keymap("n", "<C-Left>", ":lua require('smart-splits').resize_left()<cr>", opts)
+-- keymap("n", "<C-Down>", ":lua require('smart-splits').resize_down()<cr>", opts)
+-- keymap("n", "<C-Up>", ":lua require('smart-splits').resize_up()<cr>", opts)
+-- keymap("n", "<C-Right>", ":lua require('smart-splits').resize_right()<cr>", opts)
+--
 -- Navigate buffers
 -- keymap("n", "<S-l>", ":bnext<CR>", opts)
 -- keymap("n", "<S-h>", ":bprevious<CR>", opts)
@@ -91,6 +101,7 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 -- Telescope
 keymap("n", "<C-p>", "<cmd>Telescope find_files<cr>", opts)
+-- keymap("n", "<C-p>", "<cmd>FzfLua files<cr>", opts)
 
 -- Nvimtree
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)

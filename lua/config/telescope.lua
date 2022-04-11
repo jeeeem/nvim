@@ -4,13 +4,6 @@ if not status_ok then
 end
 
 -- local trouble = require "trouble.providers.telescope"
-
--- telescope.load_extension "media_files"
-telescope.load_extension "fzf"
-telescope.load_extension "projects"
-telescope.load_extension "harpoon"
--- telescope.load_extension "dap"
-
 local actions = require "telescope.actions"
 
 telescope.setup {
@@ -114,3 +107,9 @@ telescope.setup {
 		-- please take a look at the readme of the extension you want to configure
 	},
 }
+
+-- telescope.load_extension "media_files"
+-- telescope.load_extension "dap"
+telescope.load_extension "fzf"
+telescope.load_extension "projects"
+telescope.load_extension "harpoon"

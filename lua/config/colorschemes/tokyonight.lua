@@ -1,6 +1,3 @@
--- tokyonight
--- onedarkpro
-
 local colorscheme = "tokyonight"
 
 -- Tokyonight Configuration

@@ -40,7 +40,7 @@ local options = {
 	guifont = "Iosevka Nerd Font:h12", -- the font used in graphical neovim applications
 }
 
--- Better line seperator when using global status `laststatus=3`
+-- Better window line seperator when using global status `laststatus=3`
 vim.opt.fillchars = {
 	horiz = "━",
 	horizup = "┻",
@@ -51,6 +51,7 @@ vim.opt.fillchars = {
 	verthoriz = "╋",
 }
 
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
 vim.opt.shortmess:append "c"
 vim.opt.whichwrap:append "<,>,[,],h,l"
 
