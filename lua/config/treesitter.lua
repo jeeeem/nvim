@@ -1,5 +1,11 @@
-local status_ok, configs = pcall(require, "nvim-treesitter.configs")
-if not status_ok then
+local c_status_ok, configs = pcall(require, "nvim-treesitter.configs")
+
+if not c_status_ok then
+	return
+end
+
+local p_status_ok, parsers = pcall(require, "nvim-treesitter.parsers")
+if not p_status_ok then
 	return
 end
 
@@ -27,6 +33,7 @@ configs.setup {
 		"json",
 		"json5",
 		"jsonc",
+		"just",
 		"lua",
 		"make",
 		"markdown",
@@ -165,4 +172,13 @@ configs.setup {
 			},
 		},
 	},
+}
+
+parsers.get_parser_configs().just = {
+	install_info = {
+		url = "https://github.com/IndianBoy42/tree-sitter-just", -- local path or git repo
+		files = { "src/parser.c", "src/scanner.cc" },
+		branch = "main",
+	},
+	maintainers = { "@IndianBoy42" },
 }

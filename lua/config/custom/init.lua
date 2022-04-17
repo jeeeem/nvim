@@ -1,12 +1,10 @@
-local loader = require("packer").loader
-local ts_utils = require "nvim-treesitter.ts_utils"
-
--- Custom Commands
-
--- vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting_sync()' ]]
--- vim.cmd [[ command! Rg execute 'Telescope live_grep' ]]
-
--- Custom Plugins
-
 -- Custom Global functions
 require "config.custom.functions"
+
+-- Custom Autocommands
+require "config.custom.autocommands"
+
+-- Custom Commands
+require "config.custom.commands"
+
+-- Custom Plugins

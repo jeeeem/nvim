@@ -13,6 +13,7 @@ vim.g.indent_blankline_filetype_exclude = {
 	"NvimTree",
 	"Trouble",
 	"TelescopePrompt",
+	"alpha",
 }
 vim.g.indentLine_enabled = 1
 -- vim.g.indent_blankline_char = "│"
@@ -59,12 +60,12 @@ vim.g.indent_blankline_context_patterns = {
 
 indent_blankline.setup {
 	-- show_end_of_line = true,
-	-- space_char_blankline = " ",
+	space_char_blankline = " ",
 	show_current_context = true,
 	-- show_current_context_start = true,
 	-- char_highlight_list = {
-	--   "IndentBlanklineIndent1",
-	--   "IndentBlanklineIndent2",
-	--   "IndentBlanklineIndent3",
+	-- 	"IndentBlanklineIndent1",
+	-- 	"IndentBlanklineIndent2",
+	-- 	"IndentBlanklineIndent3",
 	-- },
 }

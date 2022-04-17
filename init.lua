@@ -1,10 +1,9 @@
 -- General Configuration
-require "config.autocommands"
+require "config.custom"
 require "config.options"
 require "config.keymaps"
 require "config.impatient"
 require "config.filetype"
-require "config.custom"
 require "config.utils"
 
 -- Colorschemes

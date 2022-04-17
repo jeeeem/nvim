@@ -1,0 +1,6 @@
+config	config.txt	/*config*
+config-insert	config.txt	/*config-insert*
+config-normal	config.txt	/*config-normal*
+config-notes	config.txt	/*config-notes*
+config-visual	config.txt	/*config-visual*
+config.txt	config.txt	/*config.txt*

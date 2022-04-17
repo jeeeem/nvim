@@ -1,15 +1,15 @@
-local api = vim.api
-local augroup = api.nvim_create_augroup
-local autocmd = api.nvim_create_autocmd
+local augroup = vim.api.nvim_create_augroup
+local autocmd = vim.api.nvim_create_autocmd
 
 -- Augroups
+local fold = augroup("Fold Persistence", { clear = true })
 local general_settings = augroup("General Settings", { clear = true })
-local lsp = augroup("Lsp Settings", { clear = true })
 local git = augroup("Git Settings", { clear = true })
+-- local i3config = augroup("I3config Syntax Highlight", { clear = true })
+local lsp = augroup("Lsp Settings", { clear = true })
 local markdown = augroup("Markdown Settings", { clear = true })
 local spectre = augroup("Specter Highlights", { clear = true })
-local fold = augroup("Fold Persistence", { clear = true })
-local i3config = augroup("I3config Syntax Highlight", { clear = true })
+local skeleton = augroup("Skeleton Template", { clear = true })
 
 -- :h expand
 -- %		current file name
@@ -38,7 +38,6 @@ local i3config = augroup("I3config Syntax Highlight", { clear = true })
 -- :e		extension only
 
 -- General settings Augroup
-
 autocmd("FileType", {
 	command = "set laststatus=3",
 	group = general_settings,
@@ -152,14 +151,40 @@ autocmd("BufWritePre", { command = "mkview", group = fold })
 autocmd("BufRead", { command = "silent! loadview", group = fold })
 
 -- i3 Augruop
-autocmd("FileType", {
-	pattern = "i3",
+-- autocmd("FileType", {
+-- 	pattern = "i3",
+-- 	callback = function()
+-- 		vim.schedule(function()
+-- 			vim.cmd [[set filetype=i3config]]
+-- 		end)
+-- 	end,
+-- 	group = i3config,
+-- })
+
+-- Skeleton template
+local data_path = vim.fn.stdpath "config" .. "/templates/"
+
+autocmd("BufNewFile", {
+	pattern = "readme.md",
 	callback = function()
-		vim.schedule(function()
-			vim.cmd [[set filetype=i3config]]
-		end)
+		vim.cmd [[0r ~/skeletons/readme.md]]
 	end,
-	group = i3config,
+	group = skeleton,
 })
 
+autocmd("BufNewFile", {
+	pattern = ".justfile",
+	callback = function()
+		vim.cmd [[0r ~/skeletons/.justfile]]
+	end,
+	group = skeleton,
+})
+
+-- autocmd("BufNewFile", {
+-- 	pattern = "test",
+-- 	callback = function()
+-- 		vim.cmd("0r" .. data_path .. "/test")
+-- 	end,
+-- 	group = skeleton,
+-- })
 -- autocmd BufWinEnter * :set sessionoptions+=tabpages,globals

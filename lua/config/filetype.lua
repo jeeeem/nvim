@@ -12,11 +12,13 @@ filetype.setup {
 		},
 		literal = {
 			-- Set the filetype of files named "MyBackupFile" to lua
-			MyBackupFile = "lua",
+			-- config = "i3config",
 		},
 		complex = {
 			-- Set the filetype of any full filename matching the regex to gitconfig
-			[".*git/config"] = "gitconfig", -- Included in the plugin
+			-- [".*git/config"] = "gitconfig", -- Included in the plugin
+			["justfile"] = "just",
+			[".*i3/config"] = "i3config",
 		},
 
 		-- The same as the ones above except the keys map to functions

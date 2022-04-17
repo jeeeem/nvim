@@ -24,18 +24,28 @@ toggleterm.setup {
 			background = "Normal",
 		},
 	},
+	on_open = function()
+		local opts = { noremap = true }
+		vim.api.nvim_buf_set_keymap(0, "t", "<esc>", [[<C-\><C-n>]], opts)
+	end,
 }
 
-function _G.set_terminal_keymaps()
-	local opts = { noremap = true }
-	vim.api.nvim_buf_set_keymap(0, "t", "<esc>", [[<C-\><C-n>]], opts)
-	-- vim.api.nvim_buf_set_keymap(0, "t", "jk", [[<C-\><C-n>]], opts)
-end
+-- function _G.set_terminal_keymaps()
+-- 	local opts = { noremap = true }
+-- 	vim.api.nvim_buf_set_keymap(0, "t", "<esc>", [[<C-\><C-n>]], opts)
+-- 	-- vim.api.nvim_buf_set_keymap(0, "t", "jk", [[<C-\><C-n>]], opts)
+-- end
 
-vim.cmd "autocmd! TermOpen term://* lua set_terminal_keymaps()"
+-- vim.cmd "autocmd! TermOpen term://* lua set_terminal_keymaps()"
 
 local Terminal = require("toggleterm.terminal").Terminal
-local lazygit = Terminal:new { cmd = "lazygit", hidden = true }
+local lazygit = Terminal:new {
+	cmd = "lazygit",
+	hidden = true,
+	on_open = function()
+		-- DONT DELETE! This open function is just for deleting the <esc> keymap for normal toggleterm terminal
+	end,
+}
 
 function _LAZYGIT_TOGGLE()
 	lazygit:toggle()

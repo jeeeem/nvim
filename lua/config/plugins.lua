@@ -28,19 +28,24 @@ local fn = vim.fn
 local dev_ft = {
 	"bash",
 	"css",
+	"go",
 	"html",
 	"java",
 	"javascript",
 	"javascriptreact",
 	"json",
+	"just",
 	"lua",
+	"markdown.pandoc",
 	"md",
 	"python",
 	"sh",
+	"toml",
 	"typescript",
 	"typescriptreact",
 	"vim",
 	"vimwiki",
+	"yaml",
 }
 
 -- Automatically install packer
@@ -92,6 +97,7 @@ return packer.startup(function(use)
 	use "duggiefresh/vim-easydir" -- Create nested file/dir using :e / :new
 	use "mbbill/undotree" -- Undo history
 	use "mboughaba/i3config.vim" -- i3 config syntax highlighting
+	use "NoahTheDuke/vim-just" -- justfile syntax highlighting
 	use {
 		"lukas-reineke/indent-blankline.nvim",
 		cmd = { "IndentBlanklineRefresh" },
@@ -101,12 +107,10 @@ return packer.startup(function(use)
 			-- vim.cmd [[IndentBlanklineRefresh]]
 		end,
 		after = "nvim-treesitter",
-		opt = true,
 	} -- Indent line
 	use {
 		"antoinemadec/FixCursorHold.nvim",
 		ft = dev_ft,
-		opt = true,
 	} -- https://github.com/neovim/neovim/issues/12587
 	use "stevearc/dressing.nvim" -- Improve vim.ui interfaces
 	use "dstein64/vim-startuptime" -- Startup profile
@@ -129,7 +133,7 @@ return packer.startup(function(use)
 	-- General IDE Plugins
 	-- use "jedrzejboczar/possession.nvim" -- Session management
 	use "rmagatti/auto-session" -- Auto Session
-	use "windwp/nvim-autopairs" -- auto pairs
+	use "windwp/nvim-autopairs" -- Auto pairs
 	use "numToStr/Comment.nvim" -- Commenter
 	use "norcalli/nvim-colorizer.lua" -- Color highlighter
 	use "nvim-pack/nvim-spectre" -- Better search and replace
@@ -160,6 +164,7 @@ return packer.startup(function(use)
 		as = "ctrlspace",
 		opt = true,
 		ft = dev_ft,
+		cmd = "CtrlSpace",
 	} -- Better buffer tab
 	use {
 		"vim-airline/vim-airline",
@@ -183,8 +188,17 @@ return packer.startup(function(use)
 
 	-- Utility Plugins
 	-- use "rafcamlet/nvim-luapad" -- Lua Scratchpad
-	use "metakirby5/codi.vim" -- Scratchpad
 	-- use "mrjones2014/smart-splits.nvim" -- Smart resizing
+	-- use "chrisbra/unicode.vim" -- Unicode glyphs
+	use "tpope/vim-surround" -- Surround text object
+	use "tommcdo/vim-exchange" -- Swap text
+	use "metakirby5/codi.vim" -- Scratchpad
+	use {
+		"sQVe/sort.nvim",
+		config = function()
+			require("sort").setup {}
+		end,
+	} -- Sorting
 	use "lalitmee/browse.nvim" -- Open browser
 	use {
 		"ThePrimeagen/harpoon",
@@ -196,21 +210,23 @@ return packer.startup(function(use)
 	use "phaazon/hop.nvim" -- Easymotion
 	use {
 		"folke/which-key.nvim",
-		opt = true,
-		ft = dev_ft,
+		-- opt = true,
+		-- ft = dev_ft,
+		-- config = function()
+		-- 	require "config.whichkey"
+		-- end,
 		config = function()
 			require "config.whichkey"
 		end,
 	} -- Popup Keybindings
-	-- use {
-	-- 	"mrjones2014/legendary.nvim",
-	-- 	opt = true,
-	-- 	config = function()
-	-- 		require "config.legendary"
-	-- 	end,
-	-- 	ft = dev_ft, --[[ commit = "f30c658f4d97e28a535fa026a8dc0d58fa121183"  ]]
-	-- } -- Legend keymaps
-	use "tpope/vim-surround" -- Surround text object;
+	use {
+		"mrjones2014/legendary.nvim",
+		opt = true,
+		config = function()
+			require "config.legendary"
+		end,
+		ft = dev_ft, --[[ commit = "f30c658f4d97e28a535fa026a8dc0d58fa121183"  ]]
+	} -- Legend keymaps
 	use "troydm/zoomwintab.vim" -- Tmux-like zoom window
 	use {
 		"christoomey/vim-tmux-navigator",
@@ -277,7 +293,8 @@ return packer.startup(function(use)
 		ft = dev_ft,
 		config = "vim.cmd[[lua require('config.cmp')]]",
 		opt = true,
-	} -- The completion plugin
+		-- commit = "3192a0c57837c1ec5bf298e4f3ec984c7d2d60c0",
+	} -- completion plugin
 	use {
 		"hrsh7th/cmp-buffer",
 		after = "nvim-cmp",
@@ -361,7 +378,6 @@ return packer.startup(function(use)
 	use { "windwp/nvim-ts-autotag", opt = true, after = "nvim-treesitter" } -- Auto close tag
 
 	-- Git Plugins
-	-- use "kdheepak/lazygit.nvim" -- Lazygit integration
 	use {
 		"lewis6991/gitsigns.nvim", --[[ commit = "06aefb1867687ee2b1d206fd5d19a2b254c62f2c"  ]]
 	} -- Git integration
@@ -370,23 +386,16 @@ return packer.startup(function(use)
 	-- use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' } -- Git diff
 
 	-- Snippets Plugins
+	use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 	use {
 		"L3MON4D3/LuaSnip",
 		ft = dev_ft,
 		opt = true,
 		config = "vim.cmd[[lua require('config.luasnip')]]",
 	} --snippet engine
-	use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
 	-- Colorschemes Plugins
-	use {
-		"folke/tokyonight.nvim",
-		-- opt = true,
-		-- event = "VimEnter",
-		-- setup = function()
-		-- 	require "config.packer_compiled"
-		-- end,
-	}
+	use "folke/tokyonight.nvim"
 	use "rebelot/kanagawa.nvim"
 	use "olimorris/onedarkpro.nvim"
 	use "dracula/vim"
@@ -395,6 +404,8 @@ return packer.startup(function(use)
 
 	-- Note Taking Plugins
 	use { "vimwiki/vimwiki", opt = true, cmd = { "VimwikiIndex" } }
+	use { "iamcco/markdown-preview.nvim", run = "cd app && yarn install" } --  Markdown Preview
+	use "vim-pandoc/vim-pandoc-syntax"
 	-- use {
 	-- 	"nvim-neorg/neorg",
 	-- 	-- tag = "latest",
@@ -406,8 +417,6 @@ return packer.startup(function(use)
 	-- 	-- 	}
 	-- 	-- end,
 	-- }
-	use { "iamcco/markdown-preview.nvim", run = "cd app && yarn install" } --  Markdown Preview
-	use "vim-pandoc/vim-pandoc-syntax"
 
 	--  For Lua Development Plugin
 	-- https://github.com/ellisonleao/nvim-plugin-template
