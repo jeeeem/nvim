@@ -28,6 +28,7 @@ local fn = vim.fn
 local dev_ft = {
 	"bash",
 	"css",
+	"elixir",
 	"go",
 	"html",
 	"java",
@@ -132,22 +133,12 @@ return packer.startup(function(use)
 
 	-- General IDE Plugins
 	-- use "jedrzejboczar/possession.nvim" -- Session management
-	use "rmagatti/auto-session" -- Auto Session
-	use "windwp/nvim-autopairs" -- Auto pairs
-	use "numToStr/Comment.nvim" -- Commenter
-	use "norcalli/nvim-colorizer.lua" -- Color highlighter
-	use "nvim-pack/nvim-spectre" -- Better search and replace
-	use "anuvyklack/pretty-fold.nvim" -- Better folding text
-	use "beauwilliams/focus.nvim" -- Better window management
-	use "kyazdani42/nvim-tree.lua" -- File Explorer Tree
-	use "kyazdani42/nvim-web-devicons" -- Devicons
-	use "akinsho/toggleterm.nvim" -- Floating terminl
-	use "ahmedkhalf/project.nvim" -- Workspaces/Project management
-	use "rcarriga/nvim-notify" -- Notifications
-	use "ThePrimeagen/refactoring.nvim" -- Refactoring Library
-	use { "goolord/alpha-nvim", config = "vim.cmd[[set laststatus=0]]" } -- Dashboard
-	use "folke/zen-mode.nvim" -- Zen mode
-	use { "mg979/vim-visual-multi", opt = true, ft = dev_ft } -- Multiple cursors
+	-- use {
+	-- 	"rmagatti/auto-session",
+	-- 	config = function()
+	-- 		require "config.session"
+	-- 	end,
+	-- } -- Auto Session
 	use {
 		"bennypowers/nvim-regexplainer",
 		config = function()
@@ -158,7 +149,6 @@ return packer.startup(function(use)
 			"MunifTanjim/nui.nvim",
 		},
 	} --Regex explainer
-	use "folke/twilight.nvim" -- Dim code
 	use {
 		"~/nvim-plugins/vim-ctrlspace/",
 		as = "ctrlspace",
@@ -181,25 +171,37 @@ return packer.startup(function(use)
 			end
 		end,
 	} -- Tab/status line
-	use "vim-airline/vim-airline-themes" -- Airline Themes
-	use "~/nvim-plugins/nvim-web-devicons-airline" -- Web-Devicons for airline
+	use { "goolord/alpha-nvim", config = "vim.cmd[[set laststatus=0]]" } -- Dashboard
+	use { "mg979/vim-visual-multi", ft = dev_ft } -- Multiple cursors
 	use { "michaelb/sniprun", opt = true, cmd = { "SnipRun" }, run = "bash ./install.sh" } -- Code snippet runner
 	use { "CRAG666/code_runner.nvim", requires = "nvim-lua/plenary.nvim" } -- Code Runner
+	use "vim-airline/vim-airline-themes" -- Airline Themes
+	use "~/nvim-plugins/nvim-web-devicons-airline" -- Web-Devicons for airline
+	use "windwp/nvim-autopairs" -- Auto pairs
+	use "numToStr/Comment.nvim" -- Commenter
+	use "norcalli/nvim-colorizer.lua" -- Color highlighter
+	use "nvim-pack/nvim-spectre" -- Better search and replace
+	use "anuvyklack/pretty-fold.nvim" -- Better folding text
+	use "beauwilliams/focus.nvim" -- Better window management
+	use "kyazdani42/nvim-tree.lua" -- File Explorer Tree
+	use "kyazdani42/nvim-web-devicons" -- Devicons
+	use "akinsho/toggleterm.nvim" -- Floating terminl
+	use "ahmedkhalf/project.nvim" -- Workspaces/Project management
+	use "rcarriga/nvim-notify" -- Notifications
+	use "ThePrimeagen/refactoring.nvim" -- Refactoring Library
+	use "folke/zen-mode.nvim" -- Zen mode
+	use "folke/twilight.nvim" -- Dim code
 
 	-- Utility Plugins
 	-- use "rafcamlet/nvim-luapad" -- Lua Scratchpad
 	-- use "mrjones2014/smart-splits.nvim" -- Smart resizing
 	-- use "chrisbra/unicode.vim" -- Unicode glyphs
-	use "tpope/vim-surround" -- Surround text object
-	use "tommcdo/vim-exchange" -- Swap text
-	use "metakirby5/codi.vim" -- Scratchpad
 	use {
 		"sQVe/sort.nvim",
 		config = function()
 			require("sort").setup {}
 		end,
 	} -- Sorting
-	use "lalitmee/browse.nvim" -- Open browser
 	use {
 		"ThePrimeagen/harpoon",
 		ft = dev_ft,
@@ -207,14 +209,8 @@ return packer.startup(function(use)
 			requires "config.harpoon"
 		end,
 	} -- Better mark usage
-	use "phaazon/hop.nvim" -- Easymotion
 	use {
 		"folke/which-key.nvim",
-		-- opt = true,
-		-- ft = dev_ft,
-		-- config = function()
-		-- 	require "config.whichkey"
-		-- end,
 		config = function()
 			require "config.whichkey"
 		end,
@@ -227,14 +223,6 @@ return packer.startup(function(use)
 		end,
 		ft = dev_ft, --[[ commit = "f30c658f4d97e28a535fa026a8dc0d58fa121183"  ]]
 	} -- Legend keymaps
-	use "troydm/zoomwintab.vim" -- Tmux-like zoom window
-	use {
-		"christoomey/vim-tmux-navigator",
-		opt = true,
-		cmd = { "TmuxNavigateUp", "TmuxNavigateDown", "TmuxNavigateLeft", "TmuxNavigateRight" },
-	} -- Tmux integration to Neovim
-	use "monaqa/dial.nvim" --Enchance increment/decrement
-	use "tpope/vim-repeat" -- Repeatable Plugin
 	use {
 		"chentau/marks.nvim",
 		config = function()
@@ -251,6 +239,18 @@ return packer.startup(function(use)
 			}
 		end,
 	} -- Preview definitions
+	use {
+		"christoomey/vim-tmux-navigator",
+		cmd = { "TmuxNavigateUp", "TmuxNavigateDown", "TmuxNavigateLeft", "TmuxNavigateRight" },
+	} -- Tmux integration to Neovim
+	use "tpope/vim-surround" -- Surround text object
+	use "tommcdo/vim-exchange" -- Swap text
+	use "metakirby5/codi.vim" -- Scratchpad
+	use "lalitmee/browse.nvim" -- Open browser
+	use "phaazon/hop.nvim" -- Easymotion
+	use "troydm/zoomwintab.vim" -- Tmux-like zoom window
+	use "monaqa/dial.nvim" --Enchance increment/decrement
+	use "tpope/vim-repeat" -- Repeatable Plugin
 
 	-- FZF Plugins
 	use {
@@ -271,16 +271,16 @@ return packer.startup(function(use)
 	} -- FZF
 	use {
 		"nvim-telescope/telescope.nvim",
-		opt = true,
 		after = "nvim-treesitter",
 		cmd = "Telescope",
 	} -- Pretty fzf
 	use {
 		"nvim-telescope/telescope-fzf-native.nvim",
-		opt = true,
 		after = "telescope.nvim",
 		run = "make",
-		config = "vim.cmd[[lua require('config.telescope')]]",
+		config = function()
+			require "config.telescope"
+		end,
 	} -- FZF enhancement
 	use {
 		"nvim-telescope/telescope-media-files.nvim", --[[ opt = true, after = "telescope.nvim" ]]
@@ -289,100 +289,115 @@ return packer.startup(function(use)
 
 	-- Completion Plugins
 	use {
-		"hrsh7th/nvim-cmp",
+		"hrsh7th/nvim-cmp", -- completion plugin
 		ft = dev_ft,
-		config = "vim.cmd[[lua require('config.cmp')]]",
-		opt = true,
+		config = function()
+			require "config.cmp"
+		end,
 		-- commit = "3192a0c57837c1ec5bf298e4f3ec984c7d2d60c0",
-	} -- completion plugin
+	}
+
 	use {
 		"hrsh7th/cmp-buffer",
 		after = "nvim-cmp",
-		opt = true,
 	} -- buffer completions
 	use {
 		"hrsh7th/cmp-path",
 		after = "nvim-cmp",
-		opt = true,
 	} -- path completions
 	use {
 		"hrsh7th/cmp-cmdline",
 		after = "nvim-cmp",
-		opt = true,
 	} -- cmdline completions
 	use {
 		"saadparwaiz1/cmp_luasnip",
 		after = "nvim-cmp",
-		opt = true,
 	} -- snippet completions
 	use {
 		"hrsh7th/cmp-nvim-lsp",
 		after = "nvim-cmp",
-		opt = true,
 	} -- LSP completions
 	use {
 		"f3fora/cmp-spell",
 		after = "nvim-cmp",
-		opt = true,
 	} -- Spell completions
 
 	-- LSP Plugins
-	use "williamboman/nvim-lsp-installer" -- simple to use language server installer
-	use "ray-x/lsp_signature.nvim" -- LSP signature hints
-	use "jose-elias-alvarez/null-ls.nvim" -- Formatters and linters
-	use "lukas-reineke/lsp-format.nvim" -- Async formatting
-	use { "neovim/nvim-lspconfig", opt = true, ft = dev_ft, config = "vim.cmd[[lua require('config.lsp')]]" } -- enable LSP
-	use { "folke/trouble.nvim", opt = true, cmd = { "TroubleToggle" } } -- Pretty diagnostics
+	-- use "stevearc/aerial.nvim"
 	use {
 		"simrat39/symbols-outline.nvim",
 		opt = true,
 		cmd = { "SymbolsOutline" },
 		config = function()
-			vim.cmd [[lua require('config.symbols')]]
+			require "config.symbols"
 		end,
 	} -- Tree-like symbols
-	-- use "stevearc/aerial.nvim"
-	use "b0o/schemastore.nvim" -- JSON SchemaStore
+	use {
+		"neovim/nvim-lspconfig",
+		ft = dev_ft,
+		config = function()
+			require "config.lsp"
+		end,
+	} -- enable LSP
 	use {
 		"mattn/emmet-vim",
 		ft = { "html", "css", "typescriptreact", "javascriptreact" },
-		opt = true,
 	} -- Emmet for HTML & CSS
-	use { "kosayoda/nvim-lightbulb", requires = "neovim/nvim-lspconfig" } -- Code Action light bulb
 	use {
 		"j-hui/fidget.nvim",
 		requires = "neovim/nvim-lspconfig",
 	} -- LSP Progress
+	use { "folke/trouble.nvim", cmd = { "TroubleToggle" } } -- Pretty diagnostics
+	use { "kosayoda/nvim-lightbulb", requires = "neovim/nvim-lspconfig" } -- Code Action light bulb
+	use { "mfussenegger/nvim-jdtls", ft = { "java" } } -- Java LSP
+	use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+	use "ray-x/lsp_signature.nvim" -- LSP signature hints
+	use "jose-elias-alvarez/null-ls.nvim" -- Formatters and linters
+	use "lukas-reineke/lsp-format.nvim" -- Async formatting
+	use "b0o/schemastore.nvim" -- JSON SchemaStore
 
 	-- Debugging Plugins
 	use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } } -- Debugger
 	use "Pocco81/DAPInstall.nvim" -- Debug Adapter Protoocal Installer
 	use "theHamsta/nvim-dap-virtual-text" -- Virtual Text for nvim-dap
 	use "mfussenegger/nvim-dap-python" -- Python extension for Nvim-dap
-	-- use "mfussenegger/nvim-jdtls"
 
 	-- Treesitter Plugins
 	use {
-		"nvim-treesitter/nvim-treesitter",
+		"nvim-treesitter/nvim-treesitter", -- Treesitter
 		run = ":TSUpdate",
-		opt = true,
-		event = { "User TelescopePreviewerLoaded" },
 		ft = dev_ft,
-		config = "vim.cmd[[lua require('config.treesitter')]]",
+		event = { "User TelescopePreviewerLoaded" },
+		config = function()
+			require "config.treesitter"
+		end,
+	}
+	use {
+		"m-demare/hlargs.nvim", -- Syntax highlight for argument's definitions
+		after = "nvim-treesitter",
+		config = function()
+			require("hlargs").setup()
+		end,
 	}
 	use { "nvim-treesitter/playground", opt = true, after = "nvim-treesitter" } -- Treesitter Playground
 	use { "JoosepAlviste/nvim-ts-context-commentstring", opt = true, after = "nvim-treesitter" } -- Treesitter for commentstring
-	use { "nvim-treesitter/nvim-treesitter-refactor", opt = true, after = "nvim-treesitter" } -- Treesitter refactor module
-	use { "nvim-treesitter/nvim-treesitter-textobjects", opt = true, after = "nvim-treesitter" } -- Treesitter refactor module
+	use { "nvim-treesitter/nvim-treesitter-refactor", opt = true, after = "nvim-treesitter" } -- Treesitter refactor
+	use { "nvim-treesitter/nvim-treesitter-textobjects", opt = true, after = "nvim-treesitter" } -- Treesitter text-objects
 	use { "p00f/nvim-ts-rainbow", opt = true, after = "nvim-treesitter" } -- Rainbow Parenthesis
 	use { "windwp/nvim-ts-autotag", opt = true, after = "nvim-treesitter" } -- Auto close tag
 
 	-- Git Plugins
 	use {
-		"lewis6991/gitsigns.nvim", --[[ commit = "06aefb1867687ee2b1d206fd5d19a2b254c62f2c"  ]]
+		"lewis6991/gitsigns.nvim",
+		--commit = "06aefb1867687ee2b1d206fd5d19a2b254c62f2c"
 	} -- Git integration
 	use { "tpope/vim-fugitive", opt = true, cmd = { "G" } } --  Git wrapper
-	-- use "ruifm/gitlinker.nvim" -- Generate permalinks for git web front-end
+	use {
+		"ruifm/gitlinker.nvim",
+		config = function()
+			require("gitlinker").setup()
+		end,
+	} -- Generate permalinks for git web front-end
 	-- use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' } -- Git diff
 
 	-- Snippets Plugins
@@ -391,7 +406,9 @@ return packer.startup(function(use)
 		"L3MON4D3/LuaSnip",
 		ft = dev_ft,
 		opt = true,
-		config = "vim.cmd[[lua require('config.luasnip')]]",
+		config = function()
+			require "config.luasnip"
+		end,
 	} --snippet engine
 
 	-- Colorschemes Plugins

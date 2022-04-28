@@ -47,6 +47,8 @@
 - **Others**
   - Try Plugins
     - Refactor
+    - https://github.com/ziontee113/syntax-tree-surfer
+    - https://github.com/napmn/react-extract.nvim
   - Lua Programming
     - create a function that will return only one table per method call
   - Built-in spell checker

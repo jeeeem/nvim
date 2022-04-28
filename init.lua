@@ -32,7 +32,6 @@ require "config.spectre"
 require "config.regex"
 require "config.hop"
 require "config.refactor"
-require "config.session"
 
 -- require "config.indentline" --lazyloaded
 --  require "config.telescope" -- lazyloaded

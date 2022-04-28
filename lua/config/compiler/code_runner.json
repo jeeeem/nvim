@@ -1,7 +1,8 @@
 {
+  "elixir": "cd $dir && elixir $fileName",
+  "go": "cd $dir && go build $fileName && $dir/$fileNameWithoutExt",
   "java": "cd $dir && javac -d compiled/ $fileName && java -cp compiled/ $fileNameWithoutExt",
   "python": "cd $dir && python $fileName",
   "rust": "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt",
-  "typescript": "deno run",
-  "go": "cd $dir && go build $fileName && $dir/$fileNameWithoutExt"
+  "typescript": "deno run"
 }

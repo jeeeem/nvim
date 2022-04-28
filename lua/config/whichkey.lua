@@ -82,7 +82,6 @@ local mappings = {
 	["/"] = { '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>', "Comment" },
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 	["E"] = { "<cmd>SymbolsOutline<cr>", "Symbol Outline" },
-	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
 	["U"] = { "<cmd>lua reload_nvim_conf()<CR>", "Update config" },
 
 	a = {
@@ -90,14 +89,17 @@ local mappings = {
 		b = { "<cmd>lua browser()<CR>", "Browser Search" },
 		d = { "<cmd>Alpha<CR>", "Dashboard" },
 		e = { "<cmd>lua require('luasnip.loaders.from_lua').edit_snippet_files()<CR>", "Edit Snippet files" },
+		h = { "<cmd>lua toggle_hlsearch()<CR>", "Toggle highlight search" },
 		i = { "<cmd>lua input_search()<CR>", "Browser Search" },
-		m = { "<cmd>MarkdownPreview<CR>", "Markdown Preview" },
 		l = { "<cmd>lua require('pretty-fold.preview').keymap_open_close()<CR>", "Preview Fold" },
+		n = { "<cmd>lua toggle_relativenumber()<CR>", "Toggle relative number" },
+		m = { "<cmd>MarkdownPreview<CR>", "Markdown Preview" },
 		p = { "<cmd>ProjectRoot<cr>", "Project root " },
+		-- r = { "<cmd>vertical resize 40<cr>", "Vertical resize 40" },
 		s = { "<cmd>lua require('spectre').open()<cr>", "Search and Replace" },
-		r = { "<cmd>vertical resize 40<cr>", "Vertical resize 40" },
 		u = { "<cmd>UndotreeToggle<cr>", "Undo Tree" },
 		v = { "<cmd>VimwikiIndex<CR>", "Vimwiki" },
+		w = { "<cmd>lua toggle_wrap()<CR>", "Toggle wrap" },
 		x = { "<cmd>DeleteHiddenBuffers<CR>", "Delete Hidden Buffers" },
 	},
 

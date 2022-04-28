@@ -7,7 +7,7 @@ local options = {
 	colorcolumn = "100", -- line down for margin
 	textwidth = 100, -- Maximum width for text
 	fileencoding = "utf-8", -- the encoding written to a file
-	hlsearch = true, -- highlight all matches on previous search pattern
+	hlsearch = false, -- highlight all matches on previous search pattern
 	ignorecase = true, -- ignore case in search patterns
 	mouse = "a", -- allow the mouse to be used in neovim
 	pumheight = 10, -- pop up menu height
@@ -51,6 +51,21 @@ vim.opt.fillchars = {
 	verthoriz = "╋",
 }
 
+-- Text behaviour
+-- o.formatoptions = o.formatoptions
+--                    + 't'    -- auto-wrap text using textwidth
+--                    + 'c'    -- auto-wrap comments using textwidth
+--                    + 'r'    -- auto insert comment leader on pressing enter
+--                    - 'o'    -- don't insert comment leader on pressing o
+--                    + 'q'    -- format comments with gq
+--                    - 'a'    -- don't autoformat the paragraphs (use some formatter instead)
+--                    + 'n'    -- autoformat numbered list
+--                    - '2'    -- I am a programmer and not a writer
+--                    + 'j'    -- Join comments smartly
+
+-- vim.o.formatoptions = vim.o.formatoptions .. "cr"
+-- vim.bo.formatoptions = vim.o.formatoptions:gsub("c", "")
+-- vim.o.formatoptions = vim.o.formatoptions .. "tcrqnj"
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
 vim.opt.shortmess:append "c"
 vim.opt.whichwrap:append "<,>,[,],h,l"

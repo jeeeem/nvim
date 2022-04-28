@@ -10,6 +10,7 @@ refactor.setup {
 		cpp = true,
 		c = true,
 		java = true,
+		lua = true,
 	},
 	-- prompt for function parameters
 	prompt_func_param_type = {
@@ -17,6 +18,7 @@ refactor.setup {
 		cpp = true,
 		c = true,
 		java = true,
+		lua = true,
 	},
 }
 

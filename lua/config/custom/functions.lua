@@ -100,3 +100,30 @@ stop_lsp_client = function()
 		vim.lsp.stop_client(vim.lsp.get_active_clients())
 	end, 1000)
 end
+
+-- Toggle wrap
+toggle_wrap = function()
+	if vim.wo.wrap then
+		vim.wo.wrap = false
+	else
+		vim.wo.wrap = true
+	end
+end
+
+-- Toggle hlsearch
+toggle_hlsearch = function()
+	if vim.o.hlsearch then
+		vim.o.hlsearch = false
+	else
+		vim.o.hlsearch = true
+	end
+end
+
+-- Toggle relative line
+toggle_relativenumber = function()
+	if vim.wo.relativenumber then
+		vim.wo.relativenumber = false
+	else
+		vim.wo.relativenumber = true
+	end
+end

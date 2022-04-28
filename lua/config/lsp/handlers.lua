@@ -60,6 +60,8 @@ end
 -- 	end
 -- end
 
+-- https://github.com/nvim-lua/kickstart.nvim/blob/a2af49c8fce9d05b815842b7a375412812bd1aba/init.lua#L199-L316
+
 local function lsp_keymaps(bufnr)
 	local opts = { noremap = true, silent = true }
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
