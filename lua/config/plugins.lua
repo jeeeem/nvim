@@ -395,7 +395,11 @@ return packer.startup(function(use)
 	use {
 		"ruifm/gitlinker.nvim",
 		config = function()
-			require("gitlinker").setup()
+			require("gitlinker").setup {
+				-- default mapping to call url generation with action_callback
+				-- mappings = "<leader>gy",
+				mappings = nil,
+			}
 		end,
 	} -- Generate permalinks for git web front-end
 	-- use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' } -- Git diff

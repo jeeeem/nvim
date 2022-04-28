@@ -178,6 +178,14 @@ local mappings = {
 
 	g = {
 		name = "Git",
+
+		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+		c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
+		d = {
+			"<cmd>Gitsigns diffthis HEAD<cr>",
+			"Diff",
+		},
+
 		g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
 		j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
 		k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
@@ -191,11 +199,10 @@ local mappings = {
 			"Undo Stage Hunk",
 		},
 		o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
-		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-		c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
-		d = {
-			"<cmd>Gitsigns diffthis HEAD<cr>",
-			"Diff",
+		y = { "<cmd>lua require('gitlinker').get_repo_url()<cr>", "Copy repository url" },
+		Y = {
+			"<cmd>lua require('gitlinker').get_repo_url({action_callback = require('gitlinker.actions').open_in_browser})<cr>",
+			"Copy repository url and open a browser",
 		},
 	},
 
@@ -339,6 +346,17 @@ local vopts = {
 local vmappings = {
 	["/"] = { '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', "Comment" },
 	-- ["r"] = { '<ESC><CMD>lua require("refactoring").select_refactor()<CR>', "Comment" },
+	g = {
+		name = "Git",
+		y = {
+			"<cmd>lua require('gitlinker').get_buf_range_url('v')<cr>",
+			"Generate permalink",
+		},
+		Y = {
+			"<cmd>lua require('gitlinker').get_buf_range_url('v',{action_callback = require('gitlinker.actions').open_in_browser})<cr>",
+			"Generate permalink and open a browser",
+		},
+	},
 }
 
 which_key.setup(setup)
