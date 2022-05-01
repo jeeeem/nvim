@@ -98,4 +98,18 @@ nvim_tree.setup {
 		number = false,
 		relativenumber = false,
 	},
+
+	-- renderer = {
+	-- 	indent_markers = {
+	-- 		enable = false,
+	-- 		icons = {
+	-- 			corner = "└ ",
+	-- 			edge = "│ ",
+	-- 			none = "  ",
+	-- 		},
+	-- 	},
+	-- 	-- icons = {
+	-- 	-- 	webdev_colors = lvim.use_icons,
+	-- 	-- },
+	-- },
 }

@@ -1,4 +1,45 @@
+#### Documentation
+
+This is my own neovim configuration, this may not work properly in your machine as it is
+configured for my own personal use.
+
+#### Configuration
+
+##### Plugins
+
+- These are all the plugins that have been use in this configuration
+
+##### Keymaps
+
+- These are all the default/custom keybindings use in this configuration
+
+##### Autocommands & Commands
+
+- These are all autocommands and custom commands use in this configuration
+
+---
+
+##### Rollback
+
+- Breaking changes to a plugin that needs to rollback
+  - null-ls
+    - https://github.com/jose-elias-alvarez/null-ls.nvim/issues/344#issuecomment-1114036678
+
+##### Future Goals
+
+- [ ] Installer Script for my own neovim config
+- [ ] Convert remaining vim configs to lua
+- [ ] Create a documentation for all keybindings, plugins and other utilities use in the config
+
+---
+
 ##### TODO
+
+- **Priority**
+
+  - Migrate to new `lsp-installer` setup
+    - https://github.com/williamboman/nvim-lsp-installer/pull/635
+    - https://github.com/AstroNvim/AstroNvim/pull/376
 
 - **General**
 
@@ -49,43 +90,8 @@
     - Refactor
     - https://github.com/ziontee113/syntax-tree-surfer
     - https://github.com/napmn/react-extract.nvim
+    - https://github.com/ray-x/navigator.lua
   - Lua Programming
     - create a function that will return only one table per method call
   - Built-in spell checker
     - learn how it works in vim
-
----
-
-##### Rollback
-
-- Breaking changes to a plugin that needs to rollback
-  - None
-
----
-
-##### Future Goals
-
-- [ ] Installer Script for my own neovim config
-- [ ] Convert remaining vim configs to lua
-- [ ] Create a documentation for all keybindings, plugins and other utilities use in the config
-
----
-
-#### Documentation
-
-This is my own neovim configuration, this may not work properly in your machine as it is
-configured for my own personal use.
-
-#### Configuration
-
-##### Plugins
-
-- These are all the plugins that have been use in this configuration
-
-##### Keymaps
-
-- These are all the default/custom keybindings use in this configuration
-
-##### Autocommands & Commands
-
-- These are all autocommands and custom commands use in this configuration

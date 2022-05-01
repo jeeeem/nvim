@@ -1,11 +1,17 @@
 local f_status_ok, prettyfold = pcall(require, "pretty-fold")
 local p_status_ok, prettypreview = pcall(require, "pretty-fold.preview")
+local k_status_ok, keymap_amend = pcall(require, "keymap-amend")
+local mapping = prettypreview.mapping
 
 if not f_status_ok then
 	return
 end
 
 if not p_status_ok then
+	return
+end
+
+if not k_status_ok then
 	return
 end
 
@@ -62,5 +68,17 @@ prettyfold.setup {
 }
 
 prettypreview.setup {
-	key = "l", -- choose 'h' or 'l' key
+	default_keybindings = false, -- Set to false to disable default keybindings
+
+	-- 'none', "single", "double", "rounded", "solid", 'shadow' or table
+	-- For explanation see: :help nvim_open_win()
+	-- border = { " ", "", " ", " ", " ", " ", " ", " " },
+
+	border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
 }
+
+keymap_amend("n", "l", mapping.show_close_preview_open_fold)
+-- keymap_amend("n", "h", mapping.close_preview_open_fold)
+-- keymap_amend("n", "zo", mapping.close_preview)
+-- keymap_amend("n", "zO", mapping.close_preview)
+keymap_amend("n", "zc", mapping.close_preview_without_defer)

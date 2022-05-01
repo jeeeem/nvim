@@ -16,6 +16,7 @@ lsp_installer.on_server_ready(function(server)
 		local json_schemas = {
 			settings = {
 				json = {
+					-- https://www.schemastore.org/json/
 					schemas = require("schemastore").json.schemas {
 						select = {
 							".eslintrc",
