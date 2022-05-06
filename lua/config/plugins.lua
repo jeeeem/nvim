@@ -171,17 +171,17 @@ return packer.startup(function(use)
 			end
 		end,
 	} -- Tab/status line
-	use { "goolord/alpha-nvim", config = "vim.cmd[[set laststatus=0]]" } -- Dashboard
 	use { "mg979/vim-visual-multi", ft = dev_ft } -- Multiple cursors
 	use { "michaelb/sniprun", opt = true, cmd = { "SnipRun" }, run = "bash ./install.sh" } -- Code snippet runner
 	use { "CRAG666/code_runner.nvim", requires = "nvim-lua/plenary.nvim" } -- Code Runner
+	use { "anuvyklack/pretty-fold.nvim", requires = "anuvyklack/nvim-keymap-amend" } -- Better folding text
+	use "goolord/alpha-nvim" -- Dashboard
 	use "vim-airline/vim-airline-themes" -- Airline Themes
 	use "~/nvim-plugins/nvim-web-devicons-airline" -- Web-Devicons for airline
 	use "windwp/nvim-autopairs" -- Auto pairs
 	use "numToStr/Comment.nvim" -- Commenter
 	use "norcalli/nvim-colorizer.lua" -- Color highlighter
 	use "nvim-pack/nvim-spectre" -- Better search and replace
-	use {"anuvyklack/pretty-fold.nvim",requires = 'anuvyklack/nvim-keymap-amend'} -- Better folding text
 	use "beauwilliams/focus.nvim" -- Better window management
 	use "kyazdani42/nvim-tree.lua" -- File Explorer Tree
 	use "kyazdani42/nvim-web-devicons" -- Devicons
@@ -354,13 +354,13 @@ return packer.startup(function(use)
 		"williamboman/nvim-lsp-installer",--[[  commit = "36b44679f7cc73968dbb3b09246798a19f7c14e0" ]]
 	} -- simple to use language server installer
 	use "ray-x/lsp_signature.nvim" -- LSP signature hints
-	use {"jose-elias-alvarez/null-ls.nvim",commit="bd9dfc6015241334c140fb065445ba9443e6de14"} -- Formatters and linters
+	use { "jose-elias-alvarez/null-ls.nvim", commit = "bd9dfc6015241334c140fb065445ba9443e6de14" } -- Formatters and linters
 	use "lukas-reineke/lsp-format.nvim" -- Async formatting
 	use "b0o/schemastore.nvim" -- JSON SchemaStore
 
 	-- Debugging Plugins
 	use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } } -- Debugger
-	use { "Pocco81/DAPInstall.nvim", commit = "24923c3819a450a772bb8f675926d530e829665f" } -- Debug Adapter Protoocal Installer
+	use { "Pocco81/dap-buddy.nvim", commit = "24923c3819a450a772bb8f675926d530e829665f" } -- Debug Adapter Protoocal Installer
 	use "theHamsta/nvim-dap-virtual-text" -- Virtual Text for nvim-dap
 	use "mfussenegger/nvim-dap-python" -- Python extension for Nvim-dap
 

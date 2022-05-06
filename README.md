@@ -24,6 +24,10 @@ configured for my own personal use.
 - Breaking changes to a plugin that needs to rollback
   - null-ls
     - https://github.com/jose-elias-alvarez/null-ls.nvim/issues/344#issuecomment-1114036678
+    - lsp api changes
+  - DAPInstall
+    - https://github.com/Pocco81/dap-buddy.nvim/issues/71#issue-1210471404
+    - use this commit until dap-buddy.nvim is ready
 
 ##### Future Goals
 
@@ -91,6 +95,7 @@ configured for my own personal use.
     - https://github.com/ziontee113/syntax-tree-surfer
     - https://github.com/napmn/react-extract.nvim
     - https://github.com/ray-x/navigator.lua
+    - https://github.com/Shatur/neovim-session-manager
   - Lua Programming
     - create a function that will return only one table per method call
   - Built-in spell checker

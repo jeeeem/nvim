@@ -38,10 +38,14 @@ local skeleton = augroup("Skeleton Template", { clear = true })
 -- :e		extension only
 
 -- General settings Augroup
-autocmd("FileType", {
-	command = "set laststatus=3",
-	group = general_settings,
-	once = true,
+autocmd({ "User" }, {
+	pattern = { "AlphaReady" },
+	callback = function()
+		vim.cmd [[
+      set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
+      set laststatus=0 | autocmd BufUnload <buffer> set laststatus=3
+    ]]
+	end,
 })
 
 autocmd("FileType", {
@@ -74,7 +78,7 @@ autocmd("BufWinEnter", {
 
 autocmd("TextYankPost", {
 	callback = function()
-		vim.cmd [[silent! lua require('vim.highlight').on_yank({higroup = 'Search', timeout = 200})]]
+		vim.highlight.on_yank { higroup = "Visual", timeout = 200 }
 	end,
 	group = general_settings,
 })
@@ -132,7 +136,8 @@ autocmd("FileType", {
 autocmd("FileType", {
 	pattern = { "markdown", "markdown.pandoc" },
 	callback = function()
-		vim.cmd [[setlocal wrap | setlocal spell]]
+		vim.opt_local.wrap = true
+		vim.opt_local.spell = true
 	end,
 	group = markdown,
 })
