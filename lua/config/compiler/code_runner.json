@@ -2,6 +2,7 @@
   "elixir": "cd $dir && elixir $fileName",
   "go": "cd $dir && go build $fileName && $dir/$fileNameWithoutExt",
   "java": "cd $dir && javac -d compiled/ $fileName && java -cp compiled/ $fileNameWithoutExt",
+  "javascript": "cd $dir && node $fileName",
   "python": "cd $dir && python $fileName",
   "rust": "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt",
   "typescript": "deno run"

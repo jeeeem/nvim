@@ -1,23 +1,8 @@
 {
-  "~/python/intel_2021_1": {
-    "name": "Intel Course 2021",
-    "description": "Simple python project",
-    "file_name": "POO/main.py"
-  },
-  "~/deno/example": {
-    "name": "ExapleDeno",
-    "description": "Project with deno using other command",
-    "file_name": "http/main.ts",
-    "command": "deno run --allow-net"
-  },
-  "~/cpp/example": {
-    "name": "ExapleCpp",
-    "description": "Project with make file",
-    "command": "make buid & cd buid/ & ./compiled_file"
-  },
-  "~/project/react-typescript/techbase/my-app": {
-    "name": "React Typescript Sample",
-    "description": "Sample React + Typescript",
-    "command": "yarn start"
+  "~/project/discord/js": {
+    "name": "Discord bot JS",
+    "description": "Discord both",
+    "file_name": "index.ts",
+    "command": "npm run start"
   }
 }

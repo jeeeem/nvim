@@ -224,7 +224,7 @@ return packer.startup(function(use)
 		ft = dev_ft, --[[ commit = "f30c658f4d97e28a535fa026a8dc0d58fa121183"  ]]
 	} -- Legend keymaps
 	use {
-		"chentau/marks.nvim",
+		"chentoast/marks.nvim",
 		config = function()
 			require("marks").setup {
 				default_mappings = true,
@@ -243,6 +243,7 @@ return packer.startup(function(use)
 		"christoomey/vim-tmux-navigator",
 		cmd = { "TmuxNavigateUp", "TmuxNavigateDown", "TmuxNavigateLeft", "TmuxNavigateRight" },
 	} -- Tmux integration to Neovim
+	use "tpope/vim-eunuch" -- Command helpers for unix
 	use "tpope/vim-surround" -- Surround text object
 	use "tommcdo/vim-exchange" -- Swap text
 	use "metakirby5/codi.vim" -- Scratchpad
@@ -353,10 +354,11 @@ return packer.startup(function(use)
 	use {
 		"williamboman/nvim-lsp-installer",--[[  commit = "36b44679f7cc73968dbb3b09246798a19f7c14e0" ]]
 	} -- simple to use language server installer
-	use "ray-x/lsp_signature.nvim" -- LSP signature hints
 	use { "jose-elias-alvarez/null-ls.nvim", commit = "bd9dfc6015241334c140fb065445ba9443e6de14" } -- Formatters and linters
-	use "lukas-reineke/lsp-format.nvim" -- Async formatting
+	use "jose-elias-alvarez/typescript.nvim" -- Typescript lsp
 	use "b0o/schemastore.nvim" -- JSON SchemaStore
+	use "ray-x/lsp_signature.nvim" -- LSP signature hints
+	use "lukas-reineke/lsp-format.nvim" -- Async formatting
 
 	-- Debugging Plugins
 	use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } } -- Debugger
