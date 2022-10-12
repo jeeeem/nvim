@@ -37,7 +37,7 @@ function _G.packer_update()
 	vim.defer_fn(function()
 		vim.notify "Initializing Packer Update..."
 	end, 700)
-	vim.cmd [[source ~/.nvim-lua-config/nvim/lua/config/plugins.lua | PackerSync]]
+	vim.cmd [[source ~/.config/nvim/lua/config/plugins.lua | PackerSync]]
 
 	-- Update the plugins
 end

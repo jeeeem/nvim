@@ -14,19 +14,21 @@ local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 
 null_ls.setup {
-	on_attach = function(client)
+	on_attach = function(client, bufnr)
 		if client.resolved_capabilities.document_formatting then
 			vim.cmd [[
-			           augroup LspFormatting
-			               autocmd! * <buffer>
-			               autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
-			           augroup END
-			           ]]
+       augroup LspFormatting
+           autocmd! * <buffer>
+           " autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
+           autocmd BufWritePre <buffer> lua vim.lsp.buf.format({bufnr = bufnr})
+       augroup END
+       ]]
 		end
 	end,
 
 	-- on_attach = format.on_attach, -- lsp-format config
 	-- debug = false,
+
 	sources = {
 		-- Javascript Files
 		-- formatting.prettier.with { extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } },

@@ -34,7 +34,7 @@ dashboard.section.buttons.val = {
 	dashboard.button("i", "  i3 Configuration", ":e ~/.config/i3/config <CR>"),
 	-- dashboard.button("m", "  Mpv Configuration", ":e ~/.config/mpv/mpv.conf <CR>"),
 	-- dashboard.button("p", "  Polybar Configuration", ":e ~/.config/polybar/config <CR>"),
-	dashboard.button("v", "  Neovim Configuration", ":e ~/.nvim-lua-config/nvim/init.lua <CR>"),
+	dashboard.button("v", "  Neovim Configuration", ":e ~/.config/nvim/init.lua <CR>"),
 	dashboard.button("z", "  Zsh Configuration", ":e ~/.zshrc <CR>"),
 	dashboard.button("h", "  Hide Startup", ":Alpha<CR>"),
 	dashboard.button("q", "  Quit Neovim", ":qa<CR>"),

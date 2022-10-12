@@ -139,16 +139,17 @@ return packer.startup(function(use)
 	-- 		require "config.session"
 	-- 	end,
 	-- } -- Auto Session
-	use {
-		"bennypowers/nvim-regexplainer",
-		config = function()
-			require("regexplainer").setup()
-		end,
-		requires = {
-			"nvim-lua/plenary.nvim",
-			"MunifTanjim/nui.nvim",
-		},
-	} --Regex explainer
+
+	-- use {
+	-- 	"bennypowers/nvim-regexplainer",
+	-- 	config = function()
+	-- 		require("regexplainer").setup()
+	-- 	end,
+	-- 	requires = {
+	-- 		"nvim-lua/plenary.nvim",
+	-- 		"MunifTanjim/nui.nvim",
+	-- 	},
+	-- } --Regex explainer
 	use {
 		"~/nvim-plugins/vim-ctrlspace/",
 		as = "ctrlspace",
@@ -174,7 +175,7 @@ return packer.startup(function(use)
 	use { "mg979/vim-visual-multi", ft = dev_ft } -- Multiple cursors
 	use { "michaelb/sniprun", opt = true, cmd = { "SnipRun" }, run = "bash ./install.sh" } -- Code snippet runner
 	use { "CRAG666/code_runner.nvim", requires = "nvim-lua/plenary.nvim" } -- Code Runner
-	use { "anuvyklack/pretty-fold.nvim", requires = "anuvyklack/nvim-keymap-amend" } -- Better folding text
+	use { "anuvyklack/fold-preview.nvim", requires = "anuvyklack/nvim-keymap-amend" } -- Better folding text
 	use "goolord/alpha-nvim" -- Dashboard
 	use "vim-airline/vim-airline-themes" -- Airline Themes
 	use "~/nvim-plugins/nvim-web-devicons-airline" -- Web-Devicons for airline
@@ -352,7 +353,7 @@ return packer.startup(function(use)
 	use { "kosayoda/nvim-lightbulb", requires = "neovim/nvim-lspconfig" } -- Code Action light bulb
 	use { "mfussenegger/nvim-jdtls", ft = { "java" } } -- Java LSP
 	use {
-		"williamboman/nvim-lsp-installer",--[[  commit = "36b44679f7cc73968dbb3b09246798a19f7c14e0" ]]
+		"williamboman/nvim-lsp-installer", --[[  commit = "36b44679f7cc73968dbb3b09246798a19f7c14e0" ]]
 	} -- simple to use language server installer
 	use { "jose-elias-alvarez/null-ls.nvim", commit = "bd9dfc6015241334c140fb065445ba9443e6de14" } -- Formatters and linters
 	use "jose-elias-alvarez/typescript.nvim" -- Typescript lsp

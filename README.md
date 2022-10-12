@@ -102,6 +102,24 @@ configured for my own personal use.
     - https://github.com/ghillb/cybu.nvim
     - https://github.com/b0o/incline.nvim
     - https://github.com/smjonas/inc-rename.nvim
+    - https://github.com/kylechui/nvim-surround
+    - https://github.com/ziontee113/color-picker.nvim
+    - https://github.com/tiagovla/scope.nvim
+    - https://github.com/anuvyklack/hydra.nvim
+    - https://github.com/nvim-treesitter/nvim-treesitter-context
+    - https://github.com/nvim-neotest/neotest
+    - https://github.com/lewis6991/spellsitter.nvim
+    - https://github.com/ldelossa/buffertag
+    - https://git.sr.ht/~whynothugo/lsp_lines.nvim
+    - https://github.com/AckslD/nvim-FeMaco.lua
+    - https://github.com/miversen33/import.nvim
+    - https://github.com/zbirenbaum/copilot-cmp
+    - https://github.com/charludo/projectmgr.nvim
+    - https://github.com/tzachar/cmp-tabnine
+    - https://github.com/glepnir/lspsaga.nvim
+
+    - https://github.com/williamboman/mason.nvim
+    - https://github.com/williamboman/mason-lspconfig.nvim
 
   - Lua Programming
     - create a function that will return only one table per method call

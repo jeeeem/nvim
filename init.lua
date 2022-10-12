@@ -19,7 +19,7 @@ require "config.nvimtree"
 require "config.lastplace"
 require "config.colorizer"
 require "config.zen"
-require "config.autopairs"
+-- require "config.autopairs"
 require "config.gitsigns"
 require "config.project"
 require "config.toggleterm"
@@ -34,7 +34,7 @@ require "config.hop"
 require "config.refactor"
 
 -- require "config.indentline" --lazyloaded
---  require "config.telescope" -- lazyloaded
+-- require "config.telescope" -- lazyloaded
 -- require "config.legendary" -- lazyloaded
 -- require "config.whichkey" -- lazyloaded
 -- require "config.harpoon" -- lazyloaded
@@ -45,17 +45,17 @@ require "config.refactor"
 -- require "config.treesitter" --lazyloaded
 
 -- Compiler Configuration
-require "config.compiler"
+-- require "config.compiler"
 
 -- Debugger Configuration
 require "config.debugger"
 
 -- Custom && Vim plugins
-vim.cmd [[source ~/.nvim-lua-config/nvim/vim/airline.vim]]
-vim.cmd [[source ~/.nvim-lua-config/nvim/vim/ctrlspace.vim]]
-vim.cmd [[source ~/.nvim-lua-config/nvim/vim/markdown.vim]]
-vim.cmd [[source ~/.nvim-lua-config/nvim/vim/zoomwintab.vim]]
-vim.cmd [[source ~/.nvim-lua-config/nvim/vim/tmux.vim]]
-vim.cmd [[source ~/.nvim-lua-config/nvim/vim/firenvim.vim]]
-vim.cmd [[source ~/.nvim-lua-config/nvim/vim/undotree.vim]]
-vim.cmd [[source ~/.nvim-lua-config/nvim/vim/custom/delete-hidden-buffers.vim]]
+vim.cmd [[source ~/.config/nvim/vim/airline.vim]]
+vim.cmd [[source ~/.config/nvim/vim/ctrlspace.vim]]
+vim.cmd [[source ~/.config/nvim/vim/markdown.vim]]
+vim.cmd [[source ~/.config/nvim/vim/zoomwintab.vim]]
+vim.cmd [[source ~/.config/nvim/vim/tmux.vim]]
+vim.cmd [[source ~/.config/nvim/vim/firenvim.vim]]
+vim.cmd [[source ~/.config/nvim/vim/undotree.vim]]
+vim.cmd [[source ~/.config/nvim/vim/custom/delete-hidden-buffers.vim]]
