@@ -102,6 +102,13 @@ configured for my own personal use.
     - https://github.com/ghillb/cybu.nvim
     - https://github.com/b0o/incline.nvim
     - https://github.com/smjonas/inc-rename.nvim
+    - https://git.sr.ht/~whynothugo/lsp_lines.nvim
+    - https://github.com/kevinhwang91/nvim-ufo
+    - https://github.com/SmiteshP/nvim-navic
+    - https://github.com/matbme/JABS.nvim
+    - https://github.com/kylechui/nvim-surround
+    - https://github.com/stevearc/stickybuf.nvim
+    - https://github.com/tiagovla/scope.nvim
 
   - Lua Programming
     - create a function that will return only one table per method call
