@@ -13,3 +13,4 @@ vim.api.nvim_set_keymap("s", "<C-l>", "<Plug>luasnip-next-choice", {})
 -- https://github.com/rafamadriz/friendly-snippets
 require("luasnip/loaders/from_vscode").lazy_load()
 require("luasnip.loaders.from_lua").lazy_load()
+

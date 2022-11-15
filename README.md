@@ -117,9 +117,12 @@ configured for my own personal use.
     - https://github.com/charludo/projectmgr.nvim
     - https://github.com/tzachar/cmp-tabnine
     - https://github.com/glepnir/lspsaga.nvim
-
     - https://github.com/williamboman/mason.nvim
     - https://github.com/williamboman/mason-lspconfig.nvim
+    - https://github.com/kevinhwang91/nvim-ufo
+    - https://github.com/SmiteshP/nvim-navic
+    - https://github.com/matbme/JABS.nvim
+    - https://github.com/stevearc/stickybuf.nvim
 
   - Lua Programming
     - create a function that will return only one table per method call

@@ -72,7 +72,7 @@ vim.opt.whichwrap:append "<,>,[,],h,l"
 
 -- Do not source the default filetype.vim
 -- vim.g.do_filetype_lua = 1
-vim.g.did_load_filetypes = 1
+-- vim.g.did_load_filetypes = 1
 
 for k, v in pairs(options) do
 	vim.opt[k] = v
